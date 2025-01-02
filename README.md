@@ -142,9 +142,6 @@
    - __Public__: name
    - __Protected__: _name
    - __Private__: __name
-   - If you want to access the private members of a class from outside, the built-in functions `setattr` and `getattr` can be used to access both private and protected members of a class or its instance.
-      - `setattr(my_pet, '_name', 'Gamlae')`
-      - `getattr(my_pet, '_name')`
 - ```python
      class Pet:
        def __init__(self, species, habitat, diet, age, name):
@@ -155,6 +152,22 @@
            self._name = name # Protected attribute. Accessing it from outside will not raise error. However, it is not intended to be accessed directly outside the class.
   ```
 
+- If you want to access the private members of a class from outside, the built-in functions `setattr` and `getattr` can be used to access both private and protected members of a class or its instance.
+   - `setattr(my_pet, '_name', 'Gamlae')`
+   - `getattr(my_pet, '_name')`
+   - ```python
+     class Student:
+       def __init__(self, firstname, lastname):
+           self.__firstname = firstname
+           self.__lastname = lastname
+   
+      s0 = Student('Eric', 'Yang')
+      setattr(s0, '__firstname', 'Lack Young')
+      setattr(s0, '__lastname', 'Son')
+      print(getattr(s0, '__firstname'), getattr(s0, '__lastname')) # Output 'Lack Young Son'
+      print(hasattr(s0, '__lastname')) # Output 'True'
+     ```
+
 ### Class Methods and Static Methods
 
 - What are class methods and static methods? How do they differ?
@@ -162,7 +175,32 @@
       - A class cannot have more than one `__init__` effectively defined.
       - So how can you create an instance of a class differently in Python if there can be only one constructor, the special `__init__` method, in a class definition?
          - This is where __class methods__ come in. A __class method__ can be used to provide an alternative way to create instances of a class. Unlike the `__init__` method, which is designed for a single initialization process, a class method can encapsulate different logic for creating and returning instances.
-            - Refer to chapter-7-exercises.ipynb
+      - ```python
+        class Graduate:
+          def __init__(self, fullname): # Standard constructor that initializes and instance by taking a full name
+              firstname, lastname = fullname.split(' ')
+              self.firstname = firstname
+              self.lastname = lastname
+      
+              # The limitation of the above method is that you cannot create a class object by taking separate first and last names. It only allows for a full name.
+              # You also can't add a second __init__ method. This is where a class method can help.
+      
+          @classmethod # This decorator declares a class method (first parameter refers to the class instead of an instance of the class)
+          def newGraduate(cls, firstname, lastname): # This is a class method. Constructs the full name internally and calls the __init__ method via the class.
+              return cls(f'{firstname} {lastname}') # Return an object, or an instance of the class
+          
+          def __str__(self): # The __str__ method is another special method used to define the string representation of an object.
+              return f'{self.firstname} {self.lastname}' # When print() is called on an instance of Graduate, this method is invoked, 
+                                                         # returning a string in the format '{self.firstname} {self.lastname}'.
+         
+         # Creating instances of the class using the standard constructor __init__ and the class method    
+         g0 = Graduate('Jiyeol Yang')
+         g1 = Graduate.newGraduate('Jiyeol', 'Yang')
+         
+         print(g0) # Output is 'Jiyeol Yang'
+         print(g1) # Output is 'Jiyeol Yang'
+        ```
+  
    - __Static method__:
       - Similar to the class method of a class, a __static method__ can be called directly through the class. The difference is that in the definition of a static method, no parameter refers to the class nor to the instance itself.
       - Static methods are methods that belong to a class but do not access or modify the class or instance itself. Instead, they perform a specific task that is relevant to the class but doesn't require any knowledge of the instance or class state.
