@@ -1,7 +1,11 @@
 # Road to Data Science: Python
 
 ## Table of Contents
+- [Flow Control of Statements](#flow)
 - [Object-Oriented Programming (OOP)](#oop)
+
+<h2 id='flow'>Flow Control of Statements</h2>
+
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
@@ -253,31 +257,103 @@
    - In Python, class attributes are shared among all the objects of the class and can also be accessed directly from the class, without an instance of the class.
       - For example, `Class.class_attr` accesses the class attribute, class_attr, directly from the class, Class.
 - ```python
-  class Graduate:
-    student_id = 260374177 # student_id is a class attribute, defined outside of the __init__ method. Class attributes are shared across all instances of the class.
-    def __init__(self, fullname): # self refers to the instance in normal method
-        firstname, lastname = fullname.split(' ')
-        self.firstname = firstname
-        self.lastname = lastname
-        self.__class__.student_id += 1 # It allows you to access class-level attributes and methods from within an instance. When you modified student_id, you're modifying the value for all instances of that class
-                                       # This can be read as "Access the class associated with this instance (self.__class__) and then access the student_id attribute of that class, and increment it by 1"
-                                       # __class__ refers to the class of an object, in this case, class of self. It is referring to Graduate. If it is simply self.student_id, student_id would become
-                                       # an attribute of each instance of the class. This means we will get 260374178 for all instances.
-
-    @classmethod # Decorator
-    def newGraduate(cls, firstname, lastname):
-        #cls refers to the class itself, not the instance
-        return cls(f'{firstname} {lastname}') # Creates an instance of Graduate(fullname)
-        
-    def __str__(self):
-        return f'{self.f_name} {self.l_name}, {self.__class__.student_id}' # Returns a string representation of the object
-        
-   g0 = Graduate('Jiyeol Yang')
-   print(g0) # Output "Jiyeol Yang, 260374178"
-   
-   g1 = Graduate.newGraduate('Jiyeol', 'Yang')
-   print(g1) # Output "Jiyeol Yang, 260374179"
-   
-   g2 = Graduate('Lackyoung Son')
-   print(g2) # Output "Lackyoung Son, 260374180"
+      class Graduate:
+          student_id = 260374177 # student_id is a class attribute, defined outside of the __init__ method. Class attributes are shared across all instances of the class.
+          def __init__(self, fullname): # self refers to the instance in normal method
+              firstname, lastname = fullname.split(' ')
+              self.firstname = firstname
+              self.lastname = lastname
+              self.student_id = self.__class__.student_id
+              self.__class__.student_id += 1 # It allows you to access class-level attributes and methods from within an instance. When you modified student_id, you're modifying the value for all instances of that class
+                                             # This can be read as "Access the class associated with this instance (self.__class__) and then access the student_id attribute of that class, and increment it by 1"
+                                             # __class__ refers to the class of an object, in this case, class of self. It is referring to Graduate. If it is simply self.student_id = self.__class__.student_id + 1, student_id would become
+                                             # an attribute of each instance of the class. This means we will get 260374178 for all instances.
+          
+          @classmethod # Decorator
+          def newGraduate(cls, firstname, lastname):
+          #cls refers to the class itself, not the instance
+              return cls(f'{firstname} {lastname}') # Creates an instance of Graduate(fullname)
+          
+          def __str__(self):
+              return f'{self.firstname} {self.lastname}, {self.student_id}' # Returns a string representation of the object
+          
+      g0 = Graduate('Jiyeol Yang')
+      print(g0) # Output "Jiyeol Yang, 260374177"
+      
+      g1 = Graduate.newGraduate('Jiyeol', 'Yang')
+      print(g1) # Output "Jiyeol Yang, 260374178"
+      
+      g2 = Graduate('Lackyoung Son')
+      print(g2) # Output "Lackyoung Son, 260374179"
    ```
+
+### Dunder Methods
+- How may dunder methods be used in a new class?
+   - **Dunder methods**, also known as "magic methods" or "special methods," are predefined methods in Python that start and end with double underscores (hence "dunder"). These methods are integral to Python’s object model and allow you to define how objects of your class interact with built-in operations such as addition, subtraction, or string representation.
+   - Operator overloading with dunder methods:
+      - Operator overloading allows you to define custom behavior for operators when they are used with objects of your class. Examples of the dunder/magic methods that can be used for overloading operators are \_\_add\_\_ for addition, \_\_sub\_\_ for subtraction, \_\_mul\_\_ for multiplication, and \_\_div\_\_ for division.
+      - `__call__`
+         - The \_\_call\_\_ method in Python allows an instance of a class to be called as if it were a function. This means you can use parentheses (()) after an object of the class, just like calling a function, and Python will execute the \_\_call\_\_ method of that object.
+         - ```python
+           class Home:
+             def __init__(self, size, value):
+                 self.size = size
+                 self.value = value
+         
+             def __call__(self, check='average'):
+                 """
+                 Return the size, value, or average value per unit size based on the 'check' argument.
+                 """
+                 if check == 'size':
+                     return self.size
+                 elif check == 'value':
+                     return self.value
+                 else:
+                     return self.value / self.size
+            
+            
+            # Create an instance of Home
+            h1 = Home(3270, 986500)
+            
+            # Example usage
+            print(h1())  # Using the default value for the keyword argument ('average')
+            print(h1(check='size'))  # Check the size of the home
+            print(h1('value'))  # Check the value of the home
+      - `__new__`
+         - The \_\_new\_\_ method is a special dunder method in Python that is responsible for creating a new instance of a class. It is called before \_\_init\_\_ and is used in cases where control over the creation of a new instance is necessary. This method is especially useful when dealing with immutable types (like tuples or strings) or when implementing design patterns such as singletons.
+         - ```python
+           class TravelPlan:
+             _places = {} # A class-level dictionary to store travel destinations 
+             _step = 0 # A class-level counter to keep track of the number of stops
+         
+             def __new__(cls, newPlace): # The __new__ method is called before __init__ and is used to control object creation
+                                         # It checks if the newPlace is already in the _places dictionary
+                 if newPlace in TravelPlan._places.values():
+                     print(f'{newPlace} is already in the plan!')
+                     return newPlace # Instead of creating a new instance, return the newPlace string directly
+                 else:
+                     return super(TravelPlan, cls).__new__(cls)
+                     # We are calling the super function, which takes two arguments: the first argument specifies the class from which you want to start looking
+                     # for the __new__ method. In this case, it is the superclass of TravelPlan, 'object'. The second argument is the class whose __new__ method
+                     # you want to call. The __new__(cls) creates a new instance of TravelPlan, initializing the __init__.
+                     # In other words, the super() function is calling the super class of TravelPlan, which is the generic 'object', 
+                     # to call the method '__new__', to create an instance of TravelPlan, which then intializes the __init__ method
+             
+             def __init__(self, newPlace):
+                 # This method is only called if a new TravelPlan instance was created
+                 TravelPlan._places[TravelPlan._step] = newPlace # You can access class attributes directly using the class name, if inside the __init__ method.
+                 print(f'{TravelPlan._places[TravelPlan._step]} is added.')
+                 TravelPlan._step += 1
+         
+             @staticmethod
+             def printPlan():
+                 for pl in TravelPlan._places:
+                     print(f'Stop {pl + 1}: {TravelPlan._places[pl]}') # Loop through the dictionary
+            
+            TravelPlan('Vancouver')
+            TravelPlan('Seoul')
+            TravelPlan('Vancouver')
+            TravelPlan.printPlan()
+      - `__str__`
+      - `__len__`
+      - `__repr__`
