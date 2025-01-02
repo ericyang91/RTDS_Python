@@ -7,25 +7,25 @@
 
 ### Basics of Object-Oriented Programming
 
-- What is object-oriented programming (OOP)?
+- What is __object-oriented programming (OOP)__?
    - Object-Oriented Programming (OOP) is a programming paradigm centered around the concept of "objects," which are instances of classes. In OOP, the primary focus is on designing software by modeling real-world entities as objects that have attributes (data) and methods (functions or procedures) that define their behavior. The three fundamental principles of OOP are abstraction, data encapsulation, and inheritance.
 
-- What are classes and objects? How are they related?
-   - A class is a blueprint or template for creating objects. It defines a set of attributes (variables) and methods (functions) that the objects created from the class will have.
-      - Attributes: These are the data members (variables) that store information about the object.
-      - Methods: These are functions defined inside a class that describe the behaviors or actions an object can perform.
-   - An object is an instance of a class. When you create an object from a class, you are creating an entity that follows the structure and behavior defined by the class.
+- What are __classes__ and __objects__? How are they related?
+   - A __class__ is a blueprint or template for creating objects. It defines a set of attributes (variables) and methods (functions) that the objects created from the class will have.
+      - __Attributes__: These are the data members (variables) that store information about the object.
+      - __Methods__: These are functions defined inside a class that describe the behaviors or actions an object can perform.
+   - An __object__ is an instance of a class. When you create an object from a class, you are creating an entity that follows the structure and behavior defined by the class.
 
-- What is abstraction in OOP? Why is it needed?
+- What is __abstraction__ in OOP? Why is it needed?
    - Abstraction involves hiding the complex implementation details of an object and exposing only the necessary parts. It helps in reducing complexity and allows the programmer to focus on interactions at a high level rather than the inner workings.
 
-- What is information hiding (data encapsulation) in OOP? What advantages does it offer?
+- What is information hiding (__data encapsulation__) in OOP? What advantages does it offer?
    - This concept refers to bundling the data (attributes) and methods that operate on the data into a single unit or class, and restricting direct access to some of the object's components, which helps to protect the integrity of the data.
    - Offers information protection and ease of use.
       - An example of information hiding that you have already seen is defining and using functions. The code block of a function can be very lengthy and hard to understand. After a function is defined, however, a programmer only needs to know what the function does and how to use it, without considering the lengthy code block of how the function works.
    - The built-in `property()` function, which manages access to/modifications to instance-level attributes (private or protected) of a class, provides data encapsulation.
 
-- What does inheritance mean in OOP?
+- What does __inheritance__ mean in OOP?
    - Most often, things are categorized and put in a tree-like hierarchy with the root on the top. In such a tree-like hierarchy, the root of the tree is the most generic class or concept, and the leaves are the most specific and often refer to specific objects. From the root down to the leaves, nodes on a lower level will inherit the properties of all the connected nodes at higher levels.
    - If you want to inherit from multiple base classes,
       ```python
@@ -43,13 +43,13 @@
          def __init__(self, species):
            self.species = species
      ```
-   - How do you define the constructor of a class?
+   - How do you define the __constructor__ of a class?
       - The constructor (`__init__` method) is used to initialize the attributes of a class when a new object is created.
       - A class cannot have more than one `__init__` effectively defined. If you define two or more `__init__` within a class definition, _only the last_ one will take effect.
    - We can use `help(Class)` statement to see that the class has been created.
    - The builtins.object is a built-in class of Python from which all classes automatically inherit by default.
 
-- What are subclasses and superclasses? How are they related?
+- What are __subclasses__ and __superclasses__? How are they related?
    - superclasses and subclasses are terms that describe the relationship between classes in an inheritance hierarchy.
       - A superclass (also known as a parent class or base class) is the class from which other classes inherit. It provides common attributes and methods that are shared by its subclasses.
       - A subclass (also known as a child class or derived class) is a class that inherits from a superclass. It can use the attributes and methods of the superclass and can also extend or override them to provide more specific behavior.
@@ -172,8 +172,31 @@
 
 - What are class methods and static methods? How do they differ?
    - __Class method__:
+        - A class method in Python is a method that is bound to the class rather than the instance of the class. This means that the method can be called on the class itself, without creating an instance, and it has access to the class itself, rather than instance attributes. It is defined using the `@classmethod` decorator.
       - A class cannot have more than one `__init__` effectively defined.
-      - So how can you create an instance of a class differently in Python if there can be only one constructor, the special `__init__` method, in a class definition?
+      - ```python
+           class Animal:
+              species = 'unknown'
+              def __init__(self, name):
+                 self.name = name
+              @classmethod
+              def change_species(cls, new_species):
+                 cls.species = new_species
+                 print(f"Species changed to {cls.species}")
+        
+            # Calling the class method on the class itself
+            Animal.change_species("Dog")
+
+            # Creating an instance of Animal
+            a = Animal("Buddy")
+            print(a.species)  # Output: Dog
+        
+            # You can also call the class method through an instance
+            a.change_species("Cat")
+            print(a.species)  # Output: Cat
+        ```
+
+      - Class methods are often used as __factory methods__ to create instances of the class in different ways. So how can you create an instance of a class differently in Python if there can be only one constructor, the special `__init__` method, in a class definition?
          - This is where __class methods__ come in. A __class method__ can be used to provide an alternative way to create instances of a class. Unlike the `__init__` method, which is designed for a single initialization process, a class method can encapsulate different logic for creating and returning instances.
       - ```python
         class Graduate:
