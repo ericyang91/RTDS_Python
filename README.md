@@ -63,7 +63,7 @@
            c = Computer('Intel i6800')
            print(c.CPU)  # Output: Intel i6800
            ```
-        2. Using setattr Function: Here, the `setattr` function is used to add the CPU attribute to the instance c after it has been created.
+        2. Using `setattr` function: Here, the `setattr` function is used to add the CPU attribute to the instance c after it has been created.
            ```python
            class Computer:
               pass  # No initialization in this case
@@ -76,3 +76,26 @@
         - In Python, X() will be automatically the constructor of class X, but it calls a special method named `__init__`, which can be defined within the class to instantiate instances of the class.
         - Now we can use special attribute `__dict__` of instance c of class Computer to check the attribute and value of object c.
            - `print(c.__dict__)`
+         
+   - Other built-in functions for class and object manipulation:
+      - `getattr(o, attr)`: Return the value of object o's attribute attr, same as `o.attr`
+      - `hasattr(o, attr)`: Test if object o has attribute attr; return `True` if it does
+      - `setattr(o, a, v)`: Set/add attribute a to object o, and assign value v to the attribute. Overwrites if exist.
+      - `delattr(o, a)`: Delete attribute a from object o
+      - `isinstance(o, c)`: Return `True` if o is an instance of c, or if o is a subclass of c.
+      - `issubclass(c, C)`: Return `True` if c is a subclass of C.
+      - `repr(o)`: Return string representation of object o.
+    
+   - When defining a class, how do you define methods of that class?
+      ```python
+         class Gecko(Reptile):
+            def __init__(self, diet, length): # Method!
+               self.diet = diet
+               self.length = length
+            def species(self): # Method!
+               if self.length > 20:
+                  return 'Tokay'
+               else:
+                  return 'Crested'
+      ```
+     
