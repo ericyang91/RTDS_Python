@@ -5,6 +5,8 @@
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
+### Basics of Object-Oriented Programming
+
 - What is object-oriented programming (OOP)?
    - Object-Oriented Programming (OOP) is a programming paradigm centered around the concept of "objects," which are instances of classes. In OOP, the primary focus is on designing software by modeling real-world entities as objects that have attributes (data) and methods (functions or procedures) that define their behavior. The three main features of OOP are abstraction, data encapsulation, and inheritance.
 
@@ -33,25 +35,29 @@
    - The new class will inherit all the attributes and methods from base_1, base_2, and base_3 and override the methods defined in the base classes.
    - In Python, all classes are a subclass of the built-in base object class and inherit all the properties and methods of object, even if object is not explicitly included in the inheritance list.
 
- - What are subclasses and superclasses? How are they related?
+### Class
+- How do you define a new class?
+   - A class would include some attributes and methods, as well as a constructor or initiator for creating instances of the class.
+   - ```python
+       class Reptile:
+         def __init__(self, species):
+           self.species = species
+     ```
+   - We can use `help(Class)` statement to see that the class has been created.
+   - The builtins.object is a built-in class of Python from which all classes automatically inherit by default.
+
+- What are subclasses and superclasses? How are they related?
    - superclasses and subclasses are terms that describe the relationship between classes in an inheritance hierarchy.
       - A superclass (also known as a parent class or base class) is the class from which other classes inherit. It provides common attributes and methods that are shared by its subclasses.
       - A subclass (also known as a child class or derived class) is a class that inherits from a superclass. It can use the attributes and methods of the superclass and can also extend or override them to provide more specific behavior.
       - A subclass in Object-Oriented Programming (OOP) inherits all attributes and methods from its superclass.
       - All classes inherit from the built-in Python object.
-    
-  - How do you define a new class?
-    - A class would include some attributes and methods, as well as a constructor or initiator for creating instances of the class.
-    - ```python
-       class Reptile:
-         def __init__(self, species):
-           self.species = species
-    - We can use `help(Class)` statement to see that the class has been created.
-      - The builtins.object is a built-in class of Python from which all classes automatically inherit by default.
      
   - Formally in Python, if you are defining a class that needs to inherit from another class, you can put the superclass(es) in a pair of parentheses
     - For example, `class PC(Computer)`
       - Here, Computer is the superclass and PC is the subclass.
+
+### Attributes
   - When defining a class, how do you define attributes or properties of that class?
      - Two methods:
         1. Using `__init__` method: In this example, the `__init__` method initializes the CPU attribute when the instance c is created. It is called when creating new objects of the class.
@@ -85,10 +91,11 @@
       - `isinstance(o, c)`: Return `True` if o is an instance of c, or if o is a subclass of c.
       - `issubclass(c, C)`: Return `True` if c is a subclass of C.
       - `repr(o)`: Return string representation of object o.
-    
+
+### Methods
    - When defining a class, how do you define methods of that class?
       ```python
-         class Gecko(Reptile):
+         class Gecko:
             def __init__(self, diet, length): # Method!
                self.diet = diet
                self.length = length
@@ -97,5 +104,9 @@
                   return 'Tokay'
                else:
                   return 'Crested'
+            def describe(self): # Method!
+               return f"The gecko's diet is {self.diet} and is {self.length} in length."
       ```
+### Public, Private, Protected
+
      
