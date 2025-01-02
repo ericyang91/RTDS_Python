@@ -228,3 +228,21 @@
       - Similar to the class method of a class, a __static method__ can be called directly through the class. The difference is that in the definition of a static method, no parameter refers to the class nor to the instance itself.
       - Static methods are methods that belong to a class but do not access or modify the class or instance itself. Instead, they perform a specific task that is relevant to the class but doesn't require any knowledge of the instance or class state.
       - The static methods can be called directly through the class, without an instance. Defining a static method within a class is a way to add utility functions to the class so that it can be used without instantiating an object.
+      - ```python
+        class Converter:
+             @staticmethod
+             def kg2lb(w):
+                 return w * 2.20462
+             
+             @staticmethod
+             def lb2kg(w):
+                 return w / 2.20462
+          
+         """
+         The static methods can be called directly on the class without creating an instance of the class. 
+         This is useful for utility functions like these conversions, which don't need to access any instance-specific data.
+         """
+         
+         print(Converter.kg2lb(65)) # Output "131.33003000000002
+        ```
+        
