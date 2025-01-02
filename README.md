@@ -245,4 +245,39 @@
          
          print(Converter.kg2lb(65)) # Output "131.33003000000002
         ```
+
+### Class Attributes
+- What are the **class attributes**?
+   - In Python, you can define a class without explicitly declaring attributes of the class. However, Python does allow the explicit declaration of attributes within a class definition. These attributes are called class attributes.
+      - This means that the attribute is declared _outside_ of the `__init__` method.
+   - In Python, class attributes are shared among all the objects of the class and can also be accessed directly from the class, without an instance of the class.
+      - For example, `Class.class_attr` accesses the class attribute, class_attr, directly from the class, Class.
+- ```python
+  class Graduate:
+    student_id = 260374177 # student_id is a class attribute, defined outside of the __init__ method. Class attributes are shared across all instances of the class.
+    def __init__(self, fullname): # self refers to the instance in normal method
+        firstname, lastname = fullname.split(' ')
+        self.f_name = firstname
+        self.l_name = lastname
+        self.__class__.student_id += 1 # It allows you to access class-level attributes and methods from within an instance. When you modified student_id, you're modifying the value for all instances of that class
+                                       # This can be read as "Access the class associated with this instance (self.__class__) and then access the student_id attribute of that class, and increment it by 1"
+                                       # __class__ refers to the class of an object, in this case, class of self. It is referring to Graduate. If it is simply self.student_id, student_id would become
+                                       # an attribute of each instance of the class. This means we will get 260374178 for all instances.
+
+    @classmethod # Decorator
+    def newGraduate(cls, firstname, lastname):
+        #cls refers to the class itself, not the instance
+        return cls(f'{firstname} {lastname}') # Creates an instance of Graduate(fullname)
         
+    def __str__(self):
+        return f'{self.f_name} {self.l_name}, {self.__class__.student_id}' # Returns a string representation of the object
+        
+   g0 = Graduate('Jiyeol Yang')
+   print(g0) # Output "Jiyeol Yang, 260374178"
+   
+   g1 = Graduate.newGraduate('Jiyeol', 'Yang')
+   print(g1) # Output "Jiyeol Yang, 260374179"
+   
+   g2 = Graduate('Lackyoung Son')
+   print(g2) # Output "Lackyoung Son, 260374180"
+   ```
