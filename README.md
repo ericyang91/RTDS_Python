@@ -139,7 +139,16 @@
    - __Public__: name
    - __Protected__: _name
    - __Private__: __name
-   - If you want to access the private members of a class from outside, the built-in functions setattr and getattr can be used to access both private and protected members of a class or its instance.
- 
+   - If you want to access the private members of a class from outside, the built-in functions `setattr` and `getattr` can be used to access both private and protected members of a class or its instance.
+- ```python
+     class Pet:
+       def __init__(self, species, habitat, diet, age, name):
+           self.species = species
+           self.habitat = habitat
+           self.diet = diet
+           self.__age = age # Private attribute. Accessing it from outside by using pet_instance.__age will raise error.
+           self._name = name # Protected attribute. Accessing it from outside will not raise error. However, it is not intended to be accessed directly outside the class.
+  ```
+
 
      
