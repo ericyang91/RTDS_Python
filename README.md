@@ -257,8 +257,8 @@
     student_id = 260374177 # student_id is a class attribute, defined outside of the __init__ method. Class attributes are shared across all instances of the class.
     def __init__(self, fullname): # self refers to the instance in normal method
         firstname, lastname = fullname.split(' ')
-        self.f_name = firstname
-        self.l_name = lastname
+        self.firstname = firstname
+        self.lastname = lastname
         self.__class__.student_id += 1 # It allows you to access class-level attributes and methods from within an instance. When you modified student_id, you're modifying the value for all instances of that class
                                        # This can be read as "Access the class associated with this instance (self.__class__) and then access the student_id attribute of that class, and increment it by 1"
                                        # __class__ refers to the class of an object, in this case, class of self. It is referring to Graduate. If it is simply self.student_id, student_id would become
