@@ -8,7 +8,7 @@
 ### Basics of Object-Oriented Programming
 
 - What is object-oriented programming (OOP)?
-   - Object-Oriented Programming (OOP) is a programming paradigm centered around the concept of "objects," which are instances of classes. In OOP, the primary focus is on designing software by modeling real-world entities as objects that have attributes (data) and methods (functions or procedures) that define their behavior. The three main features of OOP are abstraction, data encapsulation, and inheritance.
+   - Object-Oriented Programming (OOP) is a programming paradigm centered around the concept of "objects," which are instances of classes. In OOP, the primary focus is on designing software by modeling real-world entities as objects that have attributes (data) and methods (functions or procedures) that define their behavior. The three fundamental principles of OOP are abstraction, data encapsulation, and inheritance.
 
 - What are classes and objects? How are they related?
    - A class is a blueprint or template for creating objects. It defines a set of attributes (variables) and methods (functions) that the objects created from the class will have.
@@ -127,5 +127,19 @@
                return f"The gecko's diet is {self.diet} and is {self.length} in length."
       ```
 ### Public, Private, Protected
+- What are __public__, __private__, and __protected__ members of a class?
+   - In Python, the concepts of public, private, and protected members are used to control access to the attributes and methods of a class. These concepts help in implementing _data encapsulation_, which is one of the fundamental principles of object-oriented programming (OOP).
+   - Python doesn’t differentiate attributes between public, private, and protected members. Instead, Python treats all attributes of a class as public.
+   - It is up to the programmers to decide whether a member should be public, private, or protected.
+   - __Public__: Public members are attributes and methods that can be accessed from anywhere, both inside and outside the class.
+   - __Protected__: Protected members are intended to be accessed within the class and its subclasses. They can still be accessed outside the class, but it is generally discouraged. Python does not strictly enforce access.
+   - __Private__: Private members are meant to be accessed only within the class in which they are defined. They are not accessible directly from outside the class or its subclasses. Private members are used to encapsulate (or hide) the inner workings of a class, so that these details are not accessible or modifiable from outside the class. This ensures that the class maintains control over its data and behavior. Python somewhat enforces acccess, however it is not entirely impossible to access private attributes from outside.
+
+- In a Python program, how do you define public, private, and protected members of a class?
+   - __Public__: name
+   - __Protected__: _name
+   - __Private__: __name
+   - If you want to access the private members of a class from outside, the built-in functions setattr and getattr can be used to access both private and protected members of a class or its instance.
+ 
 
      
