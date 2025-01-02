@@ -43,6 +43,9 @@
          def __init__(self, species):
            self.species = species
      ```
+   - How do you define the constructor of a class?
+      - The constructor (`__init__` method) is used to initialize the attributes of a class when a new object is created.
+      - A class cannot have more than one `__init__` effectively defined. If you define two or more `__init__` within a class definition, _only the last_ one will take effect.
    - We can use `help(Class)` statement to see that the class has been created.
    - The builtins.object is a built-in class of Python from which all classes automatically inherit by default.
 
@@ -126,7 +129,7 @@
             def describe(self): # Method!
                return f"The gecko's diet is {self.diet} and is {self.length} in length."
       ```
-### Public, Private, Protected
+### Public, Private, Protected Attributes
 - What are __public__, __private__, and __protected__ members of a class?
    - In Python, the concepts of public, private, and protected members are used to control access to the attributes and methods of a class. These concepts help in implementing _data encapsulation_, which is one of the fundamental principles of object-oriented programming (OOP).
    - Python doesn’t differentiate attributes between public, private, and protected members. Instead, Python treats all attributes of a class as public.
@@ -140,6 +143,8 @@
    - __Protected__: _name
    - __Private__: __name
    - If you want to access the private members of a class from outside, the built-in functions `setattr` and `getattr` can be used to access both private and protected members of a class or its instance.
+      - `setattr(my_pet, '_name', 'Gamlae')`
+      - `getattr(my_pet, '_name')`
 - ```python
      class Pet:
        def __init__(self, species, habitat, diet, age, name):
@@ -150,5 +155,15 @@
            self._name = name # Protected attribute. Accessing it from outside will not raise error. However, it is not intended to be accessed directly outside the class.
   ```
 
+### Class Methods and Static Methods
 
-     
+- What are class methods and static methods? How do they differ?
+   - __Class method__:
+      - A class cannot have more than one `__init__` effectively defined.
+      - So how can you create an instance of a class differently in Python if there can be only one constructor, the special `__init__` method, in a class definition?
+         - This is where __class methods__ come in. A __class method__ can be used to provide an alternative way to create instances of a class. Unlike the `__init__` method, which is designed for a single initialization process, a class method can encapsulate different logic for creating and returning instances.
+            - Refer to chapter-7-exercises.ipynb
+   - __Static method__:
+      - Similar to the class method of a class, a __static method__ can be called directly through the class. The difference is that in the definition of a static method, no parameter refers to the class nor to the instance itself.
+      - Static methods are methods that belong to a class but do not access or modify the class or instance itself. Instead, they perform a specific task that is relevant to the class but doesn't require any knowledge of the instance or class state.
+      - The static methods can be called directly through the class, without an instance. Defining a static method within a class is a way to add utility functions to the class so that it can be used without instantiating an object.
