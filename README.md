@@ -52,6 +52,25 @@
       - A subclass (also known as a child class or derived class) is a class that inherits from a superclass. It can use the attributes and methods of the superclass and can also extend or override them to provide more specific behavior.
       - A subclass in Object-Oriented Programming (OOP) inherits all attributes and methods from its superclass.
       - All classes inherit from the built-in Python object.
+  - ```python
+       class Reptile:
+          def __init__(self, species, habitat, diet):
+              self.species = species
+              self.habitat = habitat
+              self.diet = diet
+          def describe(self):
+              return f"{self.species} are reptile that live in {self.habitat} and eat {self.diet} for food."
+
+      class Pet(Reptile):
+          def __init__(self, species, habitat, diet, age, name):
+              self.species = species
+              self.habitat = habitat
+              self.diet = diet
+              self.age = age
+              self.name = name
+          def introduce_pet(self):
+              return f"The name of the pet is {self.name}. It is {self.age} years old."
+    ```
      
   - Formally in Python, if you are defining a class that needs to inherit from another class, you can put the superclass(es) in a pair of parentheses
     - For example, `class PC(Computer)`
