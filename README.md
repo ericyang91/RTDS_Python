@@ -117,6 +117,36 @@
 - In Python, is there another statement I can use to make a loop?
     - No. **for** and **while** are the only loop statements in Python.
  
+### Common Mistakes with the For and While Loops
+
+- Common mistakes with the **for** loop:
+    - Remember to not change the value of any iteration variable within the code block of a **for loop** because it needs to be changed automatically by Python interpreter to the next item in the sequence. The iteration might be unexpected if the value of the iteration variable is changed in the code block.
+- Common mistakes with the **while** loop:
+    - There should be at least one iteration variable within the code block of the while loop.
+    - The value(s) of iteration variable(s) must change within the code block.
+    - The logical expression of the looping condition is not correctly written. This mistake may occur when inequal operators are involved in the logical expression of the looping condition. For example, using > in place of >=, or using < in place <=, will cause the program to miss one iteration of the loop.
+ 
+### Break and Continue ###
+- **break** is used to get out of the loop immediately by ignoring all the code before it without going back to test the looping condition. This is a way to get out of a loop in the middle of an iteration and is applicable to both the while loop and for loop.
+    - ```python
+        for i in range(1,11):
+            if i <= 5:
+                print(i)
+            else:
+                break
+      ```
+- **continue** statement is used within a loop to go back directly to the beginning of the iteration. Skips the rest of the current iteration and moves to the next iteration.
+    - ```python
+        i = 1
+        while i <= 10:
+            if i % 2 != 0:
+                print(i)
+                i += 1
+            else:
+                i += 1
+                continue
+      ```
+ 
 ### Zip Function
 
 - What is the `zip()` function?
