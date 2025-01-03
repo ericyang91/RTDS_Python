@@ -400,3 +400,55 @@
             print(len(g1)) # Output 21
             print(repr(g1)) # Output firstname:Lackyoung, lastname:Son, student_id:260374178
         ```
+
+### Dunder Methods and Binary Operators
+| **operator** | **Dunder Method** | **Description**|
+|---|---|---|
+| `+`           | `__add__(self, other)`       | Adds `self` and `other`.                          |
+| `-`           | `__sub__(self, other)`       | Subtracts `other` from `self`.                    |
+| `*`           | `__mul__(self, other)`       | Multiplies `self` and `other`.                    |
+| `//`          | `__floordiv__(self, other)`  | Performs floor division (integer division).       |
+| `/`           | `__truediv__(self, other)`   | Divides `self` by `other`.                        |
+| `%`           | `__mod__(self, other)`       | Computes the remainder of division.               |
+| `**`          | `__pow__(self, other[, mod])`| Raises `self` to the power of `other`. Optionally takes a modulus value. |
+
+- ```python
+  class Number:
+       def __init__(self, number):
+           self.number = number
+   
+       def __add__(self, other):
+           return self.number + other.number
+   
+       def __sub__(self, other):
+           return self.number - other.number
+   
+       def __mul__(self, other):
+           return self.number * other.number
+   
+       def __floordiv__(self, other):
+           return self.number // other.number
+   
+       def __truediv__(self, other):
+           return self.number / other.number
+   
+       def __mod__(self, other):
+           return self.number % other.number
+   
+       def __pow__(self, other):
+        return self.number ** other.number
+
+   first_num = Number(10)
+   second_num = Number(4)
+
+   print(first_num.__add__(second_num)) # Output "14"
+  ```
+| **Operator** | **Dunder Method**            | **Description**                                    |
+|---------------|-------------------------------|----------------------------------------------------|
+| `<<`          | `__lshift__(self, other)`    | Performs bitwise left shift.                      |
+| `>>`          | `__rshift__(self, other)`    | Performs bitwise right shift.                     |
+| `&`           | `__and__(self, other)`       | Performs bitwise AND.                             |
+| `^`           | `__xor__(self, other)`       | Performs bitwise XOR.                             |
+| `|`           | `__or__(self, other)`        | Performs bitwise OR.                              |
+
+
