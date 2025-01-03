@@ -18,20 +18,42 @@
 
 ### If, Elif, Else
 
-- How do I use an if statement to run a code block only under a certain condition?
-    - `if condition:`
-5. How do I specify conditions for my selective statements?
-    - `if i > 10:`
-6. How do I use if-else statements to make double selections?
-    - `if i > 10:`
-    - `else:`
-7. How do I use if-elif statements to make multiple selections?
-    - `if i < 10:`
-    - `elif i > 20:`
-8. How do I use if-elif-else statements to make multiple selections?
-    - `if i < 10:`
-    - `elif i > 20:`
-    - `else:`
+- How do I use an **if statement** to run a code block only under a certain condition? How do I specify conditions for my selective statements?
+    - ```python
+      name = input("Guess my name")
+      
+      if name == "Eric":
+          print("That's me!")
+      ```
+- How do I use **if-else statements** to make double selections?
+    - ```python
+      name = input("Guess my name")
+      
+      if name == "Eric":
+          print("That's me!")
+      else:
+          print("That's not me!")
+      ```
+- How do I use **if-elif statements** to make multiple selections?
+    - ```python
+      name = input("Guess my name")
+      
+      if name == "Eric":
+          print("That's me!")
+      elif name == "Leah":
+          print("That's my wife!")
+      ```
+- How do I use **if-elif-else statements** to make multiple selections?
+    - ```python
+      name = input("Guess my name")
+      
+      if name == "Eric":
+          print("That's me!")
+      elif name == "Leah":
+          print("That's my wife!")
+      else:
+          print("That's neither me nor my wife!")
+      ```
 ### For
 ### While
 
