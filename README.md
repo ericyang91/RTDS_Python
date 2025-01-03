@@ -354,6 +354,49 @@
             TravelPlan('Seoul')
             TravelPlan('Vancouver')
             TravelPlan.printPlan()
-      - `__str__`
-      - `__len__`
-      - `__repr__`
+      - `__str__`, `__len__`, `__repr__`
+         - `__str__`: Defines a user-friendly, human-readable string representation of an object. It is invoked by the built-in `str()` function and by `print()`. Used when you want a description of the object that is easy to understand for end-users.
+         - `__len__`: Defines the behavior of the len() function for objects. Used to return a size, count, or length property of the object.
+         - `__repr__`: Provides a detailed string representation for debugging. Used by `repr()` and in interactive sessions to display objects. It can be used to return the object representation of a class instance so that, for example, the object can be saved to and retrieved from a file or database. An object representation can be in the form of a list, tuple, or dictionary, but it has to be returned as a string in order to be written to and read from a file or database.
+         - ```python
+           class Graduate:
+                student_id = 260374177
+            
+                def __init__(self, fullname):
+                    firstname, lastname = fullname.split(' ')
+                    self.firstname = firstname
+                    self.lastname = lastname
+                    self.student_id = self.__class__.student_id
+                    self.__class__.student_id += 1
+            
+                @classmethod
+                def newGraduate(cls, firstname, lastname):
+                    return cls(f'{firstname} {lastname}')
+                
+                def __str__(self): # Provides a human-readable string representation of the object. 
+                                   # It's used by the print() function and str() to convert the object to a string.
+                    return f'{self.firstname} {self.lastname}' # Returns a string combining the firstname and lastname attributes of the Graduate instance. 
+                                                               # When you call print(g0), it will output Jiyeol Yang for g0
+            
+                def __len__(self): # Returns the length of the object. This is used by the len() function to determine the size of the object.
+                    return len(self.firstname) + len(self.lastname) + len(str(self.__class__.student_id)) # This method calculates and returns the total length 
+                                                                                                        # of the firstname, lastname, and student_id 
+                                                                                                        # (converted to a string). For g0, if firstname is 
+                                                                                                        # Jiyeol and lastname is Yang and student_id is 260374178, 
+                                                                                                        # len(g0) would be 6 + 4 + 9 = 19.
+                def __repr__(self): # Provides a string representation that is useful for debugging and development. 
+                                    # It should ideally return a string that, when passed to eval(), would recreate the object.
+                    return f"firstname:{self.firstname}, lastname:{self.lastname}, student_id:{self.student_id}"
+                """
+                This method returns a string with a detailed representation of the Graduate object. 
+                It's meant to be unambiguous and could be used for debugging. The output might be something like 
+                {'firstname':Jiyeol, 'lastname':Yang, 'student_id':260374178} for g0."""
+         
+            g0 = Graduate('Jiyeol Yang')
+            print(g0) # Uses __str__ to print a string representation of the object; Output "Jiyeol Yang"
+            print(g0.student_id) # Output "260374177"
+           
+            g1 = Graduate.newGraduate('Lackyoung', 'Son')
+            print(len(g1)) # Output 21
+            print(repr(g1)) # Output firstname:Lackyoung, lastname:Son, student_id:260374178
+        ```
