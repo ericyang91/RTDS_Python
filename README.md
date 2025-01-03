@@ -85,17 +85,37 @@
 
 ### While
 
-5. How do I use while statements to make loops in Python?
-    - while *condition*
-    - *code block*
-6. What is the difference between for and while statements?
-    - for is used when we know the number of iterations.
-    - while is used when we do not know the number of iterations.
+- How do I use **while statements** to make loops in Python?
+
+    - ```python
+        import random
+    
+        def guessing_game():
+            correct_number = random.randint(1,10)
+            print("Welcome to the number guessing game!")
+            while True:
+                try:
+                    number = int(input("Guess your number between 1 and 10: "))
+                    if number != correct_number:
+                        print("Incorrect guess. Try again.")
+                    else:
+                        print("Correct!")
+                        break
+                except ValueError:
+                    print("Invalid entry. Enter an integer.")
+    
+       guessing_game()
+      ```
+- What is the difference between **for** and **while** statements?
+    - **for** is used when we know the number of iterations.
+    - **while** is used when we do not know the number of iterations.
     - for loops can always be replaced by while loops. while loops cannot be replaced with for loops in cases when the number of iterations is unknown.
-7. Can I use the range() function and the list, tuple, set, string, and dictionary compound data types with while statements?
-    - No.
-8. In Python, is there another statement I can use to make a loop?
-    - No. *for* and *while* are the only loop statements in Python.
+
+- Can I use the range() function and the list, tuple, set, string, and dictionary compound data types with while statements?
+    - Yes.
+  
+- In Python, is there another statement I can use to make a loop?
+    - No. **for** and **while** are the only loop statements in Python.
 
 
 
