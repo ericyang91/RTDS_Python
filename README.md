@@ -7,7 +7,31 @@
 
 <h2 id='flow'>Flow Control of Statements</h2>
 
+### Selective Statements
+
+- What are **selective statements**?
+    - **Selective statements** in Python are programming constructs that enable a program to make decisions based on specific conditions. The primary mechanism for implementing selective statements in Python is the *if statement*. These statements evaluate a condition or set of conditions and execute specific blocks of code based on whether the conditions are true or false.
+- Why do I need selective statements in programming?
+    - Selective statements empower programmers to create decision-making logic, manage diverse scenarios, and direct program behavior according to changing conditions, thereby improving application functionality and user experience.
+- What can I use in Python to make selective statements?
+    - **if-elif-else** statement
+
 ### If, Elif, Else
+
+- How do I use an if statement to run a code block only under a certain condition?
+    - `if condition:`
+5. How do I specify conditions for my selective statements?
+    - `if i > 10:`
+6. How do I use if-else statements to make double selections?
+    - `if i > 10:`
+    - `else:`
+7. How do I use if-elif statements to make multiple selections?
+    - `if i < 10:`
+    - `elif i > 20:`
+8. How do I use if-elif-else statements to make multiple selections?
+    - `if i < 10:`
+    - `elif i > 20:`
+    - `else:`
 ### For
 ### While
 
