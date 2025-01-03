@@ -97,10 +97,11 @@
 8. In Python, is there another statement I can use to make a loop?
     - No. *for* and *while* are the only loop statements in Python.
 
-<h2 id='oop'>Object-Oriented Programming</h2>
+
 
 <h2 id='error'>Handle Errors and Exceptions</h2>
 
+<h2 id='oop'>Object-Oriented Programming</h2>
 ### Basics of Object-Oriented Programming
 
 - What is __object-oriented programming (OOP)__?
