@@ -2,12 +2,18 @@
 
 ## Table of Contents
 - [Flow Control of Statements](#flow)
+- [Handle Errors and Exceptions](#error)
 - [Object-Oriented Programming (OOP)](#oop)
 
 <h2 id='flow'>Flow Control of Statements</h2>
 
+### If, Elif, Else
+### For
+### While
 
 <h2 id='oop'>Object-Oriented Programming</h2>
+
+<h2 id='error'>Handle Errors and Exceptions</h2>
 
 ### Basics of Object-Oriented Programming
 
