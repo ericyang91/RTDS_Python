@@ -126,7 +126,7 @@
     - The value(s) of iteration variable(s) must change within the code block.
     - The logical expression of the looping condition is not correctly written. This mistake may occur when inequal operators are involved in the logical expression of the looping condition. For example, using > in place of >=, or using < in place <=, will cause the program to miss one iteration of the loop.
  
-### Break and Continue ###
+### Break and Continue
 - **break** is used to get out of the loop immediately by ignoring all the code before it without going back to test the looping condition. This is a way to get out of a loop in the middle of an iteration and is applicable to both the while loop and for loop.
     - ```python
         for i in range(1,11):
@@ -168,6 +168,7 @@
 <h2 id='error'>Handle Errors and Exceptions</h2>
 
 <h2 id='oop'>Object-Oriented Programming</h2>
+
 ### Basics of Object-Oriented Programming
 
 - What is __object-oriented programming (OOP)__?
