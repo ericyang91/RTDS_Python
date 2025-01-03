@@ -55,7 +55,47 @@
           print("That's neither me nor my wife!")
       ```
 ### For
+
+- How do I use **for statements** to make loops in Python?
+    - ```python
+      lst1 = [1, 2, 3, 4, 5]
+      lst2 = []
+      for i in lst1:
+          lst2.append(i**2)
+    
+      print(lst2)
+      ```
+- What is the built-in `range(start, stop, step)` function?
+    - Allows users to iterate through the start number up to but excluding the end number.
+    - ```python
+      lst = []
+      for i in range(10):
+          lst.append(i**2)
+    
+      print(lst)
+      ```
+- How do I use the list, tuple, set, string, and dictionary compound data types with **for statements**?
+    - `for element in list:`
+    - `for element in tuple:`
+    - `for element in set:`
+    - `for character in string:`
+    - `for key in dictionary:` or `for key in dictionary.keys()`
+    - `for value in dictionary.values():`
+    - `for key, value in dictionary.items():`
+
 ### While
+
+5. How do I use while statements to make loops in Python?
+    - while *condition*
+    - *code block*
+6. What is the difference between for and while statements?
+    - for is used when we know the number of iterations.
+    - while is used when we do not know the number of iterations.
+    - for loops can always be replaced by while loops. while loops cannot be replaced with for loops in cases when the number of iterations is unknown.
+7. Can I use the range() function and the list, tuple, set, string, and dictionary compound data types with while statements?
+    - No.
+8. In Python, is there another statement I can use to make a loop?
+    - No. *for* and *while* are the only loop statements in Python.
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
