@@ -119,7 +119,19 @@
  
 ### Zip Function
 
+- What is the `zip()` function?
+  - The `zip()` function in Python is used to combine two or more iterables (e.g., lists, tuples, strings, etc.) element-wise, creating an iterator of tuples. Each tuple contains one element from each iterable. It's especially useful when you want to iterate over multiple iterables simultaneously. `zip()` stops when the shortest iterable is exhausted.
 
+- ```python
+    name = ['eric', 'leah', 'dahee']
+    age = [33, 36, 2]
+    height = [175, 153, 87]
+    
+    zipped_list = list(zip(name, age, height))
+    
+    for name, age, height in zipped_list:
+        print(f"{name} is {age} years old and {height}cm in height.")
+  ```
 
 
 
