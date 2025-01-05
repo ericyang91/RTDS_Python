@@ -338,20 +338,20 @@
            self._name = name # Protected attribute. Accessing it from outside will not raise error. However, it is not intended to be accessed directly outside the class.
   ```
 
-- If you want to access the private members of a class from outside, the built-in functions `hasattr` and `getattr` can be used to access both private and protected members of a class or its instance.
+- If you want to access the protected members of a class from outside, the built-in functions `hasattr` and `getattr` can be used to access protected members of a class or its instance. It cannot, however, access private members.
    - `hasattr(my_pet, '_name')`
    - `getattr(my_pet, '_name')`
    - ```python
      class Student:
        def __init__(self, firstname, lastname):
-           self.__firstname = firstname
-           self.__lastname = lastname
+           self._firstname = firstname
+           self._lastname = lastname
    
       s0 = Student('Eric', 'Yang')
-      setattr(s0, '__firstname', 'Lack Young')
-      setattr(s0, '__lastname', 'Son')
-      print(getattr(s0, '__firstname'), getattr(s0, '__lastname')) # Output 'Lack Young Son'
-      print(hasattr(s0, '__lastname')) # Output 'True'
+      setattr(s0, '_firstname', 'Lack Young')
+      setattr(s0, '_lastname', 'Son')
+      print(getattr(s0, '_firstname'), getattr(s0, '_lastname')) # Output 'Lack Young Son'
+      print(hasattr(s0, '_lastname')) # Output 'True'
      ```
 
 ### Class Methods and Static Methods
