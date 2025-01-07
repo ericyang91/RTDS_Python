@@ -215,6 +215,76 @@
 17. **ZeroDivisionError**: Raised when divided by zero
     - `5 / 0`
 
+### Try-Except-Else-Finally
+
+- When programming, runtime errors or **exceptions** are inevitable. Therefore, it's crucial for a programmer to handle exceptions properly when they occur.
+- Python exceptions are managed using a *try* statement.
+    - A *try* statement begins with a try clause, enclosing code that may potentially cause errors and raise exceptions.
+- Following the *try* clause, one or more *exception* clauses start with the keyword "except," followed by a system-defined error/exception name. Each exception clause specifies how to handle a specific error if it occurs.
+- The *else* clause contains code that executes if no exceptions are raised during the execution of the try clause.
+- The *finally* clause includes code that executes regardless of whether an exception was raised within the try clause.
+- In Python, a try statement can take several forms: try-except, try-except-else, try-except-finally, try-except-else-finally, and try-finally.
+
+```python
+try:
+    # Code that might raise an exception
+    result = 10 / 2
+except ZeroDivisionError:
+    # Handle division by zero exception
+    print("Error: Division by zero!")
+else:
+    # This block executes if no exceptions are raised
+    print("Division successful!")
+finally:
+    # This block always executes, regardless of exceptions
+    print("Execution complete.")
+
+# Output if no exceptions are raised:
+# Division successful!
+# Execution complete.
+
+# Output if a ZeroDivisionError is raised:
+# Error: Division by zero!
+# Execution complete.
+```
+
+- **How do you handle exceptions using a `try-except` statement?**
+   - In Python, the `try-except` statement is used to handle exceptions. Code that might raise an exception is placed in the `try` block, and specific exceptions are caught and handled in the `except` block.
+
+- **How do you execute code only when no exceptions occur using the `else` clause with a `try` statement?**
+   - By adding an `else` clause to a `try` statement (`try-except-else`), you can specify code that should execute only if no exceptions were raised in the `try` block.
+
+- **How do you ensure certain code is always executed, regardless of exceptions, using the `finally` clause with a `try` statement?**
+   - The `finally` clause in a `try` statement (`try-except-finally`) ensures that specified cleanup or finalization code runs, regardless of whether an exception occurred or not.
+   - ```python
+      def manual_division(x, y):
+         try:
+            result = x / y
+         except ZeroDivisionError:
+            print('Cannot divide by zero!')
+         else:
+            print(f'Result is {result}')
+         finally:
+            print('End')
+        
+      print(manual_division(4, 0))
+      ```
+
+### Raise and Assert
+
+- How do you intentionally raise an exception using the **raise statement**?
+   - The **raise statement** is used to deliberately raise an exception in Python. This is useful for signaling specific error conditions in your code or when certain criteria are met that warrant an exception to be thrown.
+   - ```python
+      try:
+         age = int(input("What's your age?"))
+         if age < 0:
+            raise ValueError('Invalid age!')
+         
+      except ValueError as e:
+         print(e)
+         print('Invalid input')
+      ```
+
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
