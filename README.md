@@ -167,6 +167,55 @@
 
 <h2 id='error'>Handle Errors and Exceptions</h2>
 
+### Basics of Errors
+
+- What types of errors can occur in a program?
+   - **Syntax errors:** These include misspelled keywords, improper identifiers, use of undefined functions or variables. They are typically caught by Python IDEs during development or at runtime due to Python's interpreted nature.
+   - **Runtime errors:** Occur during program execution and can include issues like division by zero or accessing out-of-bounds indices.
+   - **Logic errors:** Involve incorrect use of operators (e.g., '<' instead of '>'), misinterpretation of sequence boundaries, and often result in incorrect program output. These errors are costly as they require careful debugging and logic correction.
+
+### Types of Errors
+
+1. **TypeError:** Raised when a function or operation is applied to an object of an incorrect type.
+    - `result = 'Hello' + 5`
+2. **ArithmeticError:** The base class for arithmetic errors, including:
+   - **OverflowError:** Raised when the result of an arithmetic operation is too large to be represented.
+   - **ZeroDivisionError:** Raised when the divisor of a division or modulo operation is 0.
+   - **FloatingPointError:** Related to floating-point operations but less common in Python.
+3. **NameError:** Raised when a variable that is not defined is used.
+    - `print(undefined_variable)`
+4. **AssertionError:** Raised when an assertion statement (`assert`) fails.
+    - `assert 1 + 1 == 3`
+5. **AttributeError:** Raised when an attribute assignment or reference fails because the attribute does not exist.
+6. **ImportError:** Raised when an imported module is not found.
+    - `import non_existent_module`
+7. **ModuleNotFoundError:** Raised by `import` when a module could not be located in `sys.modules`.
+8. **IndexError:** Raised when the index of a sequence is out of range.
+    - ```python
+        my_list = [1,2,3]
+        item = my_list[5]
+      ```
+9. **KeyError:** Raised when a key is not found in a dictionary.
+    - `dict['non_existent_key']` where `dict = {'key': 'value'}`
+10. **OSError:** The base class for system-related errors, including:
+    - **FileExistsError:** Raised when trying to create a file or directory that already exists.
+    - **FileNotFoundError:** Raised when a file or directory is requested but does not exist.
+        - ```python
+            with open('non_existent_file.txt') as file:
+                content = file.read()
+          ```
+    - **PermissionError:** Raised when attempting an operation without adequate access rights.
+11. **RuntimeError:** Raised when an error does not fit into any other predefined category.  
+12. **StopIteration:** Raised by the `next()` function to indicate that no further items are available in an iterator.
+13. **SyntaxError:** Raised by the parser when a syntax error is encountered.
+14. **IndentationError:** Raised when there is incorrect indentation.
+15. **TabError:** Raised when the indentation mixes tabs and spaces inconsistently.
+16. **ValueError:** Raised when a function receives an argument of the correct type but with an inappropriate value.
+    - `int(input('Four'))`: It received an argument of the correct type (string), but with an inappropriate value (Four). 
+17. **ZeroDivisionError**: Raised when divided by zero
+    - `5 / 0`
+
+
 <h2 id='oop'>Object-Oriented Programming</h2>
 
 ### Basics of Object-Oriented Programming
