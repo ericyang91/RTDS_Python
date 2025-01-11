@@ -187,6 +187,18 @@
 4. **AssertionError:** Raised when an assertion statement (`assert`) fails.
     - `assert 1 + 1 == 3`
 5. **AttributeError:** Raised when an attribute assignment or reference fails because the attribute does not exist.
+    - ```python
+        class myClass:
+            def __init__(self, name):
+                self.name = name
+        
+        class_instance = myClass('class1')
+        class_instance.functionalities # Output: AttributeError: 'myClass' object has no attribute 'functionalities'
+      ```
+    - ```python
+        lst = [1,2,3,4]
+        lst.sum() # Output: AttributeError: 'list' object has no attribute 'sum'
+      ```
 6. **ImportError:** Raised when an imported module is not found.
     - `import non_existent_module`
 7. **ModuleNotFoundError:** Raised by `import` when a module could not be located in `sys.modules`.
@@ -208,6 +220,24 @@
 11. **RuntimeError:** Raised when an error does not fit into any other predefined category.  
 12. **StopIteration:** Raised by the `next()` function to indicate that no further items are available in an iterator.
 13. **SyntaxError:** Raised by the parser when a syntax error is encountered.
+    - ```python
+        if True   # Missing colon
+            print("Hello")
+        # Raises: SyntaxError: expected ':'
+      ```
+    - ```python
+        def greet():
+        print("Hello")  # IndentationError (a subtype of SyntaxError)
+      ```
+    - ```python
+        def = 5  # Invalid
+        # Raises: SyntaxError: invalid syntax
+      ```
+    - ```python
+        x = (1 + 2   # Missing closing parenthesis
+        # Raises: SyntaxError: unexpected EOF while parsing
+      ```
+
 14. **IndentationError:** Raised when there is incorrect indentation.
 15. **TabError:** Raised when the indentation mixes tabs and spaces inconsistently.
 16. **ValueError:** Raised when a function receives an argument of the correct type but with an inappropriate value.
@@ -224,39 +254,29 @@
 - The *else* clause contains code that executes if no exceptions are raised during the execution of the try clause.
 - The *finally* clause includes code that executes regardless of whether an exception was raised within the try clause.
 - In Python, a try statement can take several forms: try-except, try-except-else, try-except-finally, try-except-else-finally, and try-finally.
-
-```python
-try:
-    # Code that might raise an exception
-    result = 10 / 2
-except ZeroDivisionError:
-    # Handle division by zero exception
-    print("Error: Division by zero!")
-else:
-    # This block executes if no exceptions are raised
-    print("Division successful!")
-finally:
-    # This block always executes, regardless of exceptions
-    print("Execution complete.")
-
-# Output if no exceptions are raised:
-# Division successful!
-# Execution complete.
-
-# Output if a ZeroDivisionError is raised:
-# Error: Division by zero!
-# Execution complete.
-```
-
-- **How do you handle exceptions using a `try-except` statement?**
-   - In Python, the `try-except` statement is used to handle exceptions. Code that might raise an exception is placed in the `try` block, and specific exceptions are caught and handled in the `except` block.
-
-- **How do you execute code only when no exceptions occur using the `else` clause with a `try` statement?**
-   - By adding an `else` clause to a `try` statement (`try-except-else`), you can specify code that should execute only if no exceptions were raised in the `try` block.
-
-- **How do you ensure certain code is always executed, regardless of exceptions, using the `finally` clause with a `try` statement?**
-   - The `finally` clause in a `try` statement (`try-except-finally`) ensures that specified cleanup or finalization code runs, regardless of whether an exception occurred or not.
-   - ```python
+- ```python
+    try:
+        # Code that might raise an exception
+        result = 10 / 2
+    except ZeroDivisionError:
+        # Handle division by zero exception
+        print("Error: Division by zero!")
+    else:
+        # This block executes if no exceptions are raised
+        print("Division successful!")
+    finally:
+        # This block always executes, regardless of exceptions
+        print("Execution complete.")
+    
+    # Output if no exceptions are raised:
+    # Division successful!
+    # Execution complete.
+    
+    # Output if a ZeroDivisionError is raised:
+    # Error: Division by zero!
+    # Execution complete.
+  ```
+- ```python
       def manual_division(x, y):
          try:
             result = x / y
@@ -268,7 +288,7 @@ finally:
             print('End')
         
       print(manual_division(4, 0))
-      ```
+    ```
 
 ### Raise and Assert
 
@@ -283,6 +303,35 @@ finally:
       except ValueError as e:
          print(e)
          print('Invalid input')
+      ```
+    - ```python
+        def withdraw(balance, amount):
+            if amount > balance:
+                raise ValueError("Insufficient balance!")
+            return balance - amount
+        
+        try:
+            print(withdraw(100, 150))
+        except ValueError as e:
+            print(f"Transaction failed: {e}")
+        # Output: Transaction failed: Insufficient balance!
+      ```
+    - ```python
+        def custom_division(a,b):
+            if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+                raise TypeError("Wrong type! Use integer or float!")
+            if b == 0:
+                raise ZeroDivisionError("You cannot divide by zero!")
+            
+            else:
+                return a/b
+                
+        try:
+            custom_division(1,'hello')
+        except ZeroDivisionError as e:
+            print(e)
+        except TypeError as e:
+            print(e) # Output: Wrong type! Use integer or float!
       ```
 
 
