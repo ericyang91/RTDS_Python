@@ -333,7 +333,28 @@
         except TypeError as e:
             print(e) # Output: Wrong type! Use integer or float!
       ```
+- What is **Assert** statement in Python?
+    - The **assert** statement is used to validate assumptions in code, such as checking if a variable holds an expected value or if a condition is met. If the assumption proves to be false during runtime, Python raises an **AssertionError**. This helps in identifying and handling unexpected conditions in programs. The **assert** statement in Python is a debugging aid that helps you catch and handle unexpected conditions during development. It allows you to assert that a certain condition is true at a specific point in your code. If the condition evaluates to False, Python raises an **AssertionError**, which can be useful for identifying bugs or logical errors in your code.
+ 
+    - For example, consider the following code snippet:
 
+    - ```python
+        my_list = range(10)
+        assert 12 in my_list, '12 should be in the list'
+        ```
+
+        - Since 12 is not in the list, it raises an AssertionError with the message '12 should be in the list'.
+
+    - ```python
+        def calculate_square_root(x):
+            assert x >= 0, "Input should be a non-negative number"
+            return math.sqrt(x)
+    
+        print(calculate_square_root(9))  # Works fine
+        print(calculate_square_root(-1)) # Raises AssertionError
+        ```
+
+- The **assert** statement is a simple yet powerful tool for debugging and enforcing assumptions in your code. While it should not replace robust error handling in production, it is invaluable during development for catching errors early and verifying program logic.
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
