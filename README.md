@@ -3,6 +3,8 @@
 ## Table of Contents
 - [Flow Control of Statements](#flow)
 - [Handle Errors and Exceptions](#error)
+- [Sequences, Sets, Dictionaries](#seq)
+- [Handling Text Files](#text)
 - [Object-Oriented Programming (OOP)](#oop)
 
 <h2 id='flow'>Flow Control of Statements</h2>
@@ -355,6 +357,11 @@
         ```
 
 - The **assert** statement is a simple yet powerful tool for debugging and enforcing assumptions in your code. While it should not replace robust error handling in production, it is invaluable during development for catching errors early and verifying program logic.
+
+<h2 id='seq'>Sequences, Sets, Dictionaries</h2>
+
+<h2 id='text'>Handling Text Files</h2>
+
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
