@@ -169,6 +169,8 @@
 
 <h2 id='error'>Handle Errors and Exceptions</h2>
 
+- [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Exception%20Handling.ipynb)
+
 ### Basics of Errors
 
 - What types of errors can occur in a program?
