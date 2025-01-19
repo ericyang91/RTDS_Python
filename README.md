@@ -544,8 +544,8 @@
       - In order to create a new reversed list without modifying the original, use `l2 = l[::-1]`
   - `l.sort()` - Sorts the *original* list in ascending order without creating a new list. Returns *None* if assigned to a variable. Use `l.sort(reverse=True)` for descending order. This method only works on lists.
   - `sorted(l)` - Creates a new list that is sorted in ascending order. This method works on other iterables such as tuples and sets. Always returns a new *list* even if applied on other iterables.
-  - `l1.extend(l2)` - Appends elements from `l2` to `l1`.
-  - `l.insert(5, 14)` - Inserts `14` at index `5`.
+  - `l1.extend(l2)` - Appends elements from `l2` to `l1`. Modifies the original list whereas concatenating two lists create a new list.
+  - `l.insert(5, 14)` - Inserts `14` at index `5`. Does not replace the value at the existing index. Modifies the existing list.
   - `l.remove(5)` - Removes the first occurrence of `5` from the list.
   - `l.count('a')` - Counts how many times `'a'` appears in the list.
 
