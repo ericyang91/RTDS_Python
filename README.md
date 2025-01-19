@@ -561,10 +561,11 @@
 
 - **Finding the Index of an Element:**
   - `t.index('dahee')` - Finds the index of the first occurrence of `'dahee'`. Raises a `ValueError` if `'dahee'` is not present.
+  - Note, unlike lists, tuples *do not* have method `.find()`
 
 - **Creating a Tuple:**
-  - `tuple(iterable)` - Converts an iterable into a tuple.
-  - `(a, b, c, d)` - Initializes a tuple with elements `a`, `b`, `c`, and `d`.
+  - `tuple(iterable)` - Converts an iterable into a tuple. tuple('a','b') does not work as 'a' and 'b' are not iterables.
+  - `(a, b, c, d)` - Initializes a tuple with elements 'a', 'b', 'c', and 'd'.
   - `tuple(range(1, 4))` - Generates a tuple from a range object, resulting in `(1, 2, 3)`.
 
 - **Accessing Elements:**
@@ -585,6 +586,8 @@
 
 - **Tuple Length:**
   - `len(T1)` - Provides the number of elements in the tuple `T1`.
+
+- Note that tuples, unlike lists, do not have methods that modify the original tuple because tuples are **immutable** in nature.
 
 
 ### Sets
