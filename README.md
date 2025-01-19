@@ -1,11 +1,18 @@
 # Road to Data Science: Python
 
 ## Table of Contents
+- [Introduction](#intro)
+- [Essential Building Blocks of Computer Programs](#building)
 - [Flow Control of Statements](#flow)
 - [Handle Errors and Exceptions](#error)
 - [Sequences, Sets, Dictionaries](#seq)
 - [Handling Text Files](#text)
+- [Define and Use Functions](#functions)
 - [Object-Oriented Programming (OOP)](#oop)
+
+<h2 id ='intro'>Introduction</h2>
+
+<h2 id ='building'>Essential Building Blocks of Computer Programs</h2>
 
 <h2 id='flow'>Flow Control of Statements</h2>
 
@@ -488,9 +495,59 @@
       - Output: `'Python is not \u5927\u87d2\u86c7.' is displayed as an ASCII string.`
 
   - **Note:** The `print()` function works with escape characters like \t and \n. These characters are interpreted as special characters within the string.
+ 
+### Lists
+
+- **Lists** are ordered and mutable collections of elements.
+- **Creating a List:**
+  - `list(iterable)` - Converts an iterable into a list.
+  - `[a, b, c, d]` - Initializes a list with elements `a`, `b`, `c`, and `d`.
+  - `list(range(1, 4))` - Generates a list from a range object, resulting in `[1, 2, 3]`.
+
+- **Slicing Lists:**
+  - `l[start:end:step]` - Extracts a slice from the list starting at index `start`, ending at `end`, and stepping by `step`.
+
+- **Replacing Elements:**
+  - `l[N] = E` - Replaces the element at index `N` with `E`.
+
+- **Concatenating Lists:**
+  - `l1 + l2` - Combines `l1` and `l2` into a new list.
+  - Note: This operation does not modify `l1`. To store the result, assign it to a new variable.
+
+- **Duplicating Lists:**
+  - `l1 * 3` - Creates a new list with `l1` repeated three times, leaving the original list unchanged.
+
+- **Checking Membership:**
+  - `N in l1` - Returns `True` if `N` is present in `l1`.
+
+- **List Length:**
+  - `len(l1)` - Gives the number of elements in `l1`.
+
+- **List Methods:**
+  - `l.append(x)` - Appends `x` to the end of the list.
+  - `l.clear()` - Clears all elements from the list.
+  - `l.copy()` - Returns a shallow copy of the list. Note: This copies only the list structure; changes to nested objects affect both the original and the copy.
+  - `l.index('dahee')` - Finds the index of the first occurrence of `'dahee'`. Raises `ValueError` if not found.
+  - `l.pop()` - Removes and returns the last element of the list.
+  - `l.pop(2)` - Removes and returns the element at index `2`.
+  - `l.reverse()` - Reverses the order of elements in the list in place.
+  - `l.sort()` - Sorts the list in ascending order. Use `l.sort(reverse=True)` for descending order.
+  - `l1.extend(l2)` - Appends elements from `l2` to `l1`.
+  - `l.insert(5, 14)` - Inserts `14` at index `5`.
+  - `l.remove(5)` - Removes the first occurrence of `5` from the list.
+  - `l.count('a')` - Counts how many times `'a'` appears in the list.
+
+- **Nested or Embedded Lists:**
+  - Can represent structured or two-dimensional data.
+
+### Tuples
+### Sets
+### Dictionaries
+### Comprehensions
 
 <h2 id='text'>Handling Text Files</h2>
 
+<h2 id='functions'>Define and Use Functions</h2>
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
