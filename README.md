@@ -587,10 +587,49 @@
 - **Tuple Length:**
   - `len(T1)` - Provides the number of elements in the tuple `T1`.
 
+- **Single-value Tuple**
+    - Tuples can have single value. Must include trailing comma. For instance, `t = (1,)`. This tuple has one element, 1.
+
 - Note that tuples, unlike lists, do not have methods that modify the original tuple because tuples are **immutable** in nature.
 
 
 ### Sets
+
+- **Sets** are *unordered* collections that are *mutable* and *do not allow duplicate elements*.
+
+- **Creating a Set:**
+  - `set(iterable)` - Converts an iterable into a set. `set('a', 'b')` raises AttributeError as 'a' and 'b' are not iterables.
+  - `{a, b, c, d}` - Initializes a set with elements 'a', 'b', 'c', and 'd'.
+  - `set(range(1, 4))` - Creates a set from a range object, resulting in '{1, 2, 3}'.
+
+- **Checking Membership:**
+  - `N in s1` - Verifies if `N` is a member of the set `s1`.
+
+- **Set Length:**
+  - `len(s1)` - Provides the number of elements in the set `s1`.
+
+- **Adding an Element:**
+  - `s1.add(element)` - Adds `element` to the set `s1`. Modifies the original set.
+
+- **Clearing a Set:**
+  - `s1.clear()` - Removes all elements from the set `s1`.
+
+- **Copying a Set:**
+  - `s1.copy()` - Creates and returns a copy of the set `s1`.
+
+- **Finding Differences:**
+  - `s0.difference(s1, s2)` - Returns a new set containing elements in 's0' but not in 's1' or 's2'. *Returns a new set.*
+
+- **Updating Differences:**
+  - `s1.difference_update(s1)` - Updates `s1` by removing elements that are also present in `s1`. *Modifies the original set.*
+
+- **Removing an Element:**
+  - `s1.discard('e')` - Removes the element `'e'` from the set `s1` if it exists.
+
+- **Finding Intersections:**
+  - `s0.intersection(s1)` - Returns a set containing elements that are common to both `s0` and `s1`.
+
+
 ### Dictionaries
 ### Comprehensions
 
