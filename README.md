@@ -362,6 +362,54 @@
 
 <h2 id='seq'>Sequences, Sets, Dictionaries</h2>
 
+### Basics of Sequences, Sets, Dictionaries
+
+- What data types are categorized as sequences?
+   - **Sequences** are types that can be **ordered** and **indexed**. In Python, these include **strings**, **lists**, and **tuples**.
+
+- What are strings, lists, and tuples?
+   - These are Python data types that allow ordering, slicing, and indexing.
+
+- How do you access individual characters of a string, a list, and a tuple?
+   - For strings: `string[index]`
+   - For lists: `list[index]`
+   - For tuples: `tuple[index]`
+
+- How do you slice a sequence?
+   - For strings: `string[start:end]`
+   - For lists: `list[start:end]`
+   - For tuples: `tuple[start:end]`
+
+- What are **mutable** and **immutable** data types?
+   - Mutable types can be modified after creation, like lists and sets..
+   - Immutable types cannot be changed after creation, like tuples.
+
+7. **How do you access the items, keys, and values of a dictionary?**
+   - Items: `d.items()`
+   - Keys: `d.keys()`
+   - Values: `d.values()`
+
+8. **What methods and functions are available for working with strings?**
+   - Methods include: `.format()`, `.join()`, `.split()`, `.strip()`, `.replace()`, `.upper()`, `.lower()`, `.find()`. Details can be found [here](#strings).
+
+9. **What methods and functions are available for lists, tuples, sets, and dictionaries?**
+   - Lists: [lists](#lists)
+   - Tuples: [tuples](#tuples)
+   - Sets: [sets](#sets)
+   - Dictionaries: [dictionaries](#dictionaries)
+
+10. **What is an iterator?**
+    - An iterator lets you loop through elements in an iterable like lists, strings, or dictionaries. Use `iter(iterable)` to create an iterator and `next(iterator)` to get items. Python handles this automatically in loops.
+
+11. **What is a generator of iterables?**
+    - A generator is a type of iterable created using a function with `yield`. Generators are efficient because they produce items one at a time.
+
+12. **How do you use `range()` to make a list?**
+    - Use: `list(range(10))` to create a list of numbers from 0 to 9.
+
+13. **How do you use `range()` to create a tuple?**
+    - Use: `tuple(range(10))` to create a tuple of numbers from 0 to 9.
+
 <h2 id='text'>Handling Text Files</h2>
 
 
