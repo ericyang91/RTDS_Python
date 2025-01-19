@@ -498,9 +498,9 @@
  
 ### Lists
 
-- **Lists** are ordered and mutable collections of elements.
+- **Lists** are *ordered* and *mutable* collections of elements.
 - **Creating a List:**
-  - `list(iterable)` - Converts an iterable into a list.
+  - `list(iterable)` - Converts an iterable into a list. Note, `list('a','b','c') is invalid as it is not an iterable.
   - `[a, b, c, d]` - Initializes a list with elements `a`, `b`, `c`, and `d`.
   - `list(range(1, 4))` - Generates a list from a range object, resulting in `[1, 2, 3]`.
 
@@ -512,7 +512,7 @@
 
 - **Concatenating Lists:**
   - `l1 + l2` - Combines `l1` and `l2` into a new list.
-  - Note: This operation does not modify `l1`. To store the result, assign it to a new variable.
+  - Note: *This operation does not modify `l1`. To store the result, assign it to a new variable.*
 
 - **Duplicating Lists:**
   - `l1 * 3` - Creates a new list with `l1` repeated three times, leaving the original list unchanged.
@@ -526,12 +526,24 @@
 - **List Methods:**
   - `l.append(x)` - Appends `x` to the end of the list.
   - `l.clear()` - Clears all elements from the list.
-  - `l.copy()` - Returns a shallow copy of the list. Note: This copies only the list structure; changes to nested objects affect both the original and the copy.
+  - `l.copy()` - Returns a shallow copy of the list. A shallow copy creates a new list containing references to the same elements as the original list. This means: Changes to elements in the original list will not affect the shallow copy if the elements are *immutable* (like numbers or strings). However, for nested *mutable* objects (like other lists or dictionaries inside the list), changes to these objects will be reflected in both the original and the shallow copy because the nested objects themselves are not copied.
+      - ```python
+        original = [[1, 2], 3, 4]
+        copied = original.copy()
+
+        copied[0][0] = 10
+        copied[1] = 22
+
+        print(original) # Output: [10, 2], 3, 4
+        print(copied) # Output: [10, 2], 22, 4
+        ```
   - `l.index('dahee')` - Finds the index of the first occurrence of `'dahee'`. Raises `ValueError` if not found.
   - `l.pop()` - Removes and returns the last element of the list.
   - `l.pop(2)` - Removes and returns the element at index `2`.
-  - `l.reverse()` - Reverses the order of elements in the list in place.
-  - `l.sort()` - Sorts the list in ascending order. Use `l.sort(reverse=True)` for descending order.
+  - `l.reverse()` - Reverses the order of elements in the list in place. Returns *None* if assigned to a variable.
+      - In order to create a new reversed list without modifying the original, use `l2 = l[::-1]`
+  - `l.sort()` - Sorts the *original* list in ascending order without creating a new list. Returns *None* if assigned to a variable. Use `l.sort(reverse=True)` for descending order. This method only works on lists.
+  - `sorted(l)` - Creates a new list that is sorted in ascending order. This method works on other iterables such as tuples and sets. Always returns a new *list* even if applied on other iterables.
   - `l1.extend(l2)` - Appends elements from `l2` to `l1`.
   - `l.insert(5, 14)` - Inserts `14` at index `5`.
   - `l.remove(5)` - Removes the first occurrence of `5` from the list.
