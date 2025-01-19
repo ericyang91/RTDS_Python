@@ -441,7 +441,7 @@
         my_str = 'hello world'
         my_str.split('l') # Output: ['he', '', 'o wor' 'd']
         ```
-  - `s.partition(separator)`, `s.rpartition(separator)`: Splits the string into a tuple with three parts around the separator while preserving the separator.
+  - `s.partition(separator)`, `s.rpartition(separator)`: Splits the string into a tuple with three parts around the FIRST (or last in the case of `s.rpartition(separator)` separator while preserving the separator.
       - ```python
         my_str = 'hello world'
         my_str.partition(' ') # Output ('hello', ' ', 'world')
@@ -451,8 +451,8 @@
   - `s.title()`: Converts the first letter of each word to uppercase and the rest to lowercase.
 
 - **Built-in Functions and Operators**
-  - `+`: Concatenates strings.
-  - `*`: Repeats strings.
+  - +: Concatenates strings.
+  - *: Repeats strings.
   - `len(STRING)`: Returns the length of the string.
   - `STRING[i:j]`: Slices the string from index `i` to `j`.
 
@@ -471,20 +471,23 @@
       print('The complex number {0} has a real part {0.real} and an imaginary part {0.imag}.'.format(c))
       ```
       - Output: `'The complex number (23 -35j) has a real part 23.0 and an imaginary part -35.0.'`
+        
     - ```python
       print('{!r} is displayed as a raw string'.format('\t is not tab, \n is not newline'))
       ```
       - Output: `'\t is not tab, \n is not newline' is displayed as a raw string.`
+        
     - ```python
-      print('{!s} is not displayed as a raw string'.format('\t is a tab, \n is a new line'))
+      print('{!s} is not displayed as a raw string'.format('\t is a tab'))
       ```
-      - Output: `'	 is a tab, \n is a new line is not displayed as a raw string.'`
+      - Output: `'	 is a tab is not displayed as a raw string'`
+        
     - ```python
       print('{!a} is displayed as an ASCII string'.format('Python is not 大蟒蛇.'))
       ```
       - Output: `'Python is not \u5927\u87d2\u86c7.' is displayed as an ASCII string.`
 
-  - **Note:** In Examples 2 and 3, `!r` keeps the quotation marks, while `!s` removes them. When using `!r` with complex objects, it calls `__repr__()`, which is a topic for later study.
+  - **Note:** The `print()` function works with escape characters like \t and \n. These characters are interpreted as special characters within the string.
 
 <h2 id='text'>Handling Text Files</h2>
 
