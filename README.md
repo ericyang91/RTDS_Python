@@ -384,7 +384,7 @@
    - Mutable types can be modified after creation, like lists and sets..
    - Immutable types cannot be changed after creation, like tuples.
 
-7. **How do you access the items, keys, and values of a dictionary?**
+- How do you access the items, keys, and values of a dictionary?
    - Items: `d.items()`
    - Keys: `d.keys()`
    - Values: `d.values()`
