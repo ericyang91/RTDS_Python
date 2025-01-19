@@ -537,22 +537,56 @@
         print(original) # Output: [10, 2], 3, 4
         print(copied) # Output: [10, 2], 22, 4
         ```
-  - `l.index('dahee')` - Finds the index of the first occurrence of `'dahee'`. Raises `ValueError` if not found.
+  - `l.index('dahee')` - Finds the index of the first occurrence of 'dahee'. Raises *ValueError* if not found.
   - `l.pop()` - Removes and returns the last element of the list.
-  - `l.pop(2)` - Removes and returns the element at index `2`.
+  - `l.pop(2)` - Removes and returns the element at index '2'.
   - `l.reverse()` - Reverses the order of elements in the list in place. Returns *None* if assigned to a variable.
       - In order to create a new reversed list without modifying the original, use `l2 = l[::-1]`
   - `l.sort()` - Sorts the *original* list in ascending order without creating a new list. Returns *None* if assigned to a variable. Use `l.sort(reverse=True)` for descending order. This method only works on lists.
   - `sorted(l)` - Creates a new list that is sorted in ascending order. This method works on other iterables such as tuples and sets. Always returns a new *list* even if applied on other iterables.
-  - `l1.extend(l2)` - Appends elements from `l2` to `l1`. Modifies the original list whereas concatenating two lists create a new list.
-  - `l.insert(5, 14)` - Inserts `14` at index `5`. Does not replace the value at the existing index. Modifies the existing list.
-  - `l.remove(5)` - Removes the first occurrence of `5` from the list.
-  - `l.count('a')` - Counts how many times `'a'` appears in the list.
+  - `l1.extend(l2)` - Appends elements from 'l2' to 'l1'. Modifies the original list whereas concatenating two lists create a new list.
+  - `l.insert(5, 14)` - Inserts '14' at index '5'. Does not replace the value at the existing index. Modifies the existing list.
+  - `l.remove(5)` - Removes the first occurrence of '5' from the list. Modifies the original list.
+  - `l.count('a')` - Counts how many times 'a' appears in the list.
 
 - **Nested or Embedded Lists:**
   - Can represent structured or two-dimensional data.
 
 ### Tuples
+
+- **Tuples** are *ordered* collections that cannot be modified (*immutable*).
+
+- **Counting Occurrences:**
+  - `t.count('e')` - Counts how many times 'e' appears in the tuple.
+
+- **Finding the Index of an Element:**
+  - `t.index('dahee')` - Finds the index of the first occurrence of `'dahee'`. Raises a `ValueError` if `'dahee'` is not present.
+
+- **Creating a Tuple:**
+  - `tuple(iterable)` - Converts an iterable into a tuple.
+  - `(a, b, c, d)` - Initializes a tuple with elements `a`, `b`, `c`, and `d`.
+  - `tuple(range(1, 4))` - Generates a tuple from a range object, resulting in `(1, 2, 3)`.
+
+- **Accessing Elements:**
+  - `t[n]` - Retrieves the element at index `n` in the tuple `t`.
+
+- **Slicing a Tuple:**
+  - `t[start:end:step]` - Extracts a slice from the tuple starting at index `start`, ending at `end`, and stepping by `step`.
+
+- **Concatenating Tuples:**
+  - `T1 + T2` - Combines `T1` and `T2` into a new tuple.
+  - **Note:** This operation does not modify `T1`. To keep the result, assign it to a new variable.
+
+- **Duplicating Tuples:**
+  - `T1 * 3` - Creates a new tuple with `T1` repeated three times, leaving the original tuple unchanged.
+
+- **Checking Membership:**
+  - `N in T1` - Returns `True` if `N` is in `T1`.
+
+- **Tuple Length:**
+  - `len(T1)` - Provides the number of elements in the tuple `T1`.
+
+
 ### Sets
 ### Dictionaries
 ### Comprehensions
