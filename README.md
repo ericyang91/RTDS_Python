@@ -400,6 +400,79 @@
 
 - How do you use `range()` to create a tuple?
     - Use: `tuple(range(10))` to create a tuple of numbers from 0 to 9.
+ 
+### Strings
+
+- **Strings** are sequences of characters that are *ordered* and *indexed*.
+- **Strings** are immutable, meaning that any *slicing*, *concatenating*, or *replacing* operations will create a new string and not modify the existing.
+- To convert other data types to a string, use the built-in `str()` function.
+
+- **Methods of the String Class**
+  - Note that string methods do not modify the original string; they return a new string with the changes.
+  - `s.capitalize()`: Capitalizes the first letter of the string and makes the rest lowercase.
+  - `s.casefold()`: Converts all characters to lowercase.
+  - `s.center(10)`: Centers the string within a space of 10 characters.
+  - `s.count('i')`: Counts the occurrences of 'i' in the string.
+  - `s.startswith('i')`: Returns `True` if the string starts with 'i'.
+  - `s.endswith('i')`: Returns `True` if the string ends with 'i'.
+  - `s.expandtabs(10)`: Sets tab size to 10 spaces.
+  - `s.find('i')`: Finds the first occurrence of 'i' and returns its index, or `-1` if not found.
+  - `s.index('i')`: Finds the first occurrence of 'i' and returns its index, or raises `ValueError` if not found.
+  - `s.isalnum()`: Returns `True` if all characters are alphanumeric.
+  - `s.isalpha()`: Returns `True` if all characters are alphabetic.
+  - `s.isdecimal()`: Returns `True` if all characters are decimal digits (no '.' allowed).
+  - `s.isdigit()`: Returns `True` if all characters are digits (includes Unicode digits).
+  - `s.isnumeric()`: Returns `True` if all characters are numeric (includes fractions and Roman numerals).
+  - `s.islower()`: Returns `True` if all characters are lowercase.
+  - `s.isupper()`: Returns `True` if all characters are uppercase.
+  - `s.isprintable()`: Returns `True` if all characters are printable.
+  - `s.isspace()`: Returns `True` if all characters are whitespace.
+  - `s.istitle()`: Returns `True` if the string is title-cased (first letter of each word is uppercase).
+  - `SEP.join(ITERABLE)`: Joins elements of an iterable with a separator. Each element must be a string.
+  - `s.lower()`: Converts the string to lowercase.
+  - `s.upper()`: Converts the string to uppercase.
+  - `s.lstrip()`, `s.rstrip()`, `s.strip()`: Remove whitespace from the left/right/both ends of the string.
+  - `s.split(SEP)`, `s.rsplit(SEP)`: Splits the string at the separator and returns a list of substrings.
+  - `s.partition(SUB)`, `s.rpartition(SUB)`: Splits the string into a tuple with three parts around the separator.
+  - `s.replace(s1, s2)`: Replaces occurrences of `s1` with `s2` in the string.
+  - `s.splitlines()`: Splits the string at line breaks and returns a list of lines.
+  - `s.title()`: Converts the first letter of each word to uppercase and the rest to lowercase.
+
+- **Built-in Functions and Operators**
+  - `+`: Concatenates strings.
+  - `*`: Repeats strings.
+  - `len(STRING)`: Returns the length of the string.
+  - `STRING[i:j]`: Slices the string from index `i` to `j`.
+
+- **Format Method**
+  - `s = "{0} is my wife and {1} is my daughter.".format('Lack Young', 'Dahee')`
+  - `{}` are placeholders or replacement fields.
+  - Example:
+    - `'X: {}; Y: {}'.format(3, 5)` results in `'X: 3; Y: 5'`.
+  - You can include conversion types with `!`, such as:
+    - `!r`: Converts value to a raw string.
+    - `!s`: Converts value to a regular string.
+    - `!a`: Converts value to an ASCII string.
+  - **Examples:**
+    - ```python
+      c = 23 - 35j
+      print('The complex number {0} has a real part {0.real} and an imaginary part {0.imag}.'.format(c))
+      ```
+      - Output: `'The complex number (23 -35j) has a real part 23.0 and an imaginary part -35.0.'`
+    - ```python
+      print('{!r} is displayed as a raw string'.format('\t is not tab, \n is not newline'))
+      ```
+      - Output: `'\t is not tab, \n is not newline' is displayed as a raw string.`
+    - ```python
+      print('{!s} is not displayed as a raw string'.format('\t is a tab, \n is a new line'))
+      ```
+      - Output: `'	 is a tab, \n is a new line is not displayed as a raw string.'`
+    - ```python
+      print('{!a} is displayed as an ASCII string'.format('Python is not 大蟒蛇.'))
+      ```
+      - Output: `'Python is not \u5927\u87d2\u86c7.' is displayed as an ASCII string.`
+
+  - **Note:** In Examples 2 and 3, `!r` keeps the quotation marks, while `!s` removes them. When using `!r` with complex objects, it calls `__repr__()`, which is a topic for later study.
 
 <h2 id='text'>Handling Text Files</h2>
 
