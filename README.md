@@ -617,11 +617,11 @@
 - **Copying a Set:**
   - `s1.copy()` - Creates and returns a copy of the set `s1`.
 
-- **Finding Differences:**
+- **Finding Differences and Returning a New Set:**
   - `s0.difference(s1, s2)` - Returns a new set containing elements in 's0' but not in 's1' or 's2'. *Returns a new set.*
 
-- **Updating Differences:**
-  - `s1.difference_update(s1)` - Updates `s1` by removing elements that are also present in `s1`. *Modifies the original set.*
+- **Updating Differences and Modifying the Original Set:**
+  - `s0.difference_update(s1, s2)` - Updates 's0' by removing elements that are also present in 's1' or 's2'. *Modifies the original set.*
 
 - **Removing an Element:**
   - `s1.discard('e')` - Removes the element `'e'` from the set `s1` if it exists.
