@@ -389,25 +389,16 @@
    - Keys: `d.keys()`
    - Values: `d.values()`
 
-8. **What methods and functions are available for working with strings?**
-   - Methods include: `.format()`, `.join()`, `.split()`, `.strip()`, `.replace()`, `.upper()`, `.lower()`, `.find()`. Details can be found [here](#strings).
+- What is an **iterator**?
+    - An iterator lets you loop through elements in an iterable like **lists**, **strings**, **tuples**, **sets**, or dictionaries. Use `iter(iterable)` to create an iterator and `next(iterator)` to get items. Python handles this automatically in loops.
 
-9. **What methods and functions are available for lists, tuples, sets, and dictionaries?**
-   - Lists: [lists](#lists)
-   - Tuples: [tuples](#tuples)
-   - Sets: [sets](#sets)
-   - Dictionaries: [dictionaries](#dictionaries)
-
-10. **What is an iterator?**
-    - An iterator lets you loop through elements in an iterable like lists, strings, or dictionaries. Use `iter(iterable)` to create an iterator and `next(iterator)` to get items. Python handles this automatically in loops.
-
-11. **What is a generator of iterables?**
+- What is a **generator** of iterables?
     - A generator is a type of iterable created using a function with `yield`. Generators are efficient because they produce items one at a time.
-
-12. **How do you use `range()` to make a list?**
+  
+- How do you use `range()` to make a list?
     - Use: `list(range(10))` to create a list of numbers from 0 to 9.
 
-13. **How do you use `range()` to create a tuple?**
+- How do you use `range()` to create a tuple?
     - Use: `tuple(range(10))` to create a tuple of numbers from 0 to 9.
 
 <h2 id='text'>Handling Text Files</h2>
