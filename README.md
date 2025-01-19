@@ -418,11 +418,11 @@
   - `s.expandtabs(10)`: Sets tab size to 10 spaces.
   - `s.find('i')`: Finds the first occurrence of 'i' and returns its index, or `-1` if not found.
   - `s.index('i')`: Finds the first occurrence of 'i' and returns its index, or raises `ValueError` if not found.
-  - `s.isalnum()`: Returns `True` if all characters are alphanumeric.
-  - `s.isalpha()`: Returns `True` if all characters are alphabetic.
-  - `s.isdecimal()`: Returns `True` if all characters are decimal digits (no '.' allowed).
-  - `s.isdigit()`: Returns `True` if all characters are digits (includes Unicode digits).
-  - `s.isnumeric()`: Returns `True` if all characters are numeric (includes fractions and Roman numerals).
+  - `s.isalnum()`: Returns `True` if all characters are alphanumeric. Space is not alphanumeric.
+  - `s.isalpha()`: Returns `True` if all characters are alphabetic. Space is not aphabetic.
+  - `s.isdecimal()`: Returns `True` if all characters are decimal digits (no decimals or hyphens allowed).
+  - `s.isdigit()`: Returns `True` if all characters are digits (includes Unicode digits not limited to the commonly used ASCII digits (0 to 9), but also include digits from various writing systems and cultures around the world).
+  - `s.isnumeric()`: Returns `True` if all characters are numeric (same as .isdigit() but broader and includes fractions and Roman numerals. Does not include decimals or hyphens.).
   - `s.islower()`: Returns `True` if all characters are lowercase.
   - `s.isupper()`: Returns `True` if all characters are uppercase.
   - `s.isprintable()`: Returns `True` if all characters are printable.
@@ -432,8 +432,20 @@
   - `s.lower()`: Converts the string to lowercase.
   - `s.upper()`: Converts the string to uppercase.
   - `s.lstrip()`, `s.rstrip()`, `s.strip()`: Remove whitespace from the left/right/both ends of the string.
-  - `s.split(SEP)`, `s.rsplit(SEP)`: Splits the string at the separator and returns a list of substrings.
-  - `s.partition(SUB)`, `s.rpartition(SUB)`: Splits the string into a tuple with three parts around the separator.
+  - `s.split(SEP)`, `s.rsplit(SEP)`: Splits the string at the separator and returns a list of substrings excluding the separator.
+      - ```python
+        my_str = 'hello world'
+        my_str.split('h') # Output: ['', 'ello world']
+        ```
+      - ```python
+        my_str = 'hello world'
+        my_str.split('l') # Output: ['he', '', 'o wor' 'd']
+        ```
+  - `s.partition(separator)`, `s.rpartition(separator)`: Splits the string into a tuple with three parts around the separator while preserving the separator.
+      - ```python
+        my_str = 'hello world'
+        my_str.partition(' ') # Output ('hello', ' ', 'world')
+        ```
   - `s.replace(s1, s2)`: Replaces occurrences of `s1` with `s2` in the string.
   - `s.splitlines()`: Splits the string at line breaks and returns a list of lines.
   - `s.title()`: Converts the first letter of each word to uppercase and the rest to lowercase.
