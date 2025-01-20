@@ -177,8 +177,8 @@
 
 </details>
 
-
-<h2 id='error'>Handle Errors and Exceptions</h2>
+<details>
+<summary><h2 id='error'>Handle Errors and Exceptions</h2></summary>
 
 - [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Exception%20Handling.ipynb)
 
@@ -370,6 +370,8 @@
         ```
 
 - The **assert** statement is a simple yet powerful tool for debugging and enforcing assumptions in your code. While it should not replace robust error handling in production, it is invaluable during development for catching errors early and verifying program logic.
+
+</details>
 
 <h2 id='seq'>Sequences, Sets, Dictionaries</h2>
 
