@@ -610,6 +610,7 @@
 
 - **Adding an Element:**
   - `s1.add(element)` - Adds `element` to the set `s1`. Modifies the original set.
+  - Note: `list.insert(INDEX, VALUE)`, `list.append(VALUE)`
 
 - **Clearing a Set:**
   - `s1.clear()` - Removes all elements from the set `s1`.
@@ -624,13 +625,48 @@
   - `s0.difference_update(s1, s2)` - Updates 's0' by removing elements that are also present in 's1' or 's2'. *Modifies the original set.*
 
 - **Removing an Element:**
-  - `s1.discard('e')` - Removes the element `'e'` from the set `s1` if it exists.
+  - `s1.discard('e')` - Removes the element 'e' from the set 's1' if it exists.
+  - Note: `list.remove('e')`
 
 - **Finding Intersections:**
   - `s0.intersection(s1)` - Returns a set containing elements that are common to both `s0` and `s1`.
 
 
 ### Dictionaries
+
+- A **dictionary** is an *ordered*, *mutable* collection of **key-value pairs** enclosed in curly brackets.
+- A **dictionary** *cannot have duplicate keys*.
+
+- **Creating a Dictionary:**
+  - `dict(**kwarg)` - Constructs a dictionary from *keyword arguments*.
+    - Example: `dict(a=1, b=2)`
+    - Note, in the case of keyword arguments, the keys must be valid identifiers, which means they do not need quotation marks. Valid identifiers are typically simple names like a, b, etc. For string values, they must always be enclosed in quotation marks.
+  - `dict(MAPPING, **kwarg)` - Constructs a dictionary from a mapping. Any additional keyword arguments are added to the dictionary.
+    - Example: `dict(zip(['a', 'b'], [1, 2]), c=3, d=4)`
+  - `{'a':1, 'b':2, 'c':3}`
+
+- **Accessing and Modifying Elements:**
+  - `list(dict)` - Returns a list of keys in the dictionary.
+  - `dict[key]` - Retrieves the value associated with 'key' in the dictionary. If the 'key' does not exist, it raises KeyError.
+      - Note, `dict.get(key, 'Second Argument') also retrieves the value associated with 'key', but does not raise KeyError if 'key' does not exist. Instead, it returns *None*, or the 'Second Argument' (For instance, 'Not Found').
+  - `dict[key] = value` - Assigns 'value' to the specified 'key'. Overwrites if the key already exists.
+  - `del dict[key]` - Removes the key-value pair associated with `key` from the dictionary.
+
+- **Checking for Existence and Length:**
+  - `k in dict` - Checks if 'dict' contains the key 'k'.
+  - `len(dict)` - Returns the number of key-value pairs in the dictionary.
+
+- **Dictionary Methods:**
+  - `dict.clear()` - Removes all elements from the dictionary.
+  - `dict.copy()` - Creates and returns a shallow copy of the dictionary.
+  - `dict.get(k, 'Second Argument')` - Returns the value for the specified key `k`. Returns 'Second Argument' if the key is not found.
+  - `dict.items()` - Returns an iterable view object of key-value pairs.
+  - `dict.keys()` - Returns an iterable view object of keys.
+  - `dict.values()` - Returns an iterable view object of values.
+  - `dict.pop(k)` - Removes and returns the value for the key 'k'.
+  - `dict.popitem()` - Removes and returns the key-value pair from the end of the dictionary.
+ 
+
 ### Comprehensions
 
 <h2 id='text'>Handling Text Files</h2>
