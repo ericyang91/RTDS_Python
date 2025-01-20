@@ -679,11 +679,21 @@
 - List, set, and dictionary comprehensions are compact and efficient ways to create these data structures in Python.
 - **List Comprehensions**
     - `[expression for item in iterable if condition]`
+    - ```python
+      [a * 2 for a in range(1, 11) if a % 2 == 0]
+      ```
 - **Set Comprehension**
     - `{expression for item in iterable if condition}`
+    - ```python
+      {x ** x for x in range(1, 11) if x > 5}
+      ```
 - **Dictionary Comprehension**
     - `{key_expression: value_expression for item in iterable if condition}`
-- 
+    - ```python
+      original_dic = {'apple':1, 'banana':2, 'cherry':3}
+
+      new_dic = {key.upper():value**2 for key, value in original_dic.items() if value >= 2}
+      ```
 
 <h2 id='text'>Handling Text Files</h2>
 
