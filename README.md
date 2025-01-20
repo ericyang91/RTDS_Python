@@ -14,7 +14,8 @@
 
 <h2 id ='building'>Essential Building Blocks of Computer Programs</h2>
 
-<h2 id='flow'>Flow Control of Statements</h2>
+<details>
+<summary><h2 id='flow'>Flow Control of Statements</h2></summary>
 
 - [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Flow%20Control%20of%20Statements.ipynb)
 
@@ -174,6 +175,7 @@
         print(f"{name} is {age} years old and {height}cm in height.")
   ```
 
+</details>
 
 
 <h2 id='error'>Handle Errors and Exceptions</h2>
