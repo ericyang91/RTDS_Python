@@ -16,6 +16,8 @@
 
 <h2 id='flow'>Flow Control of Statements</h2>
 
+- [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Flow%20Control%20of%20Statements.ipynb)
+
 ### Selective Statements
 
 - What are **selective statements**?
