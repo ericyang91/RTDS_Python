@@ -625,12 +625,18 @@
   - `s0.difference_update(s1, s2)` - Updates 's0' by removing elements that are also present in 's1' or 's2'. *Modifies the original set.*
 
 - **Removing an Element:**
-  - `s1.discard('e')` - Removes the element 'e' from the set 's1' if it exists.
+  - `s1.discard('e')` - Removes the element 'e' from the set 's1' if it exists. Does nothing if the element does not exist.
+  - `s1.remove('e') - Same, but raises KeyError if the element does not exist.
   - Note: `list.remove('e')`
 
 - **Finding Intersections:**
-  - `s0.intersection(s1)` - Returns a set containing elements that are common to both `s0` and `s1`.
+  - `s0.intersection(s1)` - Returns a new set containing elements that are common to both `s0` and `s1`.
 
+- **Finding Unions:**
+    - `s0.union(s1)` - Return a new set containing the union of sets, meaning all the unique elements in both s0 and s1.
+
+- **Updating a Set:**
+    - `s0.update(s1)`: Modifies s0 by adding members of s1.
 
 ### Dictionaries
 
@@ -665,9 +671,11 @@
   - `dict.values()` - Returns an iterable view object of values.
   - `dict.pop(k)` - Removes and returns the value for the key 'k'.
   - `dict.popitem()` - Removes and returns the key-value pair from the end of the dictionary.
+  - `dict.update(dict2)` - Update the dict with the key-value pairs in dict2. Modifies dict.
  
 
 ### Comprehensions
+
 
 <h2 id='text'>Handling Text Files</h2>
 
