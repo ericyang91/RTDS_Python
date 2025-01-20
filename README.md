@@ -697,6 +697,126 @@
 
 <h2 id='text'>Handling Text Files</h2>
 
+- **The `open()` Function**: Used to open a file for reading or writing. It returns a file object, commonly referred to as a file handle.
+    - Syntax: `open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)`
+    - The file to be opened can be a text file (`'t'`) or a binary file (`'b'`). For writing to a binary file, use `f = open("file_directory", "wb")`.
+
+- **File Modes:**
+  | Mode Function | Description |
+  | --- | --- |
+  | `r` | Open for reading only; file must exist. |
+  | `w` | Open for writing only; creates a new file or overwrites an existing one. |
+  | `r+` | Open for reading and writing; file must exist, does not automatically overwrite. The cursor pointer is set to the beginning of the file. Might need to shift the pointer to avoid overwriting. |
+  | `w+` | Open for writing and reading; creates or overwrites the file. |
+  | `a` | Open for appending; adds to the end without overwriting. File does not have to exist. |
+  | `a+` | Open for appending and reading; adds to the end without overwriting. |
+  | `x` | Create a new file for writing; raises an error if the file exists. |
+
+- **File Operations:**
+  - After opening a file, operations like read, write, and close are performed on the file handle.
+  - **Closing the File**:
+    - Use `f.close()` to close the file manually.
+    - Using a `with` statement automatically closes the file when done.
+    - Example with `with`:
+      ```python
+      with open("./file_directory.txt", "r") as f:
+          for line in f:
+              print(line)
+      ```
+    - Example without `with`:
+      ```python
+      f = open("./file_directory.txt", "r")
+      for line in f:
+          print(line)
+      f.close()
+      ```
+
+- **Optional Arguments:**
+  - **Buffering**: Controls the buffering policy. The default value is `-1`, meaning the default buffering policy.
+  - **Encoding**: Specifies the encoding for text files. Default is typically UTF-8.
+    ```python
+    with open('example_ignore.txt', 'w', encoding='ascii', errors='ignore') as file:
+        file.write('Some text with special characters: ñ, é, ü')
+    ```
+    - In this example, the special characters cannot be encoded using ASCII. However, errors are ignored. Therefore, these characters will be ignored and not written to the file.
+    ```python
+    with open('example_ignore.txt', 'w', encoding='ascii', errors='strict') as file:
+        file.write('Some text with special characters: ñ, é, ü')
+    ```
+    - This code will raise an error because the special characters cannot be encoded in ASCII.
+  - **Errors**: Specifies how encoding errors are handled. Options include 'ignore' or 'strict'.
+  - **Newline**: Controls how newlines are handled in text files. Options include `None`, `''`, `'\n'`, `'\r'`, and `'\r\n'`.
+
+- **Writing to Files**:
+  - `f.write()` writes a single string to the file. Buffering means changes may not appear immediately.
+    ```python
+    f.write(f'hello\n{3.14}')
+    ```
+  - `f.writelines(SEQUENCE)` writes multiple strings. Strings must include newline characters if desired.
+  - If you are writing a file without using the `with open()` statement, you must always use `f.flush()` to flush the new data. Otherwise, the new data will be kept in an internal buffer.
+    - In practice, `f.flush()` is unnecessary if you are closing the file immediately after writing, as f.close() will automatically flush the buffer and ensure all data is written to disk. This means that if you use `with open()` statement that automatically closes the file at the end of the code block, `f.flush()` is unnecessary.
+  - Both `f.write()` and `f.writelines()` do not automatically write on new lines! Include the \n newline character if you want to write on a new line.
+    - For instance, if you want to write `f.writelines(['TEDA INTERNATIONAL SCHOOL', 'CHOIR TEAM', JOY GIVES US WINGS'])` on separate lines, you would write `f.writelines(['TEDA INTERNATIONAL SCHOOL\n', 'CHOIR TEAM\n', 'JOY GIVES US WINGS\n'])`. The f.writelines() will interpret `\n` to mean newlines.
+  - Example: Practice creating a multiplication table.
+
+- **Reading from Files**:
+  - `f.read(SIZE)` reads the entire file or a specified number of bytes.
+  - `f.readline(SIZE)` reads one line, optionally with a size limit.
+    ```python
+    with open('directory', 'r') as f:
+        for line in f:
+            print(line, end='') # Default for end is end = '\n'. This may give an additional unnecessary blank line between the two lines. end = '' prevents that.
+    ```
+    ```python
+    f = open('directory', 'r')
+    try:
+        while True:
+            line = next(f)
+            print(line, end='')
+    except StopIteration:
+        f.close()
+    ```
+  - `f.readlines(SIZEHINT)` reads multiple lines into a list, with a size hint.
+  - `f.tell()` returns the current position of the file pointer, representing the number of bytes from the beginning. In simple English text, it is safe to assume that 1 byte = 1 character.
+  - `f.seek(OFFSET, START)` moves the file pointer by `OFFSET` from `START`.
+    - START values:
+      - 0: Absolute file start. OFFSET is applied from the beginning of the file.
+      - 1: Current file position. OFFSET is applied relative to the current file pointer position.
+      - 2: End of file. OFFSET is applied relative to the end of the file.
+      - However, this relative move of the pointers is available only in 'br', or binary read methods! You can only do absolute moves from the beginning of the file. For instance, f.seek(5) will move the cursor to the 5th byte from the beginning of the file. It will not move 5 bytes forward from the current point.
+
+- **Updating Existing Content**:
+  - You can open the file in 'a' mode to amend. The cursor will begin at the end of the existing file to ensure no data is overwritten.
+  - OR:
+    1. Open the file in `r+` mode.
+    2. Determine the position with `f.tell()`.
+    3. Move the pointer with `f.seek(offset, start)`.
+    4. Write new content, which will replace old content. Be cautious of overwriting if new content is longer or shorter.
+
+- **Deleting a Portion of a Text File**:
+  - Deleting text or a portion of text from a file in Python requires you to read the file's content, modify it as needed (e.g., by removing the portion you want to delete), and then rewrite the file with the updated content. Python doesn't have a built-in method to directly delete text from a file without rewriting it.
+  - Here's a general approach to deleting a portion of the text:
+    1. Open the file in read mode and read its content.
+    2. Modify the content by removing the desired portion.
+    3. Open the file in write mode (this will clear the file) and write the updated content back to it.
+  - ```python
+      # Define the portion of the text you want to delete
+      text_to_delete = "Joy"
+
+      # Read the content of the file
+      with open("Joy Gives Us Wings.txt", 'r') as file:
+          content = file.read()
+
+      # Remove the portion of the text
+      updated_content = content.replace(text_to_delete, "")
+
+      # Write the updated content back to the file
+      with open("Joy Gives Us Wings.txt", 'w') as file:
+          file.write(updated_content)
+    ```
+
+  - Refer to the specific handling procedures on page 286.
+
 <h2 id='functions'>Define and Use Functions</h2>
 
 <h2 id='oop'>Object-Oriented Programming</h2>
