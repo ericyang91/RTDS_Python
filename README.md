@@ -676,6 +676,14 @@
 
 ### Comprehensions
 
+- List, set, and dictionary comprehensions are compact and efficient ways to create these data structures in Python.
+- **List Comprehensions**
+    - `[expression for item in iterable if condition]`
+- **Set Comprehension**
+    - `{expression for item in iterable if condition}`
+- **Dictionary Comprehension**
+    - `{key_expression: value_expression for item in iterable if condition}`
+- 
 
 <h2 id='text'>Handling Text Files</h2>
 
