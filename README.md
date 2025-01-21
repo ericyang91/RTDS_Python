@@ -738,9 +738,11 @@
 
 - **File Operations:**
   - After opening a file, operations like read, write, and close are performed on the file handle.
+
 - **Closing the File**:
     - Use `f.close()` to close the file manually.
     - This is needed to prevent data loss. Some data might be temporarily stored in a buffer to improve performance. `f.close()` flushes, or writes the buffered data to disk.
+        - When writing to a file, Python may temporarily hold the data in memory (the buffer) to improve performance. This means that changes may not be immediately reflected in the file until the buffer is flushed (e.g., via f.close() or using the with statement.
     - Using a `with` statement *automatically closes* the file when done.
     - Example with `with`:
       ```python
@@ -753,13 +755,18 @@
       f.write('Hello World!')
       f.close()
       ```
-
+      
 - **Writing to Files**:
   - `f.write()` writes a single string to the file. Buffering means changes may not appear immediately.
     ```python
-    f.write(f'hello\n{3.14}')
+    f.write(f'hello\nworld')
     ```
   - `f.writelines(SEQUENCE)` writes multiple strings. Strings must include newline characters if desired.
+      - Argument passed into the function must be an iterable like a list or tuple that contains strings.
+      - ```python
+        with open('file_directory.txt', 'w', encoding='UTF-8') as w:
+            w.writelines(['hello\n', 'world'])
+        ```
   - If you are writing a file without using the `with open()` statement, you must always use `f.flush()` to flush the new data. Otherwise, the new data will be kept in an internal buffer.
     - In practice, `f.flush()` is unnecessary if you are closing the file immediately after writing, as f.close() will automatically flush the buffer and ensure all data is written to disk. This means that if you use `with open()` statement that automatically closes the file at the end of the code block, `f.flush()` is unnecessary.
   - Both `f.write()` and `f.writelines()` do not automatically write on new lines! Include the \n newline character if you want to write on a new line.
@@ -767,8 +774,8 @@
   - Example: Practice creating a multiplication table.
 
 - **Reading from Files**:
-  - `f.read(SIZE)` reads the entire file or a specified number of bytes.
-  - `f.readline(SIZE)` reads one line, optionally with a size limit.
+  - `f.read(SIZE)` reads the entire file or a specified number of character and returns string.
+  - `f.readline(SIZE)` reads one line, optionally with a size limit. It stops when it encounters a newline character (\n) or when the specified size is reached, whichever comes first. Returns string.
     ```python
     with open('directory', 'r') as f:
         for line in f:
@@ -783,7 +790,7 @@
     except StopIteration:
         f.close()
     ```
-  - `f.readlines(SIZEHINT)` reads multiple lines into a list, with a size hint.
+  - `f.readlines(SIZEHINT)` reads multiple lines into a list, with a size hint. Returns a list of strings. Each string represents one line from the text.
   - `f.tell()` returns the current position of the file pointer, representing the number of bytes from the beginning. In simple English text, it is safe to assume that 1 byte = 1 character.
   - `f.seek(OFFSET, START)` moves the file pointer by `OFFSET` from `START`.
     - START values:
