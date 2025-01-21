@@ -774,7 +774,7 @@
   - Example: Practice creating a multiplication table.
 
 - **Reading from Files**:
-  - `f.read(SIZE)` reads the entire file or a specified number of character and returns string.
+  - `f.read(SIZE)` reads the entire file or a specified number of character in a string.
   - `f.readline(SIZE)` reads one line, optionally with a size limit. It stops when it encounters a newline character (\n) or when the specified size is reached, whichever comes first. Returns string.
     ```python
     with open('directory', 'r') as f:
@@ -791,18 +791,25 @@
         f.close()
     ```
   - `f.readlines(SIZEHINT)` reads multiple lines into a list, with a size hint. Returns a list of strings. Each string represents one line from the text.
-  - `f.tell()` returns the current position of the file pointer, representing the number of bytes from the beginning. In simple English text, it is safe to assume that 1 byte = 1 character.
-  - `f.seek(OFFSET, START)` moves the file pointer by `OFFSET` from `START`.
+  - `f.tell()` returns the current position of the file pointer, representing the number of bytes from the beginning. In simple English text, it is safe to assume that 1 byte = 1 character. However, do not use `f.tell()` with `f.readlines(SIZEHINT)` as it will raise OSError. Instead, use it without the SIZEHINT argument.
+      - ```python
+        with open('Texts/Attack on Titans.txt', 'r+, encoding='UTF-8') as r:
+            r.readlines()
+            print(r.tell()) # Output 70,900
+        ```
+  - `f.seek(OFFSET, START)` moves the file pointer by 'OFFSET' from 'START'. If 'OFFSET' is positive, it moves the pointer forward. If 'OFFSET' is negative, it moves the pointer backward.
     - START values:
       - 0: Absolute file start. OFFSET is applied from the beginning of the file.
       - 1: Current file position. OFFSET is applied relative to the current file pointer position.
       - 2: End of file. OFFSET is applied relative to the end of the file.
-      - However, this relative move of the pointers is available only in 'br', or binary read methods! You can only do absolute moves from the beginning of the file. For instance, f.seek(5) will move the cursor to the 5th byte from the beginning of the file. It will not move 5 bytes forward from the current point.
+    - In binary mode such as 'rb' and 'wb', all  three operations are allowed. However, in text mode such as 'r' and 'w', only absolute moves (START=0) are allowed. Relative moves (START=1) is somewhat supported, but OFFSET must be 0. Moves from the end (START=2) is not allowed.
+        - Allowed: `seek(OFFSET,0)`, `seek(0,1)` `seek(0,2)`
+        - Not Allowed: `seek(OFFSET, 1)`, `seek(OFFSET, 2)` when OFFSET != 0
 
 - **Updating Existing Content**:
   - You can open the file in 'a' mode to amend. The cursor will begin at the end of the existing file to ensure no data is overwritten.
   - OR:
-    1. Open the file in `r+` mode.
+    1. Open the file in 'r+' mode.
     2. Determine the position with `f.tell()`.
     3. Move the pointer with `f.seek(offset, start)`.
     4. Write new content, which will replace old content. Be cautious of overwriting if new content is longer or shorter.
@@ -832,6 +839,138 @@
   - Refer to the specific handling procedures on page 286.
 
 <h2 id='functions'>Define and Use Functions</h2>
+
+### Basics of Functions
+
+1. What are functions?
+    - A function is a block of code that can be reused to perform specific tasks.
+    - It is composed of the function name and the parameters, into which arguments are passed.
+2. Why are functions important in programming and software development?
+    - Functions are reusable! It can help programmers solve problems by breaking them down into manageable pieces. It also makes the code easier to read and maintain. It also makes debugging easier because it can be tested individually.
+3. What role does the return statement play in functions?
+    - The `return` statement is used to send a result back from a function to the caller. It also helps control flow by exiting the function as soon as the `return` statement is executed.
+4. How do you return multiple values from a function?
+    - Put the values after the `return` statement in a compound datatype such as lists, tuples, sets, etc. or you can put all the values behind the statement.
+    - `return a, b, c`. The values are automatically packed in a tuple.
+5. What are positional arguments in a function definition?
+    - Positional arguments are the arguments passed to their respective parameters in accordance with their positions. That is, the first parameter in a function call is passed to the first argument in the definition of the function, etc.
+    - Definition: `function(a,b,c)`
+    - Call: `function(1,2,3)`
+6. What are keyword arguments in a function definition? What advantages do they offer?
+    - A parameter name, such as x, can be used as a keyword to explicitly indicate that a specific value, such as v, will be passed to x. This is done using x = v.
+    - Definition: `function(a, b, c)`
+    - Call: `function(b = 2, a = 1, c = 3)`
+        - Advantage: not restrained to the order of arguments
+    - *You cannot pass positional arguments AFTER keyword arguments!*
+        SyntaxError:
+            - Definition: `function(a,b,c)`
+            - Call: `function(b = 2, 1, 3)` NOT ALLOWED and will result in SYNTAXERROR
+    - *Also, in a function definition, parameters expected to be used as keywords must be placed behind those expecting positional arguments. An error will occur otherwise.*
+    - Default Value:
+        - When a parameter in a function definition has a default value, the argument for the parameter can be omitted if the default value is to be used.
+        - ```python
+            def powerof(x, y=2):
+                return '{x} power of {y} is {x ** y}'
+            ```
+        - In the example above, if we omit passing the y value, the function defaults to y = 2, and calculates the square of x.
+
+
+
+
+
+        
+7. What are variable-length lists of arguments? What advantages do they offer?
+    - Variable-length nonkeyword argument:
+        - ```python
+            def productof(*args): # Creates a tuple of arguments
+                product = 1
+                for i in args: # Iterates over the tuple
+                    product *= i
+                return product
+           ```
+        - An example of the call of the function above: `productof(5, 2, 10)`
+    - Variable-length keyword argument:
+        - ```python
+            def staffreport(**kwargs): # The keyword parameter and argument pairs are stored in a dictionary!
+                for k, v in kwargs.items():
+                    print(f'{k} = {v}')
+            ```
+        - An example of the call of the function above: `staffreport(Name='Eric', 'Age'= 32)
+    - Advantages:
+        - You can pass a tuple straight into the variable-length nonkeyword argument!
+        - You can pass a dictionary straight into the variable-length keyword argument!
+        - *args and **kwargs: These provide flexibility because they allow for variable-length arguments. You can call the function with zero, some, or many arguments without changing the function definition.
+        - Tuples/Dictionaries: When using these, you must ensure they match the function’s parameters. Missing or extra values will cause errors unless defaults are provided.
+             
+
+
+
+
+8. How do we call a function with positional arguments only?
+    - ```python
+        def function(a,b,c):
+            return f'a = {a}, b = {b}, c = {c}'
+        ```
+    - `function(2, 5, 10)`
+9. How do we correctly call functions with keyword arguments?
+    - ```python
+        def function(a, b, c=3):
+            return a, b, c
+        ```
+    - `function(b=2, a=1)`
+
+
+
+10. How do we correctly call functions with a variable-length list of arguments?
+    - ```python
+        def function(*args): # Creates a tuple of arguments
+            return sum(args)
+        ```
+    - `function(1,2,3,4,5)`
+
+
+11. How do we call functions with both positional arguments and keyword arguments?
+    - No matter when defining or calling, always place keyword arguments AFTER positional arguments.
+    - ```python
+        def function(a, b, c, d = 4):
+            return a, b, c, d
+        ```
+    - `function(3, 10, 5, d=3)` OR
+    - `funciton(3, 10, 5, 3)`
+
+12. How do we call functions with both positional arguments and a variable-length list of arguments?
+    - Always specify the positional arguments FIRST before the variable-length list of arguments.
+    - ```python
+        def function(a, b, c, *args):
+            return a, b, c, args
+        ```
+    - `function('Eric', 32, 'Toronto', 'Financial Advisor', 'Data Scientist')`
+13. How do we call functions with both a variable-length list of arguments and keyword arguments?
+    - Make sure *args is specified before **kwargs.
+    - ```python
+        def function(*args, **kwargs):
+            return args, kwargs
+        ```
+    - `function('Eric', 'Data Scientist', age=32, city='Toronto')
+14. How do we call functions with all three types of arguments?
+    - This is the correct order:
+        - 1. Positional arguments
+        - 2. *args
+        - 3. Keyword arguments (with default values)
+        - 4. **kwargs
+
+
+
+
+15. What are recursive functions?
+    - A function is recursive if it calls itself either directly or indirectly. Recursion is a powerful concept in computing and computational theory. In computational theory, it has been proven that any problem computable by modern computers can be represented as a recursive function. In programming, recursive functions do not make your programs run fast. However, they do provide a powerful means of algorithm design to solve a problem and make neater program code.
+16. How do you define recursive functions?
+    -   ```python
+        def recursive(n):
+            base case
+            recursive case
+        ```
+        
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
