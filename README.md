@@ -703,39 +703,21 @@
 
 <h2 id='text'>Handling Text Files</h2>
 
-- **The `open()` Function**: Used to open a file for reading or writing. It returns a file object, commonly referred to as a file handle.
+- **The `open()` function**: Used to open a file for reading or writing. It returns a file object, commonly referred to as a file handle, that allows interaction with the file's content.
     - Syntax: `open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)`
-    - The file to be opened can be a text file (`'t'`) or a binary file (`'b'`). For writing to a binary file, use `f = open("file_directory", "wb")`.
+    - The file to be opened can be a text file ('t') or a binary file ('b'). For example, for writing to a binary file, use `f = open("file_directory", "wb")`.
 
 - **File Modes:**
   | Mode Function | Description |
   | --- | --- |
-  | `r` | Open for reading only; file must exist. |
+  | `r` | Open for reading only; file must exist. Otherwise, raises FileNotFoundError |
   | `w` | Open for writing only; creates a new file or overwrites an existing one. |
   | `r+` | Open for reading and writing; file must exist, does not automatically overwrite. The cursor pointer is set to the beginning of the file. Might need to shift the pointer to avoid overwriting. |
   | `w+` | Open for writing and reading; creates or overwrites the file. |
   | `a` | Open for appending; adds to the end without overwriting. File does not have to exist. |
   | `a+` | Open for appending and reading; adds to the end without overwriting. |
-  | `x` | Create a new file for writing; raises an error if the file exists. |
+  | `x` | Create a new file for writing; raises FileExistsError if the file exists. |
 
-- **File Operations:**
-  - After opening a file, operations like read, write, and close are performed on the file handle.
-  - **Closing the File**:
-    - Use `f.close()` to close the file manually.
-    - Using a `with` statement automatically closes the file when done.
-    - Example with `with`:
-      ```python
-      with open("./file_directory.txt", "r") as f:
-          for line in f:
-              print(line)
-      ```
-    - Example without `with`:
-      ```python
-      f = open("./file_directory.txt", "r")
-      for line in f:
-          print(line)
-      f.close()
-      ```
 
 - **Optional Arguments:**
   - **Buffering**: Controls the buffering policy. The default value is `-1`, meaning the default buffering policy.
@@ -749,9 +731,28 @@
     with open('example_ignore.txt', 'w', encoding='ascii', errors='strict') as file:
         file.write('Some text with special characters: ñ, é, ü')
     ```
-    - This code will raise an error because the special characters cannot be encoded in ASCII.
+    - This code will raise UnicodeEncodeError because the special characters cannot be encoded in ASCII.
   - **Errors**: Specifies how encoding errors are handled. Options include 'ignore' or 'strict'.
   - **Newline**: Controls how newlines are handled in text files. Options include `None`, `''`, `'\n'`, `'\r'`, and `'\r\n'`.
+
+
+- **File Operations:**
+  - After opening a file, operations like read, write, and close are performed on the file handle.
+- **Closing the File**:
+    - Use `f.close()` to close the file manually.
+    - This is needed to prevent data loss. Some data might be temporarily stored in a buffer to improve performance. `f.close()` flushes, or writes the buffered data to disk.
+    - Using a `with` statement *automatically closes* the file when done.
+    - Example with `with`:
+      ```python
+      with open("file_directory.txt", "w") as f:
+          f.write('Hello World!')
+      ```
+    - Example without `with`:
+      ```python
+      f = open("file_directory.txt", "w")
+      f.write('Hello World!')
+      f.close()
+      ```
 
 - **Writing to Files**:
   - `f.write()` writes a single string to the file. Buffering means changes may not appear immediately.
