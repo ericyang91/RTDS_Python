@@ -445,7 +445,7 @@
   - `s.lower()`: Converts the string to lowercase.
   - `s.upper()`: Converts the string to uppercase.
   - `s.lstrip()`, `s.rstrip()`, `s.strip()`: Remove whitespace from the left/right/both ends of the string.
-  - `s.split(SEP)`, `s.rsplit(SEP)`: Splits the string at the separator and returns a list of substrings excluding the separator. Unlike `s.partition(separator)`, it divides at every separator unless maxsplit=n.
+  - `s.split(SEP)`, `s.rsplit(SEP)`: Splits the string at the separator and returns a list of substrings excluding the separator. Unlike `s.partition(separator)`, it divides at every separator unless maxsplit=n. If the delimiter is at the start of end of a string, the function will return '' along with the other splitted parts.
       - ```python
         my_str = 'hello world'
         my_str.split('h') # Output: ['', 'ello world']
@@ -454,7 +454,7 @@
         my_str = 'hello world'
         my_str.split('l') # Output: ['he', '', 'o wor' 'd']
         ```
-  - `s.partition(separator)`, `s.rpartition(separator)`: Splits the string into a tuple with three parts around the FIRST (or last in the case of `s.rpartition(separator)` separator while preserving the separator.
+  - `s.partition(separator)`, `s.rpartition(separator)`: Splits the string into a tuple with three parts around the FIRST (or last in the case of `s.rpartition(separator)` separator while preserving the separator. If the delimiter is at the start of end of a string, the function will return '' along with the other splitted parts.
       - ```python
         my_str = 'hello world'
         my_str.partition(' ') # Output ('hello', ' ', 'world')
