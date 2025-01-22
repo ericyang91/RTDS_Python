@@ -445,7 +445,7 @@
   - `s.lower()`: Converts the string to lowercase.
   - `s.upper()`: Converts the string to uppercase.
   - `s.lstrip()`, `s.rstrip()`, `s.strip()`: Remove whitespace from the left/right/both ends of the string.
-  - `s.split(SEP)`, `s.rsplit(SEP)`: Splits the string at the separator and returns a list of substrings excluding the separator.
+  - `s.split(SEP)`, `s.rsplit(SEP)`: Splits the string at the separator and returns a list of substrings excluding the separator. Unlike `s.partition(separator)`, it divides at every separator unless maxsplit=n.
       - ```python
         my_str = 'hello world'
         my_str.split('h') # Output: ['', 'ello world']
