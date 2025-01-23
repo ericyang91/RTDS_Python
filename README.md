@@ -444,7 +444,7 @@
   - `SEP.join(ITERABLE)`: Joins elements of an iterable with a separator. Each element must be a string.
   - `s.lower()`: Converts the string to lowercase.
   - `s.upper()`: Converts the string to uppercase.
-  - `s.lstrip()`, `s.rstrip()`, `s.strip()`: Remove whitespace from the left/right/both ends of the string.
+  - `s.lstrip()`, `s.rstrip()`, `s.strip()`: Remove whitespace from the left/right/both ends of the string. When called without any arguments, removes all leading and trailing whitespace characters, no matter how many there are. This includes spaces, tabs (\t), and newlines (\n).
   - `s.split(SEP)`, `s.rsplit(SEP)`: Splits the string at the separator and returns a list of substrings excluding the separator. Unlike `s.partition(separator)`, it divides at every separator unless maxsplit=n. If the delimiter is at the start of end of a string, the function will return '' along with the other splitted parts.
       - ```python
         my_str = 'hello world'
