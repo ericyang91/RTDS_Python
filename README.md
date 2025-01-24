@@ -784,6 +784,12 @@
         - `The os.path.join()` function in Python is part of the os.path module, which provides utilities for dealing with file and directory paths in a way that is portable across different operating systems. It helps you create file paths by joining one or more path components. The key benefit is that it automatically handles the different path separators (/ on Unix-like systems like Linux and macOS, \ on Windows), so you don’t need to worry about platform-specific issues.
         - path: The first component of the path
         - paths: Additional components to join. Can be multiple
+        - ```python
+          import os
+
+          path = os.path.join("home", "user", "documents", "file.txt")
+          print(path)
+          ```
 
 - **Closing the File**:
     - Use `f.close()` to close the file manually.
