@@ -374,7 +374,8 @@
 
 </details>
 
-<h2 id='seq'>Sequences, Sets, Dictionaries</h2>
+<details>
+<summary><h2 id='seq'>Sequences, Sets, Dictionaries</h2></summary>
 
 ### Basics of Sequences, Sets, Dictionaries
 
@@ -701,6 +702,7 @@
 
       new_dic = {key.upper():value**2 for key, value in original_dic.items() if value >= 2}
       ```
+</details>
 
 <h2 id='algo'>Algorithms</h2>
 
