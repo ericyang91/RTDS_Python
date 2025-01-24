@@ -6,6 +6,7 @@
 - [Flow Control of Statements](#flow)
 - [Handle Errors and Exceptions](#error)
 - [Sequences, Sets, Dictionaries](#seq)
+- [Algorithms](#algo)
 - [Handling Text Files](#text)
 - [Define and Use Functions](#functions)
 - [Object-Oriented Programming (OOP)](#oop)
@@ -700,6 +701,43 @@
 
       new_dic = {key.upper():value**2 for key, value in original_dic.items() if value >= 2}
       ```
+
+<h2 id='algo'>Algorithms</h2>
+
+- **Sorting Algorithms**:
+- **Insert sort**
+    - ```python
+      def insertion_sort(number_lst):
+        """
+        Perform insertion sort on the input list.
+    
+        This algorithm builds the sorted portion of the list incrementally by taking one element 
+        from the unsorted portion and inserting it into its correct position within the sorted portion.
+    
+        Parameters:
+            number_lst (list): The list of numbers to be sorted.
+    
+        Returns:
+            list: The sorted list in ascending order.
+        """
+        n = len(number_lst)  # Get the length of the list.
+
+        # Loop through the list starting from the second element (index 1).
+        for i in range(1, n):
+            holder = number_lst[i]  # Store the current element to be inserted.
+            j = i - 1  # Start comparing from the last element of the sorted portion.
+    
+            # Shift elements of the sorted portion that are greater than 'holder' to the right.
+            while j >= 0 and number_lst[j] > holder:
+                number_lst[j + 1] = number_lst[j]  # Move the larger element one position to the right.
+                j -= 1  # Move to the previous element in the sorted portion.
+    
+            # Insert 'holder' into its correct position in the sorted portion.
+            number_lst[j + 1] = holder
+    
+        return number_lst  # Return the fully sorted list.
+      ```
+
 
 <h2 id='text'>Handling Text Files</h2>
 
