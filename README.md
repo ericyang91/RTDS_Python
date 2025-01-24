@@ -778,6 +778,12 @@
 
 - **File Operations:**
   - After opening a file, operations like read, write, and close are performed on the file handle.
+ 
+- **File Path**:
+    - `os.path.join(path, paths)`
+        - `The os.path.join()` function in Python is part of the os.path module, which provides utilities for dealing with file and directory paths in a way that is portable across different operating systems. It helps you create file paths by joining one or more path components. The key benefit is that it automatically handles the different path separators (/ on Unix-like systems like Linux and macOS, \ on Windows), so you don’t need to worry about platform-specific issues.
+        - path: The first component of the path
+        - paths: Additional components to join. Can be multiple
 
 - **Closing the File**:
     - Use `f.close()` to close the file manually.
