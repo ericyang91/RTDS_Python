@@ -890,7 +890,8 @@
 
   - Refer to the specific handling procedures on page 286.
 
-<h2 id='functions'>Define and Use Functions</h2>
+<details>
+<summary><h2 id='functions'>Define and Use Functions</h2></summary>
 
 ### Basics of Functions
 
@@ -1022,7 +1023,7 @@
             base case
             recursive case
         ```
-        
+</details>        
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
