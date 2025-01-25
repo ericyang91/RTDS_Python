@@ -1049,6 +1049,7 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
   - Sometimes, especially when the operations of the function are simple and used only once, it is more convenient to simply use a small code block as a function without defining a function with a name.
   - `lambda <formal argument list> : <expression whose value is to be returned>`
   - A formal argument list is a list of variables separated by commas but without surrounding parentheses, and everything behind the colon takes the role of the code block in the regular function definition. But it must be a single expression whose value is to be returned by the lambda function without a keyword return.
+
 - **Sample Usage:**
   - ```python
       lambda n: 2 * n + 1
@@ -1067,15 +1068,59 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
       - ```python
           (lambda *x: sum(x) * 5)(1,2,3)
         ```
-        - Note *x takes in multiple args just like *arg.
+        - Note *x takes in multiple args just like *args.
+
 - **Naming:**
   - lambda_name = lambda x: x + 5
   - `lambda_name(5)`
   - ```python
-      - is_multiple = lambda x, y: x % y == 0
+      is_multiple = lambda x, y: x % y == 0
     ```
     - Checks if x is a multiple of y.
 
+
+### Mapping, Filtering, Reducing
+
+- In Python, **mapping**, **filtering**, and **reducing** are functional programming concepts used for transforming or processing collections of data like lists or tuples. These concepts are typically implemented using the built-in functions map(), filter(), and reduce() (from functools).
+  
+- Python treats everything as objects, including functions!
+    - `f_objects = [len, abs, sum]`
+    - `f_objects[0]`
+    - `f_objects[0](f_objects)`
+        - This returns 3!
+- Python has three special built-in functions that can take other functions as arguments and apply them to a list!
+- **Mapping:**
+    - ```python
+        integers = [-1, -2, -3]
+        tuple(map(abs, integers))
+        ```
+    - Above returns (1, 2, 3)
+    - ```python
+        list(map(lambda x: x + 2, range(10)))
+        ```
+    - Above returns [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+- **Filtering:**
+    - The filtering function takes the same form as the mapping function but is used to extract items from the iterable that satisfy the *Boolean* filtering condition at hand.
+    - ```python
+        def even(n):
+            return n % 2 == 0 # Returns True or False boolean value.
+        ```
+    - `list(filter(even, range(10)))`
+        - This returns [0, 2, 4, 6, 8]
+        - This can be rewritten as:
+            - `list(filter(lambda n: n % 2 == 0, range(10)))`
+    - ```python
+            st = "The filter function may play an important role in selecting words from a given text. In the following example, only words that contain the letter o are selected"
+            contain_o = list(filter(lambda s: 'o' in s, st.split()))
+            print(contain_o)
+        ```
+        - Note that only the words that include the letter 'o' are selected.
+- **Reducing:**
+    - The reduce function from the functools module in Python is used to apply a function to a sequence of elements cumulatively, from left to right, so that the sequence is reduced to a single value. The reduce function applies the provided function to the first two elements of the iterable, and then applies the result to the next value in the iterable.
+    - ```python
+        from functools import reduce
+        reduce(lambda n, m: n**m, range(2, 6))
+        ```
 
 </details>        
 
