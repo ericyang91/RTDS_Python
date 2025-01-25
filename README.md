@@ -654,8 +654,7 @@
 - **Creating a Dictionary:**
   - `dict(**kwarg)` - Constructs a dictionary from *keyword arguments*.
     - Example: `dict(a=1, b=2)`
-    - Note, in the case of keyword arguments, the keys must be valid identifiers, which means they do not need quotation marks. Valid identifiers are typically simple names like a, b, etc. For string values, they must always be enclosed in quotation marks.
-  - `dict(MAPPING, **kwarg)` - Constructs a dictionary from a mapping. Any additional keyword arguments are added to the dictionary.
+    - Note, in the case of keyword arguments, the keys must be valid identifiers, which means they do not need quotation marks. Valid identifiers are typically simple names like a, b, etc.
     - Example: `dict(zip(['a', 'b'], [1, 2]), c=3, d=4)`
   - `{'a':1, 'b':2, 'c':3}`
 
