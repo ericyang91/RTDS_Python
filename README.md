@@ -707,7 +707,7 @@
 <h2 id='algo'>Algorithms</h2>
 
 - **Sorting Algorithms**:
-- **Insert sort**
+- **Insertion sort**
     - ```python
       def insertion_sort(number_lst):
         """
