@@ -919,7 +919,7 @@
             - Definition: `function(a,b,c)`
             - Call: `function(b = 2, 1, 3)` NOT ALLOWED and will result in SYNTAXERROR
     - *Also, in a function definition, parameters expected to be used as keywords must be placed behind those expecting positional arguments. An error will occur otherwise.*
-    - Default Value:
+    - **Default Value**:
         - When a parameter in a function definition has a default value, the argument for the parameter can be omitted if the default value is to be used.
         - Note, all default parameters are treated as keyword arguments. This means when defining a function, default parameters must be placed AFTER positional arguments.
         - ```python
@@ -928,8 +928,9 @@
             ```
         - In the example above, if we omit passing the y value, the function defaults to y = 2, and calculates the square of x.
         
-7. What are variable-length lists of arguments? What advantages do they offer?
-    - Variable-length nonkeyword argument:
+7. What are **variable-length lists of arguments**? What advantages do they offer?
+   
+    - **Variable-length non-keyword argument**:
         - ```python
             def productof(*args): # Creates a tuple of arguments
                 product = 1
@@ -938,27 +939,30 @@
                 return product
            ```
         - An example of the call of the function above: `productof(5, 2, 10)`
-    - Variable-length keyword argument:
+          
+    - **Variable-length keyword argument**:
         - ```python
             def staffreport(**kwargs): # The keyword parameter and argument pairs are stored in a dictionary!
                 for k, v in kwargs.items():
                     print(f'{k} = {v}')
             ```
         - An example of the call of the function above: `staffreport(Name='Eric', 'Age'= 32)
+          
     - Advantages:
-        - You can pass a tuple straight into the variable-length nonkeyword argument!
+        - You can pass a tuple straight into the variable-length non-keyword argument!
         - You can pass a dictionary straight into the variable-length keyword argument!
         - *args and **kwargs: These provide flexibility because they allow for variable-length arguments. You can call the function with zero, some, or many arguments without changing the function definition.
         - Tuples/Dictionaries: When using these, you must ensure they match the function’s parameters. Missing or extra values will cause errors unless defaults are provided.
              
 
-8. How do we call a function with positional arguments only?
+9. How do we call a function with positional arguments only?
     - ```python
         def function(a,b,c):
             return f'a = {a}, b = {b}, c = {c}'
         ```
     - `function(2, 5, 10)`
-9. How do we correctly call functions with keyword arguments?
+      
+10. How do we correctly call functions with keyword arguments?
     - ```python
         def function(a, b, c=3):
             return a, b, c
@@ -966,8 +970,7 @@
     - `function(b=2, a=1)`
 
 
-
-10. How do we correctly call functions with a variable-length list of arguments?
+11. How do we correctly call functions with a variable-length list of arguments?
     - ```python
         def function(*args): # Creates a tuple of arguments
             return sum(args)
@@ -975,7 +978,7 @@
     - `function(1,2,3,4,5)`
 
 
-11. How do we call functions with both positional arguments and keyword arguments?
+12. How do we call functions with both positional arguments and keyword arguments?
     - No matter when defining or calling, always place keyword arguments AFTER positional arguments.
     - ```python
         def function(a, b, c, d = 4):
@@ -984,38 +987,39 @@
     - `function(3, 10, 5, d=3)` OR
     - `funciton(3, 10, 5, 3)`
 
-12. How do we call functions with both positional arguments and a variable-length list of arguments?
+13. How do we call functions with both positional arguments and a variable-length list of arguments?
     - Always specify the positional arguments FIRST before the variable-length list of arguments.
     - ```python
         def function(a, b, c, *args):
             return a, b, c, args
         ```
-    - `function('Eric', 32, 'Toronto', 'Financial Advisor', 'Data Scientist')`
-13. How do we call functions with both a variable-length list of arguments and keyword arguments?
+    - `function('Eric', 32, 'Toronto', 'Business Analyst', 'Data Scientist')`
+      
+14. How do we call functions with both a variable-length list of arguments and keyword arguments?
     - Make sure *args is specified before **kwargs.
     - ```python
         def function(*args, **kwargs):
             return args, kwargs
         ```
     - `function('Eric', 'Data Scientist', age=32, city='Toronto')
-14. How do we call functions with all three types of arguments?
+      
+15. How do we call functions with all three types of arguments?
     - This is the correct order:
         - 1. Positional arguments
         - 2. *args
         - 3. Keyword arguments (with default values)
         - 4. **kwargs
 
+16. What are **recursive functions**?
+    - A function is recursive if it *calls itself* either directly or indirectly. Recursion is a powerful concept in computing and computational theory. In computational theory, it has been proven that any problem computable by modern computers can be represented as a recursive function. In programming, recursive functions do not make your programs run fast. However, they do provide a powerful means of algorithm design to solve a problem and make neater program code.
 
-
-
-15. What are recursive functions?
-    - A function is recursive if it calls itself either directly or indirectly. Recursion is a powerful concept in computing and computational theory. In computational theory, it has been proven that any problem computable by modern computers can be represented as a recursive function. In programming, recursive functions do not make your programs run fast. However, they do provide a powerful means of algorithm design to solve a problem and make neater program code.
-16. How do you define recursive functions?
+17. How do you define recursive functions?
     -   ```python
         def recursive(n):
             base case
             recursive case
         ```
+
 </details>        
 
 <h2 id='oop'>Object-Oriented Programming</h2>
