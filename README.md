@@ -895,21 +895,21 @@
 
 ### Basics of Functions
 
-1. What are functions?
-    - A function is a block of code that can be reused to perform specific tasks.
+1. What are **functions**?
+    - A **function** is a *block of code* that can be *reused* to perform specific *tasks*.
     - It is composed of the function name and the parameters, into which arguments are passed.
 2. Why are functions important in programming and software development?
     - Functions are reusable! It can help programmers solve problems by breaking them down into manageable pieces. It also makes the code easier to read and maintain. It also makes debugging easier because it can be tested individually.
-3. What role does the return statement play in functions?
-    - The `return` statement is used to send a result back from a function to the caller. It also helps control flow by exiting the function as soon as the `return` statement is executed.
-4. How do you return multiple values from a function?
-    - Put the values after the `return` statement in a compound datatype such as lists, tuples, sets, etc. or you can put all the values behind the statement.
-    - `return a, b, c`. The values are automatically packed in a tuple.
-5. What are positional arguments in a function definition?
+3. What role does the **return** statement play in functions?
+    - The **return** statement is used to send a result back from a function to the caller. It also helps control flow by exiting the function as soon as the `return` statement is executed.
+4. How do you return **multiple values** from a function?
+    - Put the values after the `return` statement in a compound data-type such as lists, tuples, sets, etc. or you can put all the values separated by comma after the return statement.
+    - `return a, b, c`. The values are automatically packed in a **tuple**.
+5. What are **positional arguments** in a function definition?
     - Positional arguments are the arguments passed to their respective parameters in accordance with their positions. That is, the first parameter in a function call is passed to the first argument in the definition of the function, etc.
     - Definition: `function(a,b,c)`
     - Call: `function(1,2,3)`
-6. What are keyword arguments in a function definition? What advantages do they offer?
+6. What are **keyword arguments** in a function definition? What advantages do they offer?
     - A parameter name, such as x, can be used as a keyword to explicitly indicate that a specific value, such as v, will be passed to x. This is done using x = v.
     - Definition: `function(a, b, c)`
     - Call: `function(b = 2, a = 1, c = 3)`
@@ -921,16 +921,12 @@
     - *Also, in a function definition, parameters expected to be used as keywords must be placed behind those expecting positional arguments. An error will occur otherwise.*
     - Default Value:
         - When a parameter in a function definition has a default value, the argument for the parameter can be omitted if the default value is to be used.
+        - Note, all default parameters are treated as keyword arguments. This means when defining a function, default parameters must be placed AFTER positional arguments.
         - ```python
             def powerof(x, y=2):
                 return '{x} power of {y} is {x ** y}'
             ```
         - In the example above, if we omit passing the y value, the function defaults to y = 2, and calculates the square of x.
-
-
-
-
-
         
 7. What are variable-length lists of arguments? What advantages do they offer?
     - Variable-length nonkeyword argument:
@@ -955,9 +951,6 @@
         - *args and **kwargs: These provide flexibility because they allow for variable-length arguments. You can call the function with zero, some, or many arguments without changing the function definition.
         - Tuples/Dictionaries: When using these, you must ensure they match the function’s parameters. Missing or extra values will cause errors unless defaults are provided.
              
-
-
-
 
 8. How do we call a function with positional arguments only?
     - ```python
