@@ -609,6 +609,7 @@
   - `set(iterable)` - Converts an iterable into a set. `set('a', 'b')` raises AttributeError as 'a' and 'b' are not iterables.
   - `{a, b, c, d}` - Initializes a set with elements 'a', 'b', 'c', and 'd'.
   - `set(range(1, 4))` - Creates a set from a range object, resulting in '{1, 2, 3}'.
+  - `set()` creates an empty set. Note, {} is reserved for dictionaries.
 
 - **Checking Membership:**
   - `N in s1` - Verifies if `N` is a member of the set `s1`.
