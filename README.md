@@ -1019,6 +1019,63 @@
             base case
             recursive case
         ```
+### Defining a Function
+
+- How to define function:
+    - ```python
+        def func(positional arguments, *args, keyword arguments, **kwargs):
+            pass
+      ```
+- What makes a code block in a function definition different from code blocks in other compound statements such as for, while, and if is that *it will always
+return a value with the return statement*. Even if you do not have anything to return from a function definition and do not have a return statement, special
+value *None* will still be automatically returned from the function.
+    - For instance, if you have a function without a return statement but has a print statement instead, printing the function will print the print statement as well as 'None'.
+    - ```python
+        def greet(name):
+            print(f"Hello, {name}!")
+
+        result = greet("Alice")
+        print(result)  # Output: Hello, Alice! \n None
+       ```
+
+- Sometimes you need to return more than one value from a function. To do that, you can either put the values in a compound data type such as a
+list, tuple, set, or dictionary, or just put the value all behind return. In the latter case, the values will be automatically packed in a tuple by the return statement.
+- When you define a function, you can use variables within the parentheses right next to the function name to specify what values can be taken when the function is called. These variables within the parentheses are called parameters, and the values to be passed to the parameters in a function call are called arguments.
+- In Python, a function call may take *positional arguments*, *keyword arguments*, *variable-length lists of nonkeyword arguments*, *variable-length lists of keyword arguments*, and *default arguments*.
+
+### Lambda
+
+- **lambda:**
+  - Sometimes, especially when the operations of the function are simple and used only once, it is more convenient to simply use a small code block as a function without defining a function with a name.
+  - `lambda <formal argument list> : <expression whose value is to be returned>`
+  - A formal argument list is a list of variables separated by commas but without surrounding parentheses, and everything behind the colon takes the role of the code block in the regular function definition. But it must be a single expression whose value is to be returned by the lambda function without a keyword return.
+- **Sample Usage:**
+  - ```python
+      lambda n: 2 * n + 1
+    ```
+  - This function takes n and returns an odd number.
+  - The common use of lambda functions is to call it directly when it is defined, as below:
+    - ```python
+        (lambda n: 2 * n + 1)(4)
+      ```
+        - The function returns 9.
+        - Note the pair of parentheses, which signify the end of the lambda function.
+  - ```python
+      (lambda x, y: x + y)(3, 4)
+    ```
+    - A lamda function can have multiple arguments.
+      - ```python
+          (lambda *x: sum(x) * 5)(1,2,3)
+        ```
+        - Note *x takes in multiple args just like *arg.
+- **Naming:**
+  - lambda_name = lambda x: x + 5
+  - `lambda_name(5)`
+  - ```python
+      - is_multiple = lambda x, y: x % y == 0
+    ```
+    - Checks if x is a multiple of y.
+
 
 </details>        
 
