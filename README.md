@@ -15,6 +15,28 @@
 
 <h2 id ='building'>Essential Building Blocks of Computer Programs</h2>
 
+### Character Standards and Encoding
+- ASCII:
+- **Unicode**:
+    - Unicode is a character set or standard that assigns unique code points (numeric values) to every character in the world’s writing systems, symbols, and special characters. It’s a universal character set that defines a unique identifier for each character. Unicode values, also known as code points, are unique numbers assigned to each character in the Unicode standard. The Unicode standard provides a consistent way to represent text from various languages, symbols, and special characters across different platforms and systems. 
+    - Here are the key points about Unicode values:
+        - Each character is assigned a unique number: Every character in Unicode is mapped to a unique integer value called a "code point". For example, the letter 'A' has a code point of 65, 'B' has a code point of 66, and so on.
+        - Unicode is a standard: It includes characters from almost every writing system, including Latin, Cyrillic, Arabic, Greek, Chinese, and more. It also includes special characters like emojis, mathematical symbols, and control characters.
+        - Unicode values are represented in hexadecimal: Unicode code points are often represented in hexadecimal (base 16), and in Unicode notation, a code point is usually written as U+<hexadecimal \value>. For example, the code point for 'A' is U+0041 (hexadecimal 41).
+        - `ord('A)` Converts a character into its Unicode code point (a numeric representation of the character).
+            - Output: 65
+        - `chr(65)`Converts a Unicode code point (an integer) back into its corresponding character.
+            - Output: A
+        - ```python
+          asc = {chr(character) for character in range(ord('A'), ord('Z')+1)}
+          print(asc) # Output: {'X', 'E', 'R', 'W', 'L', 'H', 'U', 'D', 'K', 'J', 'Y', 'P', 'G', 'B', 'M', 'C', 'I', 'O', 'F', 'Z', 'Q', 'T', 'A', 'V', 'N', 'S'}
+          ```
+     
+- **Encoding**:
+    - Encoding defines how Unicode code points (numbers) are represented in binary format, i.e., how they are stored in memory or written to a file.
+    - Common Unicode encodings include UTF-8, UTF-16, UTF-32
+    - 
+
 <details>
 <summary><h2 id='flow'>Flow Control of Statements</h2></summary>
 
