@@ -484,7 +484,7 @@
         my_str.partition(' ') # Output ('hello', ' ', 'world')
         ```
   - `s.replace(s1, s2)`: Replaces occurrences of `s1` with `s2` in the string.
-  - `s.splitlines()`: Splits the string at line breaks and returns a list of lines.
+  - `s.splitlines()`: Splits the string at line breaks and returns a list of lines. Blank lines are treated as ''.
   - `s.title()`: Converts the first letter of each word to uppercase and the rest to lowercase.
 
 - **Built-in Functions and Operators**
@@ -712,6 +712,19 @@
     - ```python
       [a * 2 for a in range(1, 11) if a % 2 == 0]
       ```
+    - **Outer and inner loops**:
+        - In a list comprehension, the first for loop corresponds to the outer loop, and any subsequent for loops or conditions (if present) correspond to inner loops or filtering logic.
+        - **[expression for outer in iterable1 for inner in iterable2]**
+            - This translates to:
+            - ```python
+                result = []
+                for outer in iterable1:  # Outer loop
+                    for inner in iterable2:  # Inner loop
+                        result.append(expression)
+              ```
+            - ```python
+              combo = [year + str(month+1) for year in ['2025', '2026'] for month is range(6)] # year corresponds to the outer loop while month corresponds to the inner loop
+              ```
 - **Set Comprehension**
     - `{expression for item in iterable if condition}`
     - ```python
@@ -777,7 +790,7 @@
   | `r+` | Open for reading and writing; file must exist, does not automatically overwrite. The cursor pointer is set to the beginning of the file. Might need to shift the pointer to avoid overwriting. |
   | `w+` | Open for writing and reading; creates or overwrites the file. |
   | `a` | Open for appending; adds to the end without overwriting. File does not have to exist. |
-  | `a+` | Open for appending and reading; adds to the end without overwriting. |
+  | `a+` | Open for appending and reading; adds to the end without overwriting. If you try to read after opening the file, the file handle will not return anything as the cursor is set to the end of the file. |
   | `x` | Create a new file for writing; raises FileExistsError if the file exists. |
 
 
