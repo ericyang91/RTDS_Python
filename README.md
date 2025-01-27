@@ -928,6 +928,8 @@
 <details>
 <summary><h2 id='functions'>Define and Use Functions</h2></summary>
 
+- [Exercise](https://github.com/ericyang91/RTDS_Python/blob/main/Functions.ipynb)
+
 ### Basics of Functions
 
 1. What are **functions**?
