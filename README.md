@@ -775,8 +775,8 @@
         return number_lst  # Return the fully sorted list.
       ```
 
-
-<h2 id='text'>Handling Text Files</h2>
+<details>
+<summary><h2 id='text'>Handling Text Files</h2></summary>
 
 - **The `open()` function**: Used to open a file for reading or writing. It returns a file object, commonly referred to as a file handle, that allows interaction with the file's content.
     - Syntax: `open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)`
@@ -924,6 +924,8 @@
     ```
 
   - Refer to the specific handling procedures on page 286.
+ 
+</details>
 
 <details>
 <summary><h2 id='functions'>Define and Use Functions</h2></summary>
