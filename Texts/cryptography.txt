@@ -1,2 +1,8 @@
-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
-xJlWCmTLjFdzrPXuvVonMygUZaiKhDSORsAbqBtGNYpecfHQEwkI
+First Key
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+['x', 'J', 'l', 'W', 'C', 'm', 'T', 'L', 'j', 'F', 'd', 'z', 'r', 'P', 'X', 'u', 'v', 'V', 'o', 'n', 'M', 'y', 'g', 'U', 'Z', 'a', 'i', 'K', 'h', 'D', 'S', 'O', 'R', 's', 'A', 'b', 'q', 'B', 't', 'G', 'N', 'Y', 'p', 'e', 'c', 'f', 'H', 'Q', 'E', 'w', 'k', 'I']
+
+Second Key
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+['n', 'X', 'J', 'I', 'K', 'B', 'U', 'G', 'E', 'k', 'h', 'A', 'm', 'v', 'a', 'p', 'y', 'c', 'D', 'Q', 'O', 'i', 'r', 'd', 'Y', 'W', 'R', 'z', 'F', 'x', 'N', 'j', 'P', 'e', 'C', 'Z', 'q', 'f', 'l', 'w', 'T', 'M', 's', 'b', 'g', 't', 'V', 'H', 'S', 'u', 'o', 'L']
+
