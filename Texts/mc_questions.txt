@@ -1,0 +1,67 @@
+What do you use to create a list in Python?
+	a. ( )
+	b. { }
+	c. [ ]
+	d. < >
+Answer: c
+
+Which of these is a valid identifier in Python?
+	a. _valid
+	b. 2valid
+	c. valid$
+	d. !va_lid
+Answer: a
+
+Which of these are immutable?
+	a. List
+	b. Set
+	c. Dictionary
+	d. String
+Answer: d
+
+The first generation of computers used ______.
+	a. Abacus
+	b. Vacuum Tubes
+	c. Transistors
+	d. Integrated Circuits
+Answer: b
+
+Who developed Python?
+	a. Guido van Rossum
+	b. Charles Babbage
+	c. Albert Einstein
+	d. John von Neumann
+Answer: a
+
+______ is raised when a function receives an argument of the correct type but with an inappropriate value.
+	a. AttributeError
+	b. ValueError
+	c. NameError
+	d. TypeError
+Answer: b
+
+What's does print("Hello", "World") return?
+	a. HelloWorld
+	b. Hello World
+	c. Hello, World
+	d. Hello,World
+Answer: b
+
+How do you construct a set?
+	a. ( )
+	b. [ ]
+	c. { }
+	d. < >
+Answer: c
+
+______ allows us to read the entire contents as a single string or, if the size is given, to read the specified number of bytes.
+	a. f.read(SIZE)
+	b. f.readline(SIZE)
+	c. f.readentire(SIZE)
+	d. f.readall(SIZE)
+Answer: a
+
+The print function automatically converts non-string arguments into strings.
+	a. True
+	b. False
+Answer: a
