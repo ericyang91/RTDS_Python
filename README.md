@@ -1648,6 +1648,8 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 
 
 <details>
-<summary<h2 id='module'>Modules and Packages</h2></summary>
+    
+<summary><h2 id='module'>Modules and Packages</h2></summary>
+
 </details>
 
