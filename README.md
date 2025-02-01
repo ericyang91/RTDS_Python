@@ -10,6 +10,7 @@
 - [Handling Text Files](#text)
 - [Define and Use Functions](#functions)
 - [Object-Oriented Programming (OOP)](#oop)
+- [Modules and Packages](#module)
 
 <h2 id ='intro'>Introduction</h2>
 
@@ -930,7 +931,7 @@
 <details>
 <summary><h2 id='functions'>Define and Use Functions</h2></summary>
 
-- [Exercise](https://github.com/ericyang91/RTDS_Python/blob/main/Functions.ipynb)
+- [Exercise](https://github.com/ericyang91/RTDS_Python/blob/main/Functions%20Exercises.ipynb)
 
 ### Basics of Functions
 
@@ -1642,4 +1643,13 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 | `^`           | `__xor__(self, other)`       | Performs bitwise XOR.                             |
 | `|`           | `__or__(self, other)`        | Performs bitwise OR.                              |
 
+
+
+
+
+<details>
+    
+<summary><h2 id='module'>Modules and Packages</h2></summary>
+
+</details>
 
