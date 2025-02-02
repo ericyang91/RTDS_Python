@@ -1283,7 +1283,8 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
         
         # Access Pet-specific methods and attributes
         print(pet.introduce_pet())  # Output: The name of the pet is KG. It is 10 years old.
-    ```
+        ```
+    
         - What Are We Inheriting?
             - **Attributes**: *species*, *habitat*, *diet*: These attributes are initialized in the Reptile class and describe general characteristics of reptiles. By inheriting them, the Pet class can also represent these characteristics for pet reptiles.
             - **Methods**: *describe*: The describe method provides a reusable way to describe any reptile, including those represented by the Pet class.
