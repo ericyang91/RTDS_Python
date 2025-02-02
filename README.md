@@ -1175,6 +1175,28 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
       reduce(lambda x,y: x if x>y else y, lst) # Output 81
       ```
 
+### Functions as Closures
+
+- In Python and some other programming languages such as JavaScript, **closures** are the result of a nested function — that is, one function that is defined inside another.
+- A **closure** occurs when a nested function (inner function) captures and remembers the values from its enclosing (outer) function, even after the outer function has finished executing.
+- They are useful for *encapsulation*, *function factories*, and *stateful functions*.
+- If a function returns another function, and that inner function uses outer variables, you have a closure!
+  
+    - ```python
+      def outer():
+        greeting = 'Good day!'  # This is a local variable within the outer function.
+        def inner(who):          # This is the inner function, which is defined inside the outer function.
+          print(greeting, who)  # The inner function uses the 'greeting' variable from the outer function. The key here is that the inner function has access to variables that are defined in the outer function's scope. Even though the variable greeting is defined inside outer(), the inner function can access it because of closure.
+      return inner
+      
+      say_hello = outer()  # This calls outer() and returns the inner() function
+      say_hello('Alice')  # This calls inner('Alice'), which prints 'Good day! Alice'
+      ```
+  
+
+      
+
+
 </details>        
 
 <h2 id='oop'>Object-Oriented Programming</h2>
@@ -1650,6 +1672,8 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 <details>
     
 <summary><h2 id='module'>Modules and Packages</h2></summary>
+
+- [Datetime](https://github.com/ericyang91/RTDS_Python/blob/main/Datetime.ipynb)
 
 </details>
 
