@@ -1285,14 +1285,14 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
         print(pet.introduce_pet())  # Output: The name of the pet is KG. It is 10 years old.
         ```
     
-        - What Are We Inheriting?
-            - **Attributes**: *species*, *habitat*, *diet*: These attributes are initialized in the Reptile class and describe general characteristics of reptiles. By inheriting them, the Pet class can also represent these characteristics for pet reptiles.
-            - **Methods**: *describe*: The describe method provides a reusable way to describe any reptile, including those represented by the Pet class.
-        - How Is It Useful?
-            - Reusability of Code: We don't need to redefine common attributes (species, habitat, diet) or methods (describe) in the Pet class. This avoids redundancy and follows the DRY (Don't Repeat Yourself) principle.
-            - Consistency: Any changes to shared logic (e.g., modifying how reptiles are described) only need to be made in the Reptile class. This ensures all subclasses (like Pet) automatically inherit the updated behavior.
-            - Extensibility: We can extend or override the behavior inherited from the Reptile class. For example, the Pet class could override the describe method to provide a more specific description for pet reptiles.
-            - Hierarchical Representation: Inheritance lets us represent relationships logically. A Pet is a type of Reptile, so it makes sense to inherit from the Reptile class rather than creating a completely independent Pet class.
+- What Are We Inheriting?
+    - **Attributes**: *species*, *habitat*, *diet*: These attributes are initialized in the Reptile class and describe general characteristics of reptiles. By inheriting them, the Pet class can also represent these characteristics for pet reptiles.
+    - **Methods**: *describe*: The describe method provides a reusable way to describe any reptile, including those represented by the Pet class.
+- How Is It Useful?
+    - Reusability of Code: We don't need to redefine common attributes (species, habitat, diet) or methods (describe) in the Pet class. This avoids redundancy and follows the DRY (Don't Repeat Yourself) principle.
+    - Consistency: Any changes to shared logic (e.g., modifying how reptiles are described) only need to be made in the Reptile class. This ensures all subclasses (like Pet) automatically inherit the updated behavior.
+    - Extensibility: We can extend or override the behavior inherited from the Reptile class. For example, the Pet class could override the describe method to provide a more specific description for pet reptiles.
+    - Hierarchical Representation: Inheritance lets us represent relationships logically. A Pet is a type of Reptile, so it makes sense to inherit from the Reptile class rather than creating a completely independent Pet class.
      
   - Formally in Python, if you are defining a class that needs to inherit from another class, you can put the superclass(es) in a pair of parentheses
     - For example, `class PC(Computer)`
