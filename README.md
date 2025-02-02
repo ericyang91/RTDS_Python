@@ -1329,7 +1329,7 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
       - `hasattr(o, attr)`: Test if object o has attribute attr; return `True` if it does
       - `setattr(o, a, v)`: Set/add attribute a to object o, and assign value v to the attribute. Overwrites if exist.
       - `delattr(o, a)`: Delete attribute a from object o
-      - `isinstance(o, c)`: Return `True` if o is an instance of c, or if o is a subclass of c.
+      - `isinstance(o, c)`: Return `True` if o is an instance of c.
       - `issubclass(c, C)`: Return `True` if c is a subclass of C.
       - `repr(o)`: Return string representation of object o.
 
@@ -1369,9 +1369,13 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
            self.diet = diet
            self.__age = age # Private attribute. Accessing it from outside by using pet_instance.__age will raise error.
            self._name = name # Protected attribute. Accessing it from outside will not raise error. However, it is not intended to be accessed directly outside the class.
+
+      p = Pet('crested gecko', 'rainforest', 'insects', 6, 'Queen')
+      p.__age # AttributeError
+      p._name # Queen
   ```
 
-- If you want to access the protected members of a class from outside, the built-in functions `hasattr` and `getattr` can be used to access protected members of a class or its instance. It cannot, however, access private members.
+- If you want to access the protected members of a class from outside, the built-in functions `hasattr` and `getattr` can be used to access *protected members* of a class or its instance. It cannot, however, access *private members*.
    - `hasattr(my_pet, '_name')`
    - `getattr(my_pet, '_name')`
    - ```python
@@ -1667,6 +1671,79 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 | `|`           | `__or__(self, other)`        | Performs bitwise OR.                              |
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- How do you use a class as a decorator?
+   - First, create a class with \_\_init\_\_ method to accept the function to be modified/decorated. Then, use \_\_call\_\_ method which will be executed to modify the function of interest.
+   - You can use a Class as a decorator by applying `@MyClass` to the function we want to modify.
+
+- How do you use the built-in function property() to create a property in a class?
+   - Example:
+      ```python
+         class Class:
+            def __init__(self, value):
+               self.__value = value # This is a private attribute that cannot be accessed directly from outside!
+            def get_value(self):
+               return self.__value
+            def set_value(self, value):
+               self.__value = value
+            value = property(get_value, set_value)
+      ```
+- How do you add a specific setter, getter, and deleter to a property created with built-in function property()?
+   - Example:
+      ```python
+         class Employee:
+            def __init__(self, firstname, lastname):
+               self.firstname = firstname
+               self.lastname = lastname
+
+            def setFullname(self, fullname):
+               firstname, lastname = fullname.split(' ')
+               self.firstname = firstname
+               self.lastname = lastname
+
+            def getFullname(self):
+               return f'{self.firstname} {self.lastname}'
+            
+            def delFullname(self):
+               del firstname
+               del lastname
+
+            fullname = property(getFullname, setFullname, delFullname)
+      ```
+- How do you use the built-in function property() as a decorator?
+   - Example:
+      ```python
+         class Student:
+            def __init__(self, firstname, lastname):
+               self.firstname = firstname
+               self.lastname = lastname
+
+            @property # Property function as a decorator to manage the getter method
+            def fullname(self):
+               return f'{self.firstname} {self.lastname}'
+            
+            @fullname.setter # Setter decorator
+            def fullname(self, fullname): # Fullname is the property of interest
+               self.firstname, self.lastname = fullname.split(' ')
+
+            @fullname.deleter # Deleter decorator
+            def fullname(self): # Fullname is the property of interest
+               del self.firstname
+               del self.lastname
+      ```
 
 
 
