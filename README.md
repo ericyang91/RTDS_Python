@@ -1201,6 +1201,8 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 
 <h2 id='oop'>Object-Oriented Programming</h2>
 
+- [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Object%20Oriented%20Programming%20Exercises.ipynb)
+
 ### Basics of Object-Oriented Programming
 
 - What is __object-oriented programming (OOP)__?
@@ -1507,12 +1509,13 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
    ```
 
 ### Dunder Methods
+
 - How may dunder methods be used in a new class?
    - **Dunder methods**, also known as "magic methods" or "special methods," are predefined methods in Python that start and end with double underscores (hence "dunder"). These methods are integral to Python’s object model and allow you to define how objects of your class interact with built-in operations such as addition, subtraction, or string representation.
    - Operator overloading with dunder methods:
-      - Operator overloading allows you to define custom behavior for operators when they are used with objects of your class. Examples of the dunder/magic methods that can be used for overloading operators are \_\_add\_\_ for addition, \_\_sub\_\_ for subtraction, \_\_mul\_\_ for multiplication, and \_\_div\_\_ for division.
+      - **Operator overloading** allows you to define custom behavior for operators when they are used with objects of your class. Examples of the dunder/magic methods that can be used for overloading operators are \_\_add\_\_ for addition, \_\_sub\_\_ for subtraction, \_\_mul\_\_ for multiplication, and \_\_div\_\_ for division.
       - `__call__`
-         - The \_\_call\_\_ method in Python allows an instance of a class to be called as if it were a function. This means you can use parentheses (()) after an object of the class, just like calling a function, and Python will execute the \_\_call\_\_ method of that object.
+         - The \_\_call\_\_ method in Python allows an instance of a class to be called as if it were a function. This means you can use parentheses (()) *after an object of the class*, just like calling a function, and Python will execute the \_\_call\_\_ method of that object.
          - ```python
            class Home:
              def __init__(self, size, value):
@@ -1538,6 +1541,7 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
             print(h1())  # Using the default value for the keyword argument ('average')
             print(h1(check='size'))  # Check the size of the home
             print(h1('value'))  # Check the value of the home
+           
       - `__new__`
          - The \_\_new\_\_ method is a special dunder method in Python that is responsible for creating a new instance of a class. It is called before \_\_init\_\_ and is used in cases where control over the creation of a new instance is necessary. This method is especially useful when dealing with immutable types (like tuples or strings) or when implementing design patterns such as singletons.
          - ```python
