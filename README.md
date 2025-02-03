@@ -1665,7 +1665,11 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
    second_num = Number(4)
 
    print(first_num.__add__(second_num)) # Output "14"
+  
   ```
+
+
+
 | **Operator** | **Dunder Method**            | **Description**                                    |
 |---------------|-------------------------------|----------------------------------------------------|
 | `<<`          | `__lshift__(self, other)`    | Performs bitwise left shift.                      |
@@ -1676,8 +1680,26 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 
 
 
+| **Operator** | **Dunder Method**            | **Description**                                    |
+|--------------|------------------------------|----------------------------------------------------|
+| `+=`         | `__iadd__(self, other)`       | Performs in-place addition.                        |
+| `-=`         | `__isub__(self, other)`       | Performs in-place subtraction.                     |
+| `*=`         | `__imul__(self, other)`       | Performs in-place multiplication.                  |
+| `/=`         | `__idiv__(self, other)`       | Performs in-place division.                        |
+| `//=`        | `__ifloordiv__(self, other)`  | Performs in-place floor division.                  |
+| `%=`         | `__imod__(self, other)`       | Performs in-place modulo operation.                |
+| `**=`        | `__ipow__(self, other[, modulo])` | Performs in-place exponentiation (with optional modulo). |
 
 
+
+| **Operator** | **Dunder Method**            | **Description**                                    |
+|--------------|------------------------------|----------------------------------------------------|
+| `<`          | `__lt__(self, other)`         | Less than comparison.                              |
+| `<=`         | `__le__(self, other)`         | Less than or equal to comparison.                  |
+| `==`         | `__eq__(self, other)`         | Equal to comparison.                               |
+| `!=`         | `__ne__(self, other)`         | Not equal to comparison.                           |
+| `>=`         | `__ge__(self, other)`         | Greater than or equal to comparison.               |
+| `>`          | `__gt__(self, other)`         | Greater than comparison.                           |
 
 
 
