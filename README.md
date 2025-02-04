@@ -1199,7 +1199,9 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 
 </details>        
 
-<h2 id='oop'>Object-Oriented Programming</h2>
+<details>
+
+<summary><h2 id='oop'>Object-Oriented Programming</h2></summary>
 
 - [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Object%20Oriented%20Programming%20Exercises.ipynb)
 
@@ -1898,7 +1900,7 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
                del self.lastname
       ```
 
-
+</details>
 
 <details>
     
