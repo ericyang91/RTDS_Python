@@ -1702,10 +1702,30 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 | `>`          | `__gt__(self, other)`         | Greater than comparison.                           |
 
 
+### Class as a Decorator
+- A class can be used as a **decorator** by implementing the \_\_call_\_ method, which allows instances of the classes to behave like functions. Here's how it works:
+    - Define a class with an \_\_init_\_ method to store the function.
+    - Impleent the \_\_call_\_ method to execute the function when the instance is called.
 
+    - ```python
+      class Logger:
+        def __init__(self, func): # Initialize with the function to be decorated
+            self.func = func
+    
+        def __call__(self, *args, **kwargs): # Execute the function and log its execution
+            print(f"Calling function: {self.func.__name__} with arguments: {args}, {kwargs}")
+            result = self.func(*args, **kwargs)
+            return result
+      
+      # Using the class as a decorator  
+      @Logger
+      def add(x,y):
+          return x + y
 
-
-
+      # Calling the decorated function
+      add(5, 6) # Output: Calling function: add with arguments: (5, 6), {}
+                          11
+        ```
 
 
 
