@@ -1726,14 +1726,49 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
       add(5, 6) # Output: Calling function: add with arguments: (5, 6), {}
                           11
         ```
+- This is often used to calculate the execution time of a function.
+    - ```python
+        from time import time
+        
+        class Timer:
+            def __init__(self, func):
+                self.func = func
+            
+            def __call__(self, *args, **kwargs):
+                print(f'Executing {self.func.__name__}.')
+                start = time()
+                result = self.func(*args, **kwargs)
+                end = time()
+                print(f'It took {end - start} seconds.')
+                return result
+        
+        @Timer
+        def fed_tax(net_taxable_income):
+            if not isinstance(net_taxable_income, (float,int)):
+                raise ValueError('You must enter a number without the dollar sign and commas.')
+            else:
+                if net_taxable_income <= 57375:
+                    net_tax = net_taxable_income * 0.15
+                elif net_taxable_income <= 114750:
+                    net_tax = (net_taxable_income - 57375) * 0.205 + (57375 * 0.15)
+                elif net_taxable_income <= 177882:
+                    net_tax = (net_taxable_income - 114750) * 0.26 + (114750 - 57375) * 0.205 + (57375 * 0.15)
+                elif net_taxable_income <= 253414:
+                    net_tax = (net_taxable_income - 177882) * 0.29 + (177882 - 114750) * 0.26 + (114750 - 57375) * 0.205 + (57375 * 0.15)
+                else:
+                    net_tax = (net_taxable_income - 253414) * 0.33 + (253414 - 177882) * 0.29 + (177882 - 114750) * 0.26 + (114750 - 57375) * 0.205 + (57375 * 0.15)
+        
+            return net_tax
+        
+        fed_tax(81500) # Output: Executing fed_tax.
+                                 It took 0.0 seconds.
+                                 13551.875
+      ```
 
 
 
 
 
-- How do you use a class as a decorator?
-   - First, create a class with \_\_init\_\_ method to accept the function to be modified/decorated. Then, use \_\_call\_\_ method which will be executed to modify the function of interest.
-   - You can use a Class as a decorator by applying `@MyClass` to the function we want to modify.
 
 - How do you use the built-in function property() to create a property in a class?
    - Example:
