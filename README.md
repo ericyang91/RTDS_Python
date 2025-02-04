@@ -1765,6 +1765,78 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
                                  13551.875
       ```
 
+### Built-in Property() Function and Property Decorator
+- The `property()` function in Python is a built-in way to create managed attributes in a class. It allows you to define *custom behavior* when getting, setting, or deleting an attribute. The main benefit of **@property** (or using `property()`) is that it allows you to control and customize how attributes are accessed, modified, or deleted. Without it, attributes would be accessed directly, and you'd have less control (setattr(), getattr(), delattr()).
+- Basic `property()` usage:
+    - Syntax: `property(fget=None, fset=None, fdel=None, doc=None)`
+        - `fget`: A function to get the attribute's value
+        - `fset`: A function to set the attribute's value
+        - `fdel`: A function to delete the attribute
+        - `doc`: A string representing the attribute's documentation
+- Example 1: Using `property()` directly
+    - ```python
+        class Person:
+            def __init__(self, firstname):
+                self._firstname = firstname
+            def get_firstname(self):
+                return self._firstname
+            def set_firstname(self, new_firstname):
+                self._firstname = new_firstname
+            def del_firstname(self):
+                del self._firstname
+            firstname = property(get_firstname, set_firstname, del_firstname, "First name of the person.")
+        
+        p = Person('Dahee')
+        print(p.firstname) # Calls get_firstname
+        p.firstname = 'Eric' # Calls set_firstname
+        del p.firstname  # Calls del_firstname
+      ```
+- Example 2: Using `property()` without arguments and adding methods later
+    - ```python
+        class Person:
+            def __init__(self, firstname):
+                self._firstname = firstname
+        
+            @property # Defines the getter method. firstname() is no longer a regular method. It's a property
+            def firstname(self):
+                return self._firstname
+        
+            @firstname.setter
+            def firstname(self, newname):
+                self._firstname = newname
+        
+            @firstname.deleter
+            def firstname(self):
+                del self._firstname
+        
+        p = Person('Dahee)
+        print(p.firstname) # Calls the getter
+        p.firstname = 'Eric' # Calls the setter
+        del p.firstname # Calls the deleter
+      ```
+    - ```python
+        class Person:
+            def __init__(self, age):
+                self._age = age  # Using a protected attribute
+        
+            @property
+            def age(self):
+                print("Getting age...")
+                return self._age
+        
+            @age.setter
+            def age(self, value):
+                if value < 0:
+                    raise ValueError("Age cannot be negative!")
+                print("Setting age...")
+                self._age = value
+        
+        p = Person(30)
+        print(p.age)  # Calls the getter and prints "Getting age..."
+        p.age = 25    # Calls the setter and prints "Setting age..."
+        p.age = -5    # Raises an error: "Age cannot be negative!"
+      ```
+
 
 
 
