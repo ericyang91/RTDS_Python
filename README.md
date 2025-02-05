@@ -1779,7 +1779,8 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
     - ```python
         class Person:
             def __init__(self, firstname):
-                self._firstname = firstname
+                self._firstname = firstname # Note the underscore. This is done because the property() function is being assigned to 'firstname',
+                                            # which overrides the instance attribute self.firstname. '_firstname' will store the actual value
             def get_firstname(self):
                 return self._firstname
             def set_firstname(self, new_firstname):
