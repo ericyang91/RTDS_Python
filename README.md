@@ -1726,7 +1726,7 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 
       # Calling the decorated function
       add(5, 6) # Output: Calling function: add with arguments: (5, 6), {}
-                          11
+                        # 11
         ```
 - This is often used to calculate the execution time of a function.
     - ```python
@@ -1763,8 +1763,8 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
             return net_tax
         
         fed_tax(81500) # Output: Executing fed_tax.
-                                 It took 0.0 seconds.
-                                 13551.875
+                               # It took 0.0 seconds.
+                               # 13551.875
       ```
 
 ### Built-in Property() Function and Property Decorator
@@ -1837,67 +1837,6 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
         print(p.age)  # Calls the getter and prints "Getting age..."
         p.age = 25    # Calls the setter and prints "Setting age..."
         p.age = -5    # Raises an error: "Age cannot be negative!"
-      ```
-
-
-
-
-
-
-- How do you use the built-in function property() to create a property in a class?
-   - Example:
-      ```python
-         class Class:
-            def __init__(self, value):
-               self.__value = value # This is a private attribute that cannot be accessed directly from outside!
-            def get_value(self):
-               return self.__value
-            def set_value(self, value):
-               self.__value = value
-            value = property(get_value, set_value)
-      ```
-- How do you add a specific setter, getter, and deleter to a property created with built-in function property()?
-   - Example:
-      ```python
-         class Employee:
-            def __init__(self, firstname, lastname):
-               self.firstname = firstname
-               self.lastname = lastname
-
-            def setFullname(self, fullname):
-               firstname, lastname = fullname.split(' ')
-               self.firstname = firstname
-               self.lastname = lastname
-
-            def getFullname(self):
-               return f'{self.firstname} {self.lastname}'
-            
-            def delFullname(self):
-               del firstname
-               del lastname
-
-            fullname = property(getFullname, setFullname, delFullname)
-      ```
-- How do you use the built-in function property() as a decorator?
-   - Example:
-      ```python
-         class Student:
-            def __init__(self, firstname, lastname):
-               self.firstname = firstname
-               self.lastname = lastname
-
-            @property # Property function as a decorator to manage the getter method
-            def fullname(self):
-               return f'{self.firstname} {self.lastname}'
-            
-            @fullname.setter # Setter decorator
-            def fullname(self, fullname): # Fullname is the property of interest
-               self.firstname, self.lastname = fullname.split(' ')
-
-            @fullname.deleter # Deleter decorator
-            def fullname(self): # Fullname is the property of interest
-               del self.firstname
-               del self.lastname
       ```
 
 </details>
