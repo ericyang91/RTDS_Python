@@ -228,7 +228,7 @@ What built-in functions are available in Python?
     3. Membership operators, identity operators, and comparison operators take precedence over logic operators.
     4. Among logic operators, the order of precedence, from high to low, is not > and > or.
 - For a more complex application, several or even hundreds of Python files may be needed. Of these files, there will be only one Python file defining the starting point of the program that implements the application, while all other files are used as modules to be imported into the main Python file, either directly or indirectly. So essentially, the relationships of all the Python files used for an application can be depicted as a tree in which the root is the main Python file.
-69. [How a Python Code Should be Written](https://pep8.org/)
+- [How a Python Code Should be Written](https://pep8.org/)
     1. A Python program/script file should begin with a docstring as the main documentation of the program file, stating the application and functionality of the program, as well as the author and revision history.
     2. In a script file, use **double blank lines** to separate the actual program code from the documentation section at the beginning of the file.
     3. Also use double blank lines to separate top-level function and class definitions.
