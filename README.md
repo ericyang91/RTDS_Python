@@ -31,6 +31,19 @@
         3. A local name defined in a _function_ will not be seen anywhere outside the function.
         4. A local name defined in a _class_ can be seen outside the class or its objects if the name is not a private member of the class, with an explicit reference to the name with dot notation. For example, a name X defined in class C can be accessed using C.X, or O.X if O is an object of C.
         5. A name Nx globally defined in a Python script file named M1.py can be seen inside another Python script file by either importing the name explicitly from M or by importing M1 as a whole and using dot notation M1.Nx to access Nx.
+     
+| Identifier | Answer | Reason |
+|------------|--------|--------|
+| D3A | Can be used | It starts with a letter and is alphanumeric. |
+| 5ty | Cannot be used | An identifier cannot start with a number. |
+| x6 | Can be used | It starts with a letter and is alphanumeric. |
+| if | Cannot be used | *if* is a reserved word in Python. |
+| program | Can be used | *program* is not a reserved word in Python. |
+| h$ | Cannot be used | An identifier cannot have the *$* symbol. |
+| title | Can be used | *title* is not a reserved word in Python. |
+| john | Can be used | *John* is not a reserved word in Python. |
+| \_\_init\_\_ | Can be used | It is a dunder in Python, therefore, while technically usable, it's typically reserved for special methods |
+| p_q | Can be used | An identifier can consist of underscores. |
 
 ### Python Reserved Keywords and Dunders
 - What are reserved **keywords** in Python? What does each keyword mean in Python?
