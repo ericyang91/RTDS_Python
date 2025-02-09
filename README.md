@@ -17,6 +17,8 @@
 <details>
 <summary><h2 id ='building'>Essential Building Blocks of Computer Programs</h2></summary>
 
+- [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Essential%20Building%20Blocks%20of%20Computer%20Programs%20Exercises.ipynb)
+
 ### Python Identifiers
 - What are names or **identifiers** in Python? What characters can be used to make identifiers?
     - In Python, identifiers are names used to identify *variables*, *functions*, *classes*, *modules*, or any other entities in a program.
