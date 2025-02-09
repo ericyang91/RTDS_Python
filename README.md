@@ -666,6 +666,8 @@ What built-in functions are available in Python?
 <details>
 <summary><h2 id='seq'>Sequences, Sets, Dictionaries</h2></summary>
 
+- [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Use%20of%20Sequences%2C%20Sets%2C%20Dictionaries%2C%20and%20Text%20Files.ipynb)
+
 ### Basics of Sequences, Sets, Dictionaries
 
 - What data types are categorized as sequences?
