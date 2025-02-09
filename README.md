@@ -1047,6 +1047,8 @@ What built-in functions are available in Python?
 <details>
 <summary><h2 id='text'>Handling Text Files</h2></summary>
 
+- [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Use%20of%20Sequences%2C%20Sets%2C%20Dictionaries%2C%20and%20Text%20Files.ipynb)
+
 - **The `open()` function**: Used to open a file for reading or writing. It returns a file object, commonly referred to as a file handle, that allows interaction with the file's content.
     - Syntax: `open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)`
     - The file to be opened can be a text file ('t') or a binary file ('b'). For example, for writing to a binary file, use `f = open("file_directory", "wb")`.
