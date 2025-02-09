@@ -47,7 +47,7 @@
 
 ### Python Reserved Keywords and Dunders
 - What are reserved **keywords** in Python? What does each keyword mean in Python?
-    - if, elif, else, and, as, class, del, except, True, False, for, in, is, lambda, None, return, with, while, etc.
+    - if, elif, else, and, as, class, del, except, True, False, for, in, is, lambda, None, return, with, while, await, break, continue, assert, yield, local, global, nonlocal, raise, finally etc.
     - They must not be used as identifiers.
 - In Python, some identifiers are in the form of \_\_word\_\_ beginning and ending with two underscores. What special usage do such identifiers have in Python?
     - They are called **dunder methods** (double underscore). They have been given special meanings and hold special data/function and are called in specific situations. Technically, we can assign values to dunders, but it is not recommended.
