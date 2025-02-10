@@ -1012,7 +1012,6 @@ What built-in functions are available in Python?
 
 <h2 id='algo'>Algorithms</h2>
 
-- **Sorting Algorithms**:
 - **Insertion sort**
     - ```python
       def insertion_sort(number_lst):
@@ -1045,6 +1044,37 @@ What built-in functions are available in Python?
     
         return number_lst  # Return the fully sorted list.
       ```
+
+  - **Tower of Hanoi**
+  - ```python
+      def tower_of_hanoi(n, source, target, temp):
+        """
+        Solves the Tower of Hanoi puzzle using recursion.
+    
+        Parameters:
+        n (int): Number of discs to move.
+        source (str): The starting pole where the discs are initially placed.
+        target (str): The destination pole where the discs need to be moved.
+        temp (str): The temporary pole used as an intermediary.
+    
+        Moves 'n' discs from the source pole to the target pole using the temporary pole as a placeholder.
+        """
+        # Base Case:
+        if n == 1:
+            # Move a single disc directly from the source pole to the target pole
+            print(f'Move disc {n} from {source} to {target}.')
+            return
+    
+        # Recursive Case:
+        # 1. Move n-1 discs from the source pole to the temporary pole using the target pole as intermediary
+        tower_of_hanoi(n-1, source, temp, target)
+    
+        # 2. Move the nth (largest) disc directly from the source pole to the target pole
+        print(f'Move disc {n} from {source} to {target}.')
+    
+        # 3. Move the n-1 discs from the temporary pole to the target pole using the source pole as intermediary
+        tower_of_hanoi(n-1, temp, target, source)
+    ```
 
 <details>
 <summary><h2 id='text'>Handling Text Files</h2></summary>
