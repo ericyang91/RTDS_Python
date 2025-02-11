@@ -1045,7 +1045,43 @@ What built-in functions are available in Python?
         return number_lst  # Return the fully sorted list.
       ```
 
-  - **Tower of Hanoi**
+- **Fibonacci Sequence: Returning the nth number in the sequence**
+    - ```python
+        def fibonacci(n):
+            """
+            The Fibonacci sequence (Fn) is well-known
+            in mathematics, and is defined as follows:
+            F0 = 1, F1 = 1, Fn = Fn−1 + Fn−2
+            Define a recursive function that takes one argument, n, and
+            calculates and returns the nth item (Fn) of the Fibonacci sequence.
+            """
+            if n == 0:
+                return 0
+            elif n == 1:
+                return 1
+            else:
+                return fibonacci(n-1) + fibonacci(n-2)
+      ```
+
+- **Fibonacci Sequence: Returning all sequence up to Fn**
+    - ```python
+        def fibonacci_sequence(n):
+            """
+            Define a recursive function that takes one argument, n, and calculates
+            and returns the entire list of all items from F0 to Fn, of the Fibonacci
+            sequence.
+            """
+            if n == 0:
+                return [0]
+            if n == 1:
+                return [0, 1]
+            
+            fibo_list = fibonacci_sequence(n-1)
+            fibo_list.append(fibo_list[-1] + fibo_list[-2])
+            return fibo_list
+      ```
+
+- **Tower of Hanoi**
   - ```python
       def tower_of_hanoi(n, source, target, temp):
         """
