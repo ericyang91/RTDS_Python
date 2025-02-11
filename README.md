@@ -1044,7 +1044,24 @@ What built-in functions are available in Python?
     
         return number_lst  # Return the fully sorted list.
       ```
-
+- **Factorials**
+    - ```python
+        def factorial(n):
+            """
+            Factorial Calculation
+            
+            Problem: Write a recursive function to calculate the factorial of a given non-negative integer n.
+            Example: factorial(5) should return 120.
+            """
+            if n == 0:
+                return 1
+            else:
+                return n * factorial(n - 1)
+        
+        n = 5
+        result = factorial(n)
+        print(f'The factorial of {n} is {result}.')
+      ```
 - **Fibonacci Sequence: Returning the nth number in the sequence**
     - ```python
         def fibonacci(n):
