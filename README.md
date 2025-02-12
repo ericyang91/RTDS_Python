@@ -1245,9 +1245,6 @@ What built-in functions are available in Python?
       - 0: Absolute file start. OFFSET is applied from the beginning of the file.
       - 1: Current file position. OFFSET is applied relative to the current file pointer position.
       - 2: End of file. OFFSET is applied relative to the end of the file.
-    - In binary mode such as 'rb' and 'wb', all  three operations are allowed. However, in text mode such as 'r' and 'w', only absolute moves (START=0) are allowed. Relative moves (START=1) is somewhat supported, but OFFSET must be 0. Moves from the end (START=2) is not allowed.
-        - Allowed: `seek(OFFSET,0)`, `seek(0,1)` `seek(0,2)`
-        - Not Allowed: `seek(OFFSET, 1)`, `seek(OFFSET, 2)` when OFFSET != 0
 
 - **Updating Existing Content**:
   - You can open the file in 'a' mode to amend. The cursor will begin at the end of the existing file to ensure no data is overwritten.
