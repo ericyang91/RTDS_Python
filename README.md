@@ -1009,8 +1009,9 @@ What built-in functions are available in Python?
       new_dic = {key.upper():value**2 for key, value in original_dic.items() if value >= 2}
       ```
 </details>
+<details>
 
-<h2 id='algo'>Algorithms</h2>
+<summary><h2 id='algo'>Algorithms</h2></summary>
 
 - **Insertion sort**
     - ```python
@@ -1128,7 +1129,7 @@ What built-in functions are available in Python?
         # 3. Move the n-1 discs from the temporary pole to the target pole using the source pole as intermediary
         tower_of_hanoi(n-1, temp, target, source)
     ```
-
+</details>
 <details>
 <summary><h2 id='text'>Handling Text Files</h2></summary>
 
