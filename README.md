@@ -1459,9 +1459,9 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
     ```
     - A lamda function can have multiple arguments.
       - ```python
-          (lambda *x: sum(*x) * 5)(1,2,3)
+          (lambda *x: sum(x) * 5)(1,2,3)
         ```
-        - Note *x takes in multiple args just like *args.
+        - Note *x takes in multiple args just like *args and packs them into one tuple.
 
 - **Naming:**
   - lambda_name = lambda x: x + 5
