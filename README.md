@@ -2174,7 +2174,7 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
       ```
 
 ### Built-in Property() Function and Property Decorator
-- The `property()` function in Python is a built-in way to create managed attributes in a class. It allows you to define *custom behavior* when getting, setting, or deleting an attribute. The main benefit of **@property** (or using `property()`) is that it allows you to control and customize how attributes are accessed, modified, or deleted. Without it, attributes would be accessed directly, and you'd have less control (setattr(), getattr(), delattr()).
+- The `property()` function in Python is a built-in way to create managed attributes in a class. It allows you to define *custom behavior* when getting, setting, or deleting an attribute. The main benefit of **@property** (or using `property()`) is that it allows you to control and customize how attributes are accessed, modified, or deleted. Without it, attributes would be accessed directly, and you'd have less control (setattr(), getattr(), delattr()). Note this function allows access to private attributes.
 - Basic `property()` usage:
     - Syntax: `property(fget=None, fset=None, fdel=None, doc=None)`
         - `fget`: A function to get the attribute's value
