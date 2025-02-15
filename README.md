@@ -2111,7 +2111,7 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 
 
 ### Class as a Decorator
-- A class can be used as a **decorator** by implementing the \_\_call_\_ method, which allows instances of the classes to behave like functions. Here's how it works:
+- A class can be used as a **decorator** by implementing the \_\_call_\_ method, which allows instances of the classes to behave like functions. When a function is decorated with a class instance, the \_\_call_\_ method is executed, enabling the class to modify the behaviour of the function. Here's how it works:
     - Define a class with an \_\_init_\_ method to store the function.
     - Impleent the \_\_call_\_ method to execute the function when the instance is called.
 
