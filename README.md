@@ -2056,6 +2056,59 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
 | `>=`         | `__ge__(self, other)`         | Greater than or equal to comparison.               |
 | `>`          | `__gt__(self, other)`         | Greater than comparison.                           |
 
+- You can dynamically modify how the objects behave with comparison operators.
+
+    - ```python
+        class Number:
+            def __init__(self, number, dynamic=False):
+                self.number = number
+                self.dynamic = dynamic  # This flag will control dynamic behavior
+        
+            def __add__(self, other):
+                return self.number + other.number
+        
+            def __sub__(self, other):
+                return self.number - other.number
+        
+            # Comparison methods
+            def __ne__(self, other):
+                if self.dynamic:
+                    # Dynamic behavior: Reverse the comparison when 'dynamic' is True
+                    return self.number == other.number
+                return self.number != other.number
+        
+            def __le__(self, other):
+                if self.dynamic:
+                    return self.number > other.number  # Dynamic behavior: Reverse the normal comparison
+                return self.number <= other.number
+        
+            def __lt__(self, other):
+                if self.dynamic:
+                    return self.number > other.number  # Dynamic behavior: Reverse the normal comparison
+                return self.number < other.number
+        
+            def __gt__(self, other):
+                if self.dynamic:
+                    return self.number < other.number  # Dynamic behavior: Reverse the normal comparison
+                return self.number > other.number
+        
+        
+        # Example usage
+        n1 = Number(10, dynamic=True)  # Set dynamic to True to alter behavior
+        n2 = Number(5)
+        
+        print(n1 != n2)  # Calls __ne__ (False due to dynamic behavior)
+        print(n1 <= n2)  # Calls __le__ (True due to dynamic behavior)
+        print(n1 < n2)   # Calls __lt__ (True due to dynamic behavior)
+        print(n1 > n2)   # Calls __gt__ (False due to dynamic behavior)
+        
+        n1_static = Number(10, dynamic=False)  # Default behavior
+        print(n1_static != n2)  # Default comparison behavior
+      ```
+
+  
+
+
 
 ### Class as a Decorator
 - A class can be used as a **decorator** by implementing the \_\_call_\_ method, which allows instances of the classes to behave like functions. Here's how it works:
