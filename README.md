@@ -1,6 +1,6 @@
 # Road to Data Science: Python
 
-![python for data science](https://www.softwaretechnologyconsultants.com/wp-content/uploads/2022/07/python-data-yand.jpg)
+![python for data science](https://github.com/ericyang91/RTDS_Python/blob/main/images/python_for_data_science.jpg)
 
 ## Table of Contents
 - [Introduction](#intro)
