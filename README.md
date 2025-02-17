@@ -2567,6 +2567,8 @@ list, tuple, set, or dictionary, or just put the value all behind return. In the
     
 <summary><h2 id='module'>Modules and Packages</h2></summary>
 
+- [Pandas](https://github.com/ericyang91/RTDS_Python/blob/main/Pandas.ipynb)
+- [Matplotlib](https://github.com/ericyang91/RTDS_Python/blob/main/Matplotlib.ipynb)
 - [Datetime](https://github.com/ericyang91/RTDS_Python/blob/main/Datetime.ipynb)
 
 </details>
