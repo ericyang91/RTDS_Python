@@ -2,6 +2,7 @@
 
 ## Table of Contents
 - [Introduction](#intro)
+- [Markdown](#markdown)
 - [Essential Building Blocks of Computer Programs](#building)
 - [Flow Control of Statements](#flow)
 - [Handle Errors and Exceptions](#error)
@@ -118,294 +119,503 @@
 </details>
 
 <details>
+<summary><h2 id='markdown'>Markdown</h2></summary>
+
+# Markdown Syntax and Usage
+
+## Overview
+- **Markdown** is a simple and straightforward markup language with a plaintext-formatting syntax. It was created by John Gruber and Aaron Swartz in 2004.
+- With Markdown, you can write a document in an easy-to-write and easy-to-read format, then convert it to HTML.
+- Within **VS Code IDE**, a Markdown file (with `.md` extension) can be converted to both PDF and HTML.
+- Documentation written in **Markdown** cells of a **Jupyter Notebook** can be automatically converted into docstrings when the notebook is exported into a Python script file. When the notebook is exported to PDF, scripts in code cells are nicely embedded into documentation written in Markdown cells.
+
+## Formatting Syntax
+
+### Headings
+- You can have up to 6 levels of **Headings**.
+
+### Paragraphs and Line Breaks
+- **Paragraphs** are separated by one or more blank lines.
+- To break a line and start a new line, use more than one single space.
+
+### Text Formatting
+- Use `* *` or `_ _` for *italics*.
+- Use `** **` or `__ __` for **bold text**.
+- Use `*** ***` for ***italics AND bold text***.
+- Use `~~ ~~` for ~~strikethrough text~~.
+
+### Horizontal Line
+- Use `---` for a **horizontal line**.
+
+### Keyboard Key
+- Use `<kbd> </kbd>` for displaying a *keyboard key*.
+
+### Lists
+- **Unordered list**: Use `-` or `*`.
+  
+#### Example:
+- Item 1
+- Item 2
+- Item 3
+
+- **Ordered list**: Use `1.`, `2.`, `3.`, etc.
+  
+#### Example:
+1. First item
+2. Second item
+3. Third item
+
+### Definition List
+- Use `<dl> </dl>, <dt> </dt>, <dd> </dd>` for a **definition list**.
+
+### Links
+- Use `[]()` for external links.
+
+#### Example:
+- [Python Official Website](https://www.python.org)
+
+- Legitimate URLs are usually automatically linked without any markup tags. If you don’t want a URL to be automatically linked, you can enclose it with a pair of backticks, just treating it as program code.
+
+### Internal Links
+- In Markdown, you can use curly braces `{}` to assign an ID to a header or section.
+- If the IDs are assigned, you can use `[](#)` to create **a link to the internal ID**.
+
+### Images
+- Use `![]()` for embedding **images**.
+
+### Blockquotes
+- Use `>` for **Blockquotes** that visually distinguish quoted text from other content.
+
+### Tables
+- **Tables** can be created using `| | |` to divide columns and `---` to separate the header from the table. Colons next to the dashes decide the direction to which the text should be aligned.
+
+#### Example:
+| Name   | Age | Sex |
+|--------|-----|-----|
+| Eric   | _32_| M   |
+| Leah   | _35_| F   |
+| Dahlia | _1_ | F   |
+
+### Code Formatting
+- To include a **sample code** within a single sentence, enclose the code with a pair of backticks: `` `sample_code` ``.
+- **Code blocks** can be written with triple backticks (```) before and after the block.
+
+### LaTeX in Jupyter Notebooks
+- With Markdown in **Jupyter Notebook**, you can embed **LaTeX** representations of mathematical formulas directly within your text. **LaTeX** is a typesetting system used for scientific publications.
+
+### Task Lists
+- You can use `- []` as a **task** and `- [x]` to indicate a **completed task**.
+
+#### Example:
+- [ ] Task 1
+- [x] Task 2 (Completed)
+
+### Escape Sequences
+- Some characters have special meaning in Markdown syntax. To use these characters normally, you need to escape them with a backslash (`\`). These characters include:
+  - Backslash `\\`
+  - Backtick `` ` ``
+  - Asterisk `*`
+  - Underscore `_`
+  - Pound hash `#`
+  - Plus sign `+`
+  - Hyphen/dash `-`
+  - Period `.`
+  - Exclamation mark `!`
+  - Curly braces `{}`, square brackets `[]`, and parentheses `()`.
+
+#### Example:
+- If you want to have `*` in your documentation, use `\*` instead of just `*`.
+
+### Docstrings
+- Use triple quotes `"""` for **docstrings** at the beginning of your code. Docstrings are meant to be formal documentation of the code that can be retrieved from an object.
+- In addition to each program file or module file, a docstring is recommended (and even required) for each function, class, and method. Docstrings should be placed at the very beginning of a program file, module file, or right after the header of the definition of a class, function, or method. These docstrings will be retrieved and stored as the `__doc__` attribute of the respective object and can be displayed when the `help()` function is called on that object.
+
+### Lists
+- **Unordered list**: Use `-` or `*`.
+- **Ordered list**: Use `1.`, `2.`, `3.`, etc.
+
+</details>
+
+<details>
 <summary><h2 id ='building'>Essential Building Blocks of Computer Programs</h2></summary>
 
 - [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Essential%20Building%20Blocks%20of%20Computer%20Programs%20Exercises.ipynb)
 
 ### Python Identifiers
-- What are names or **identifiers** in Python? What characters can be used to make identifiers?
+
+- **What are names or identifiers in Python? What characters can be used to make identifiers?**
     - In Python, identifiers are names used to identify *variables*, *functions*, *classes*, *modules*, or any other entities in a program.
-    - Identifiers can consist of **letters** (both small and large), **digits**, and **underscores**. Identifiers are *case-sensitive*, and cannot start with a digit. They can be of any length.
-    - Different identifiers may be used to refer to the same memory location (a = 5, b = 5) and hold the same data or program code.
-    - Changing one identifier to refer to something else will not change the value referred by the other identifier.
-    - Python also uses the underscore as an identifier for a very special variable to hold the result of the last evaluation only when Python is running in an *interactive mode*.
-    - Popular conventions: lowercase identifiers for variables and function names (x), capitalized class names (StatsClass), uppercase identifiers for constants (PI), underscores for separating the words.
-    - How do we assign identifiers without causing confusion? 
-        1. Follow L(local)E(enclosed)G(global)B(Built-in) rule.
-        2. When a variable is defined both locally and globally, when it is used within the local function, its local definition is used. When a variable is defined only globally, and when it is used within the function, it is resolved to its global definition.
-        3. A local name defined in a _function_ will not be seen anywhere outside the function.
-        4. A local name defined in a _class_ can be seen outside the class or its objects if the name is not a private member of the class, with an explicit reference to the name with dot notation. For example, a name X defined in class C can be accessed using C.X, or O.X if O is an object of C.
-        5. A name Nx globally defined in a Python script file named M1.py can be seen inside another Python script file by either importing the name explicitly from M or by importing M1 as a whole and using dot notation M1.Nx to access Nx.
-     
-| Identifier | Answer | Reason |
-|------------|--------|--------|
-| D3A | Can be used | It starts with a letter and is alphanumeric. |
-| 5ty | Cannot be used | An identifier cannot start with a number. |
-| x6 | Can be used | It starts with a letter and is alphanumeric. |
-| if | Cannot be used | *if* is a reserved word in Python. |
-| program | Can be used | *program* is not a reserved word in Python. |
-| h$ | Cannot be used | An identifier cannot have the *$* symbol. |
-| title | Can be used | *title* is not a reserved word in Python. |
-| john | Can be used | *John* is not a reserved word in Python. |
-| \_\_init\_\_ | Can be used | It is a dunder in Python, therefore, while technically usable, it's typically reserved for special methods |
-| p_q | Can be used | An identifier can consist of underscores. |
+    - Identifiers can consist of **letters** (both lowercase and uppercase), **digits**, and **underscores**. Identifiers are *case-sensitive* and cannot start with a digit. They can be of any length.
+    - Different identifiers may refer to the same memory location (e.g., `a = 5`, `b = 5`) and hold the same data or program code.
+    - Changing one identifier to refer to something else will not change the value referred to by another identifier.
+    - Python uses an underscore to hold the result of the last evaluation when running in *interactive mode*.
+    - Common conventions for identifiers:
+        - **lowercase** for variables and function names (`x`)
+        - **Capitalized** for class names (`StatsClass`)
+        - **UPPERCASE** for constants (`PI`)
+        - **Underscores** for separating words (`my_variable`).
+
+- **How do we assign identifiers without causing confusion?**
+    1. Follow the **LEGB** rule:
+        - **L** (Local) — names defined inside a function.
+        - **E** (Enclosing) — names defined in the enclosing function.
+        - **G** (Global) — names defined at the module level.
+        - **B** (Built-in) — names predefined in Python (e.g., `len()`, `print()`).
+    2. When a variable is defined both locally and globally, the local definition is used within the function. The global definition is used if the variable is defined only globally.
+    3. A local name defined in a function is not accessible outside the function.
+    4. A local name defined in a class can be accessed outside the class (if not a private member) using dot notation. For example, `C.X` (if `X` is defined in class `C`) or `O.X` (if `O` is an object of `C`).
+    5. A name defined globally in a Python script (e.g., `Nx` in `M1.py`) can be accessed inside another script by importing the name explicitly or using dot notation (`M1.Nx`).
+
+### Example Table of Identifiers
+
+| Identifier | Answer        | Reason                                               |
+|------------|---------------|------------------------------------------------------|
+| D3A        | Can be used   | It starts with a letter and is alphanumeric.         |
+| 5ty        | Cannot be used| An identifier cannot start with a number.            |
+| x6         | Can be used   | It starts with a letter and is alphanumeric.         |
+| if         | Cannot be used| *if* is a reserved keyword in Python.                |
+| program    | Can be used   | *program* is not a reserved word in Python.          |
+| h$         | Cannot be used| An identifier cannot contain the `$` symbol.         |
+| title      | Can be used   | *title* is not a reserved word in Python.            |
+| john       | Can be used   | *John* is not a reserved word in Python.             |
+| `__init__` | Can be used   | It is a dunder method in Python, generally reserved for special methods. |
+| p_q        | Can be used   | An identifier can consist of underscores.            |
+
 
 ### Python Reserved Keywords and Dunders
-- What are reserved **keywords** in Python? What does each keyword mean in Python?
-    - if, elif, else, and, as, class, del, except, True, False, for, in, is, lambda, None, return, with, while, await, break, continue, assert, yield, local, global, nonlocal, raise, finally etc.
-    - They must not be used as identifiers.
-- In Python, some identifiers are in the form of \_\_word\_\_ beginning and ending with two underscores. What special usage do such identifiers have in Python?
-    - They are called **dunder methods** (double underscore). They have been given special meanings and hold special data/function and are called in specific situations. Technically, we can assign values to dunders, but it is not recommended.
- 
+
+- **What are reserved keywords in Python? What does each keyword mean in Python?**
+    - Reserved keywords in Python have special meanings and cannot be used as identifiers. Some examples include:
+        - `if`, `elif`, `else`, `and`, `as`, `class`, `del`, `except`, `True`, `False`, `for`, `in`, `is`, `lambda`, `None`, `return`, `with`, `while`, `await`, `break`, `continue`, `assert`, `yield`, `local`, `global`, `nonlocal`, `raise`, `finally`, etc.
+    - These keywords must not be used as identifiers because they are predefined for specific purposes within the Python language.
+
+- **In Python, what special usage do identifiers with `__word__` (beginning and ending with two underscores) have?**
+    - These are known as **dunder methods** (short for "double underscore"). They have special meanings and are used in specific situations, such as defining custom behavior for objects (e.g., `__init__`, `__str__`, `__call__`).
+    - While it is technically possible to assign values to dunder methods, it is not recommended, as these methods are usually intended to be used by Python internally.
+
 ### Primary Data Types
-- What *primary types of data* can you use in Python?
-    - Numbers (integers, floats, complex numbers), strings, booleans (True/ False)
-- What are **Boolean values**? How are they represented in Python?
-    - 0, '' (empty string), None are equivalent to False.
-    - Empty string, empty tuple, empty set, empty dictionary are equivalent to False.
-    - Everything else is equivalent to True. `(Bool('school'))` is equivalent to True.
-    - bool([0,0,0,0]) is TRUE because it is not empty. It evaluates the list itself.
-    - Lists are considered true unless they are empty.
-    - any([0,0,0,0]) is FALSE because all elements inside the list are 0. The function evaluates elements in an iterable.
-- What are **integers**? How big can they be?
-    - Can be of arbitruary size, at least theoretically. In implementation, we can see the maximum integer by calling `sys.maxsize`
-- How do you represent **binary** integers?
-    - `bin(int)` converts an integer to its binary representation as a string.
-- How do you represent **hexadecimal** integers?
-    - `hex(int)` converts an integer to its hexadecimal representation as a string.
-- What operators can you use on integers?
-    - +, -(subtraction), *, /, **, -(negation), %(modulo), //(floor division)
-- What is the difference between the / and //
-    - Classic division vs. integer division operators
-    - Integer division returns an integer rounded down.
-- What is the modular operator in Python?
-    - %
-    - Returns the remainder of a division
-- What are **float** numbers in Python?
-    - Float numbers are numbers represented by decimals, in the form 12.5 in decimal notation or 1.25e1 in scientific notation.
-- What operators can you use on float numbers?
-    - +, -, *, /, **, //, %
-    - You can use underscore to separate large numbers, similar to commas; 123_456_789.32
-- How big can a float number be in Python?
-    - `sys.float_info.max`
-- How do you convert a float number to an integer?
-    - `int(float)` simply removes decimals.
-    - `round()`
-- What are complex numbers?
-    - A complex number is a representation of a point on a plane with X and Y axes that take the form of x + yj, in which x and y are float number that represent and define the location of a point on the plane. Examples of complex numbers are 1 + 1j, 3 − 6j, 2.5 − 8.9j, and so on (Notice the j's!).
-- How do you represent complex numbers in Python?
-    - x = 3.5 + 6.7j, etc.
-- What operators can you use on complex numbers?
-    - Same as float
-- What built-in methods can be used on complex numbers?
-    - `real`, `imag`, `conjugate()`, etc.
+
+- **What primary types of data can you use in Python?**
+    - **Numbers**: Integers, floats, and complex numbers.
+    - **Strings**: Text data.
+    - **Booleans**: `True` or `False`.
+
+- **What are Boolean values? How are they represented in Python?**
+    - `False` is represented by:
+        - `0`, an empty string (`''`), and `None`.
+        - Empty data structures like empty lists, tuples, sets, and dictionaries.
+    - Everything else is considered `True`. For example:
+        - `bool('school')` is `True`.
+        - `bool([0, 0, 0, 0])` is `True` because the list is not empty.
+        - `any([0, 0, 0, 0])` is `False` because all elements inside the list are `0`.
+
+- **What are integers? How big can they be?**
+    - Integers are whole numbers without a decimal point. They can be of arbitrary size, meaning there is no predefined limit to their size in Python.
+    - You can check the maximum value of an integer by calling `sys.maxsize`.
+
+- **How do you represent binary integers in Python?**
+    - You can use the `bin()` function to convert an integer to its binary representation as a string:
+        - `bin(10)` will output `'0b1010'`.
+
+- **How do you represent hexadecimal integers in Python?**
+    - You can use the `hex()` function to convert an integer to its hexadecimal representation as a string:
+        - `hex(255)` will output `'0xff'`.
+
+- **What operators can you use on integers?**
+    - The following operators can be used with integers:
+        - `+`, `-`, `*`, `/`, `**` (exponentiation), `-` (negation), `%` (modulo), `//` (floor division).
+
+- **What is the difference between `/` and `//`?**
+    - `/` performs **classic division** and returns a float.
+    - `//` performs **integer division** and returns an integer (rounded down).
+
+- **What is the modular operator in Python?**
+    - The `%` operator is the **modulo operator**. It returns the remainder of a division:
+        - `5 % 2` will return `1` because 5 divided by 2 leaves a remainder of 1.
+
+- **What are float numbers in Python?**
+    - Float numbers are numbers that have a decimal point. They can also be represented in scientific notation.
+    - Example: `12.5` (decimal) or `1.25e1` (scientific notation).
+
+- **What operators can you use on float numbers?**
+    - The following operators can be used with floats:
+        - `+`, `-`, `*`, `/`, `**` (exponentiation), `//` (floor division), `%` (modulo).
+    - You can use underscores to separate large numbers for better readability, similar to commas:
+        - Example: `123_456_789.32`.
+
+- **How big can a float number be in Python?**
+    - You can check the maximum float value by using `sys.float_info.max`.
+
+- **How do you convert a float number to an integer?**
+    - You can convert a float to an integer using:
+        - `int(float)` — This simply removes the decimal part.
+        - `round()` — This rounds the float to the nearest integer.
+
+- **What are complex numbers?**
+    - A complex number represents a point in the 2D plane with X and Y coordinates and takes the form `x + yj`, where `x` and `y` are float numbers.
+    - Examples of complex numbers: `1 + 1j`, `3 - 6j`, `2.5 - 8.9j`.
+
+- **How do you represent complex numbers in Python?**
+    - Complex numbers are represented using the `j` suffix for the imaginary part:
+        - Example: `x = 3.5 + 6.7j`.
+
+- **What operators can you use on complex numbers?**
+    - Complex numbers can be used with the same operators as float numbers.
+
+- **What built-in methods can be used on complex numbers?**
+    - You can use the following methods on complex numbers:
+        - `real` — returns the real part of the complex number.
+        - `imag` — returns the imaginary part of the complex number.
+        - `conjugate()` — returns the complex conjugate.
+
 
 ### Compound Data Types
-- What are **compound data types** in Python?
+- **What are compound data types in Python?**
     - **Sequential**
-        - Strings: indexed and ordered but immutable
-        - Lists: indexed and ordered and mutable
-        - Tuples: indexed and ordered but immutable
+        - **Strings**: Indexed and ordered, but immutable.
+        - **Lists**: Indexed and ordered, and mutable.
+        - **Tuples**: Indexed and ordered, but immutable.
     - **Non-sequential**
-        - Sets: not ordered but mutable (However, it can only hold immutable elements whereas lists and tuples can hold any element!)
-        - Dictionaries: not ordered; immutable keys, mutable/immutable values
-- What are **strings** in Python?
-    - It is a type of sequential compound data type that can be indexed and is ordered. It is a sequence of characters, numbers, and symbols enclosed in a pair of double quotation marks or single quotation marks.
-    - It is immutable.
-- How do you represent strings?
-    - '' or "" or """ """ for long strings that needs to span more than one line.
-    - You can also use the backslash \ to cancel the invisible newline ASCII character.
-    - \n starts a new line
-    - \t creates a tab
-- How do you include special characters such as ‘, “, and \ in a string?
-    - Add a backslash \
-- How do you form a string using the f operator?
-    - f is a prefix (the other common prefix being r) that is used before the opening quote.
-    - It causes the evaluation of expressions enclosed within {}.
-    - With r, nothing in the string is evaluated, not even the backslash.
-- How do you form a string across multiple lines?
-    - """
-- What operators, built-in functions and methods can be used on strings?
-    - Operators: +, *, ==, !=, and other comparison operators
-    - Built-in functions: len(), str(), format()
-    - Methods: .lower(), .capitalize(), .upper(), etc.
-- What constants are built into Python?
-    - True, False, None, \_\_debug_\_, quit, exit, copyright, credits, license, \_\_name_\_, etc.
-- What are **lists**?
-    - Lists are compound, sequential data type that encloses in square brackets different data types.
-    - Multiple lists can be joined together with operator +.
-- How do you construct a list?
-    - Square brackets
-    - `list()`
-- How do you access an element in a list?
-    - You acces an element by calling the corresponding index.
-- How do you get a sublist from a list?
-    - You use list slicing. `L[start:stop:step]`
-- How do you use the range() function in Python?
-    - `range(start, stop, step)`
-    - Start is inclusve while Stop is exclusive.
-- How do you represent a multi-dimensional array with a list?
-    - list = [[list_1], [list_2], [list_3]]
-- What are **sets** in Python?
-    - Compound, non-sequential data type that encloses in curly brackets immutable data.
+        - **Sets**: Not ordered, but mutable. Can only hold immutable elements (unlike lists and tuples which can hold any element).
+        - **Dictionaries**: Not ordered; immutable keys, mutable/immutable values.
+
+- **What are strings in Python?**
+    - A string is a sequential compound data type that can be indexed and is ordered. It is a sequence of characters, numbers, and symbols enclosed in single (`'`) or double (`"`) quotation marks.
+    - Strings are immutable.
+
+- **How do you represent strings?**
+    - Strings can be represented as `''`, `""`, or `""" """` for long strings that span multiple lines.
+    - You can use the backslash (`\`) to escape invisible newline characters.
+    - `\n` starts a new line.
+    - `\t` creates a tab.
+
+- **How do you include special characters such as ‘, “, and \ in a string?**
+    - Add a backslash (`\`) before the special character.
+
+- **How do you form a string using the f operator?**
+    - `f` is a prefix used before the opening quote.
+    - It allows the evaluation of expressions enclosed within `{}`.
+    - The `r` prefix, on the other hand, prevents any evaluation, including backslashes.
+
+- **How do you form a string across multiple lines?**
+    - Use triple quotes (`"""`).
+
+- **What operators, built-in functions, and methods can be used on strings?**
+    - **Operators**: `+` (concatenation), `*` (repetition), `==`, `!=`, and other comparison operators.
+    - **Built-in Functions**: `len()`, `str()`, `format()`.
+    - **Methods**: `.lower()`, `.capitalize()`, `.upper()`, etc.
+
+- **What constants are built into Python?**
+    - `True`, `False`, `None`, `__debug__`, `quit`, `exit`, `copyright`, `credits`, `license`, `__name__`, etc.
+
+- **What are lists?**
+    - Lists are compound, sequential data types that are enclosed in square brackets (`[]`).
+    - Lists can contain different data types and can be joined with the `+` operator.
+
+- **How do you construct a list?**
+    - Using square brackets (`[]`) or the `list()` constructor.
+
+- **How do you access an element in a list?**
+    - Access elements by calling the corresponding index.
+
+- **How do you get a sublist from a list?**
+    - Use list slicing: `L[start:stop:step]`.
+
+- **How do you use the range() function in Python?**
+    - `range(start, stop, step)`.
+    - The `start` is inclusive, while `stop` is exclusive.
+
+- **How do you represent a multi-dimensional array with a list?**
+    - Use nested lists: `list = [[list_1], [list_2], [list_3]]`.
+
+- **What are sets in Python?**
+    - Sets are compound, non-sequential data types enclosed in curly brackets (`{}`) that can only contain immutable elements.
     - Sets themselves are mutable.
     - Sets are unordered and unindexed.
-    - You can use membership operator *in* to test if an object is a member of a set.
-    - All members are unique in a set.
-- What are **tuples** in Python?
-    - Compound, sequential data type that encloses in parantheses different data types.
-    - Tuples themselves are immutable, but it can contain both mutable and immutable data types.
-    - You can create a tuple using parantheses.
-    - `list(tuple)` converts a tuple into a list.
-- How do tuples differ from lists?
-    - Tuple is immutable.
-- How do you slice a string, a list, and a tuple in Python? What is slicing?
-    - Slicing in Python refers to extracting a portion (subsequence) of a sequence (such as a string, list, or tuple) by specifying a range of indices.
-- What are **dictionaries** in Python?
-    - It is a collection of comma-separated key-value pairs enclosed in curly brackets and separated by a colon :.
-    - It is a compound, non-sequential data type.
-    - The members are unindexed and unordered.
-    - Keys are used to retrieve the values. Keys must be unique.
-What built-in functions are available in Python?
-    - Built-in functions include set(), list(), tuple(), float(), int(), str(), which are also called constructors or converters because they are used to construct or convert to one respective type of data from another type.
-- How do you use print and input statements in your programs?
-    - `print()`
-        - sep argument decides how multiple values in a print statement should be separated. Default is an empty space.
-        - end argument decides how the print statement should end. Default is \n.
-    - `input()`
-        - Everything taken from the user input is treated as a string.
-        - To provide more detailed instructions in the prompt to the user, use triple quotation marks to include multiple lines of instruction as prompt.
+    - Use the `in` operator to check if an element is a member of a set.
+    - All members in a set are unique.
+
+- **What are tuples in Python?**
+    - Tuples are compound, sequential data types enclosed in parentheses (`()`).
+    - Tuples are immutable, but they can contain both mutable and immutable elements.
+    - Use parentheses to create a tuple.
+    - Convert a tuple to a list using `list(tuple)`.
+
+- **How do tuples differ from lists?**
+    - Tuples are immutable, whereas lists are mutable.
+
+- **How do you slice a string, a list, and a tuple in Python? What is slicing?**
+    - Slicing in Python refers to extracting a portion (subsequence) of a sequence (string, list, or tuple) by specifying a range of indices.
+
+- **What are dictionaries in Python?**
+    - Dictionaries are collections of key-value pairs enclosed in curly brackets (`{}`), with each key separated by a colon (`:`).
+    - They are compound, non-sequential data types.
+    - Dictionaries are unordered and unindexed.
+    - Keys are used to retrieve values, and keys must be unique.
+
+- **What built-in functions are available in Python?**
+    - Built-in functions include `set()`, `list()`, `tuple()`, `float()`, `int()`, `str()`, which are also called constructors or converters. They are used to construct or convert data types.
+
+- **How do you use print and input statements in your programs?**
+    - **`print()`**:
+        - The `sep` argument specifies how multiple values should be separated (default is a space).
+        - The `end` argument determines what comes after the printed output (default is newline `\n`).
+    - **`input()`**:
+        - All user input is treated as a string.
+        - Use triple quotes (`"""`) to provide multi-line instructions in the prompt.
+
 
 ### Other Python Basics
 
-- In your program, how do you use a standard library/module that comes with Python distribution?
-    - import
-- What are **docstrings** in Python programs?
-    - It is a special type of string used to document a specific segment of code. Docstrings are used to describe the purpose, functionality, and usage of code elements like modules, classes, methods, and functions. They help developers understand the code and its intended use, making the codebase easier to maintain and extend.
-    - It is a formal documentation of the program or module and is accessible through the built-in help() function, with the _doc_ variable automatically attached to each module, function, class and method, whereas end-of-line comments are not.
-    - A docstring should also be written for every function, class, and public method right after the header of the definition. Docstrings must be indented the same amount as the suite of function or class definition.
-    - Limit the maximum line length to 79 or 72 characters if the line is part of a docstring.
-    - Use inline comments whenever necessary.
-    - Some code may need more than one line of comments, which makes it a block comment. A block comment should be written right before the code and indented to the same level as the code below.
+- **In your program, how do you use a standard library/module that comes with Python distribution?**
+    - `import`
 
-- What is an end-of-line comment in a Python program?
-    - An end-of-line comment is usually used to explain what the code on the line does. Everything behind the # mark on that line is ignored by Python Virtual Machine (PVM) and intended for only humans to read. An end-of-line comment can also be started at the beginning of a line.
-- How do you write a code block in Python? Why is proper indentation important in Python programs?
-    - In programs, some statements are grouped and run in sequence as a unit or a suite. We call such a group of statements a code block. Unlike C, C++, Java, and some other languages that use curly brackets to make code blocks, *Python uses indentation to form code blocks*. In Python, a program can have multiple code blocks, and code blocks can be nested with proper indentation. Statements intended to be in the same code block must use the same indentation.
-    - Rule of thumb: statements in the same code block share the same indentation. For statements inside the compound statements such as *if* or *while*, statements are indented to form a code block as a suite for the compound statements.
-- A quick overview of the types of results you can expect when using various arithmetic operators with different types of numbers (integers and floats):
-    - Addition, Subtraction, Multiplication: When both operands are integers, the result is an integer. When one of the operands is a float, the result is a float.
-    - Division: *The result is always a float*, regardless of the operand types.
-    - Floor Division, Modulus: When both operands are integers, the result is an integer. When one of the operands is a float, the result is a float.
-    - Exponentiation: When both operands are integers, the result is an integer. When one of the operands is a float, the result is a float.
-    - Except for modulus and floor division where the result is 'TypeError', any operations involving one or more complex numbers will result in complex numbers.
-- Operations precedence rules:
-    1. Exponent operation (**) has the highest precedence.
-    2. Unary negation (−) is the next.
-    3. Multiplication (*), division (/), floor division (//), and modulus operation(%) have the same precedence and will be evaluated next unary negation.
-    4. Addition (+) and subtraction (−) are next, with the same precedence.
-    5. Comparison operators are next, with the same precedence.
-    6. The three logical operators (not, and, or) are next, with not having the highest precedence among the three, followed by and, then or.
-    7. When operators with equal precedence are present, the expression will be evaluated from left to right, hence left association.
-    8. Parentheses can be used to change the order of evaluation.
-- When a comparison is applied to lists or tuples, the comparison will be applied to pairs of items, one from each list or tuple, and the final result is True if there are more Trues; otherwise it will be False.
-- *Logical operators* are used to form logical expressions. Any expression whose value is a Boolean True or False is a logical expression.
-- **Assignment operators**:
-    - x += y is x = x + y
-    - x -= y is x = x - y
-    - x *= y is x = x * y
-    - x *= y + z is x = x * (y + z)
-    - x /= y is x = x / y
-    - x %= y is x = x % y
-    - x //= y is x = x // y
-    - x **= y is x = x ** y
+- **What are docstrings in Python programs?**
+    - Docstrings are special strings used to document code elements like modules, classes, methods, and functions. They describe the purpose, functionality, and usage of these elements, making the code easier to understand and maintain.
+    - Docstrings are accessible via the built-in `help()` function and the `__doc__` variable attached to each code element.
+    - A docstring should follow the header of a function, class, or method definition. It must be indented the same amount as the code block.
+    - Limit the maximum line length to 79 characters (72 characters for docstrings).
+    - Use inline comments and block comments as needed.
 
-- **Identity operators** (is/ is not):
-    1. x = 3; y = 1 + 2
-        - x is y
-            - This returns True.  
-    2. x = [1,2,3]; y = [1,2,3]
-        - x is y
-            - This returns False.
-            - The expression x is y evaluates to False because x and y are two different objects in memory, even though they contain the same values.
-            - If x = y, then x is y returns True
+- **What is an end-of-line comment in a Python program?**
+    - An end-of-line comment is placed after the `#` symbol and is ignored by Python. It is used to explain what the code on that line does. It can also be used at the beginning of a line.
+
+- **How do you write a code block in Python? Why is proper indentation important?**
+    - In Python, code blocks are defined by indentation rather than curly braces. Indentation groups statements into a code block or suite. Proper indentation is crucial for forming code blocks and nesting them properly.
+    - **Rule of thumb**: Statements within the same block must have the same indentation level.
+
+- **A quick overview of the types of results you can expect when using various arithmetic operators with different types of numbers (integers and floats):**
+    - **Addition, Subtraction, Multiplication**: Result is an integer when both operands are integers, and a float if one operand is a float.
+    - **Division**: The result is always a float.
+    - **Floor Division, Modulus**: Result is an integer when both operands are integers, and a float when one operand is a float.
+    - **Exponentiation**: Result is an integer when both operands are integers, and a float when one operand is a float.
+    - Any operations involving complex numbers will result in complex numbers, except for modulus and floor division, which result in a `TypeError`.
+
+- **Operations precedence rules:**
+    1. Exponentiation (`**`) has the highest precedence.
+    2. Unary negation (`-`) follows.
+    3. Multiplication (`*`), division (`/`), floor division (`//`), and modulus (`%`) have equal precedence.
+    4. Addition (`+`) and subtraction (`-`) have the same precedence.
+    5. Comparison operators come next.
+    6. Logical operators: `not`, `and`, `or` (with `not` having the highest precedence, followed by `and`, and `or` last).
+    7. When operators with equal precedence are present, evaluation proceeds from left to right.
+    8. Parentheses can be used to alter the order of evaluation.
+
+- **When a comparison is applied to lists or tuples:**
+    - The comparison is applied element-by-element, and the final result is `True` if there are more `True` comparisons; otherwise, it is `False`.
+
+- **Logical operators:**
+    - Logical operators are used to form logical expressions that evaluate to `True` or `False`.
+
+- **Assignment operators:**
+    - `x += y` is equivalent to `x = x + y`
+    - `x -= y` is equivalent to `x = x - y`
+    - `x *= y` is equivalent to `x = x * y`
+    - `x /= y` is equivalent to `x = x / y`
+    - `x %= y` is equivalent to `x = x % y`
+    - `x //= y` is equivalent to `x = x // y`
+    - `x **= y` is equivalent to `x = x ** y`
+
+- **Identity operators** (`is`/`is not`):
+    - `x = 3; y = 1 + 2`
+        - `x is y` returns `True`.
+    - `x = [1, 2, 3]; y = [1, 2, 3]`
+        - `x is y` returns `False` because `x` and `y` are different objects in memory, even though they have the same values.
+        - If `x = y`, then `x is y` returns `True`.
+
 - **Sequence operators** (Strings, Lists, Tuples):
-    - *: repeats a sequence
-    - +: adds sequences
-    - [n]: slice out a member of the sequence based on its index
-    - [n:m]: slice a sequence start from n inclusive to m exclusive
-- **Membership operators** are used to test whether an element is a member of a sequence.
-    - v in s
-    - v not in s
-    - . operator is used to access members of objects, modules, or packages.
+    - `*`: Repeats a sequence.
+    - `+`: Concatenates sequences.
+    - `[n]`: Accesses an element at index `n`.
+    - `[n:m]`: Slices a sequence from index `n` (inclusive) to index `m` (exclusive).
+
+- **Membership operators**:
+    - `v in s`: Checks if `v` is a member of `s`.
+    - `v not in s`: Checks if `v` is not a member of `s`.
+    - The `.` operator is used to access members of objects, modules, or packages:
         - `pd.DataFrame()`
         - `math.sqrt(35)`
-- The precedencies of operators:
-    1. Within arithmetic operators, other operators take precedence over addition and subtraction.
-    2. Arithmetic operators take precedence over comparison operators.
-    3. Membership operators, identity operators, and comparison operators take precedence over logic operators.
-    4. Among logic operators, the order of precedence, from high to low, is not > and > or.
-- For a more complex application, several or even hundreds of Python files may be needed. Of these files, there will be only one Python file defining the starting point of the program that implements the application, while all other files are used as modules to be imported into the main Python file, either directly or indirectly. So essentially, the relationships of all the Python files used for an application can be depicted as a tree in which the root is the main Python file.
-- [How a Python Code Should be Written](https://pep8.org/)
-    1. A Python program/script file should begin with a docstring as the main documentation of the program file, stating the application and functionality of the program, as well as the author and revision history.
-    2. In a script file, use **double blank lines** to separate the actual program code from the documentation section at the beginning of the file.
-    3. Also use double blank lines to separate top-level function and class definitions.
-    4. Use a single blank line to surround the definition of a method in a class definition.
-    5. Pay attention to indentation, especially when an expression, a simple statement, or the header of a compound statement is too long and needs to cross multiple lines.
-        1. When an expression or a statement needs a closing brace, bracket, or parenthesis mark to complete it, there is no need to escape (\) newline at the end of an unfinished line.
-        2. When a string needs to cross multiple lines, newline must be escaped by putting a backslash at the end of each unfinished line.
-        3. The four-space rule is optional. The next line can be started wherever it makes more sense, such as in the column next to the opening delimiter.
-- Annotated assignment statement
 
-- **Compound Statements**:
-    - A compound statement consists of at least one clause, and each clause is made of a header and a suite, or code block. A header starts with a keyword such as if-elif-else, for, while, class, def, try-except, finally, and so on and ends with a colon ":".
-  
-- Rules of Indentation:
-    1. The first line of code of a program must start at the very first column of line, though there can be some blank lines before the first line of code, for better readability, if you like.
-    2. All lines of code in the same code block must be indented the same.
-    3. The suite of a compound statement must be indented further than the header of the compound statement.
-    4. All code blocks that are at the same level must use the same indentation.
-    5. All lines of code in the same suite must use the same indentation.
-- Rules of Spacing:
-    1. There must be at least one space between two words.
-    2. As a convention, there should be only one space between two words.
-    3. Also as a convention, there should be one space before each operator and one space behind each operator in an expression. So x>y should be written as x > y.
-    4. For better readability, there should be no space between a unary negation operator (−) and the term it negates. So -x should be written as -x.
-    5. Also for readability, in a function call, there should be no space between a function name and the list of parameters. So abs (y) should be written as abs(y).
-    6. The same goes for definitions of functions. There should be no space between the function name and the list of arguments.
-    7. There should be no blank lines between lines of simple statements if they are intended to be in the same code block.
-    8. For better readability, there should be a blank line between simple statement(s) and compound statements if they are in the same code block.
+### Operator Precedence
+1. **Within arithmetic operators**, other operators take precedence over addition and subtraction.
+2. **Arithmetic operators** take precedence over comparison operators.
+3. **Membership operators**, identity operators, and comparison operators take precedence over logical operators.
+4. Among **logical operators**, the order of precedence from high to low is: `not` > `and` > `or`.
 
+### Python Program Structure
+- For a more complex application, several or even hundreds of Python files may be needed. Of these files, there will be only one Python file defining the starting point of the program that implements the application, while all other files are used as modules to be imported into the main Python file, either directly or indirectly. Essentially, the relationships of all the Python files used for an application can be depicted as a tree in which the root is the main Python file.
+
+### [How a Python Code Should be Written](https://pep8.org/)
+1. A Python program/script file should begin with a **docstring** as the main documentation of the program file, stating the application and functionality of the program, as well as the author and revision history.
+2. In a script file, use **double blank lines** to separate the actual program code from the documentation section at the beginning of the file.
+3. Use double blank lines to separate top-level function and class definitions.
+4. Use a single blank line to surround the definition of a method in a class definition.
+5. Pay attention to indentation, especially when an expression, a simple statement, or the header of a compound statement is too long and needs to cross multiple lines:
+   - When an expression or a statement needs a closing brace, bracket, or parenthesis mark to complete it, there is no need to escape (`\`) the newline at the end of an unfinished line.
+   - When a string needs to cross multiple lines, a newline must be escaped by putting a backslash at the end of each unfinished line.
+   - The four-space rule is optional. The next line can be started wherever it makes more sense, such as in the column next to the opening delimiter.
+
+### Annotated Assignment Statement
+
+### **Compound Statements**
+- A compound statement consists of at least one clause, and each clause is made of a header and a suite, or code block. A header starts with a keyword such as `if`, `elif`, `else`, `for`, `while`, `class`, `def`, `try-except`, `finally`, and so on, and ends with a colon `:`.
+
+### Rules of Indentation
+1. The first line of code in a program must start at the very first column of the line, though there can be some blank lines before the first line of code for better readability, if you like.
+2. All lines of code in the same code block must be indented the same.
+3. The suite of a compound statement must be indented further than the header of the compound statement.
+4. All code blocks that are at the same level must use the same indentation.
+5. All lines of code in the same suite must use the same indentation.
+
+### Rules of Spacing
+1. There must be at least one space between two words.
+2. As a convention, there should be only one space between two words.
+3. There should be one space before each operator and one space behind each operator in an expression. So `x>y` should be written as `x > y`.
+4. For better readability, there should be no space between a unary negation operator (`−`) and the term it negates. So `-x` should be written as `-x`.
+5. For readability, in a function call, there should be no space between a function name and the list of parameters. So `abs (y)` should be written as `abs(y)`.
+6. The same goes for the definitions of functions. There should be no space between the function name and the list of arguments.
+7. There should be no blank lines between lines of simple statements if they are intended to be in the same code block.
+8. For better readability, there should be a blank line between simple statement(s) and compound statements if they are in the same code block.
 
 ### Character Standards and Encoding
-- **ASCII**:
-    - ASCII is a character encoding standard used to represent text in computers and other devices.
-    - It uses 7 bits to represent 128 (2^7) different characters, including control characters, uppercase and lowercase English letters, digits, and punctuation marks.
-    - Originally developed for telecommunication equipment, ASCII is widely used for representing English text in computers and communication protocols.
-- **Unicode**:
-    - Unicode is a character set or standard that assigns unique code points (numeric values) to every character in the world’s writing systems, symbols, and special characters. It’s a universal character set that defines a unique identifier for each character. Unicode values, also known as code points, are unique numbers assigned to each character in the Unicode standard. The Unicode standard provides a consistent way to represent text from various languages, symbols, and special characters across different platforms and systems. 
-    - Here are the key points about Unicode values:
-        - Each character is assigned a unique number: Every character in Unicode is mapped to a unique integer value called a "code point". For example, the letter 'A' has a code point of 65, 'B' has a code point of 66, and so on.
-        - Unicode is a standard: It includes characters from almost every writing system, including Latin, Cyrillic, Arabic, Greek, Chinese, and more. It also includes special characters like emojis, mathematical symbols, and control characters.
-        - Unicode values are represented in hexadecimal: Unicode code points are often represented in hexadecimal (base 16), and in Unicode notation, a code point is usually written as U+<hexadecimal \value>. For example, the code point for 'A' is U+0041 (hexadecimal 41).
-        - `ord('A')` Converts a character into its Unicode code point (a numeric representation of the character).
-            - Output: 65
-        - `chr(65)`Converts a Unicode code point (an integer) back into its corresponding character.
-            - Output: A
-        - ```python
-          asc = {chr(character) for character in range(ord('A'), ord('Z')+1)}
-          print(asc) # Output: {'X', 'E', 'R', 'W', 'L', 'H', 'U', 'D', 'K', 'J', 'Y', 'P', 'G', 'B', 'M', 'C', 'I', 'O', 'F', 'Z', 'Q', 'T', 'A', 'V', 'N', 'S'}
-          ```
-     
-- **Encoding**:
-    - Encoding defines how Unicode code points (numbers) are represented in binary format, i.e., how they are stored in memory or written to a file.
-    - Common Unicode encodings include UTF-8, UTF-16, UTF-32
-    - What is **UTF-8**?
-        - Variable-width encoding where each character is represented by 1 to 4 bytes.
-        - ASCII characters (code points 0-127) are represented by a single byte (7 bits), maintaining compatibility with ASCII.
-        - Non-ASCII characters are represented by multiple bytes, with the number of bytes depending on the character's code point.
-        - https://www.youtube.com/watch?v=DntKZ9xJ1sM
-        - The *default encoding of Python programs is UTF-8*, which includes Unicode, so you can simply include any Unicode character in a string and PVM will recognize and handle it correctly (including emojis, Korean characters, etc.)
+
+#### **ASCII**
+- ASCII is a character encoding standard used to represent text in computers and other devices.
+- It uses 7 bits to represent 128 (2^7) different characters, including control characters, uppercase and lowercase English letters, digits, and punctuation marks.
+- Originally developed for telecommunication equipment, ASCII is widely used for representing English text in computers and communication protocols.
+
+#### **Unicode**
+- Unicode is a character set or standard that assigns unique code points (numeric values) to every character in the world’s writing systems, symbols, and special characters. It’s a universal character set that defines a unique identifier for each character. 
+- Unicode values, also known as code points, are unique numbers assigned to each character in the Unicode standard. The Unicode standard provides a consistent way to represent text from various languages, symbols, and special characters across different platforms and systems.
+- Key points about Unicode values:
+  - **Each character is assigned a unique number**: Every character in Unicode is mapped to a unique integer value called a "code point". For example:
+    - The letter 'A' has a code point of 65.
+    - 'B' has a code point of 66.
+  - **Unicode is a standard**: It includes characters from almost every writing system, including Latin, Cyrillic, Arabic, Greek, Chinese, and more. It also includes special characters like emojis, mathematical symbols, and control characters.
+  - **Unicode values are represented in hexadecimal**: Unicode code points are often represented in hexadecimal (base 16). For example, the code point for 'A' is `U+0041` (hexadecimal 41), but this may also be represented in other formats depending on the system.
+  - **`ord('A')`**: Converts a character into its Unicode code point (a numeric representation of the character). For characters beyond the ASCII range (e.g., 'é' or '😊'), the result will be a larger integer.
+    - **Output**: 65 for 'A', 233 for 'é', or 128522 for '😊'.
+  - **`chr(65)`**: Converts a Unicode code point (an integer) back into its corresponding character.
+    - **Output**: A
+  - **Example**:
+    ```python
+    asc = {chr(character) for character in range(ord('A'), ord('Z')+1)}
+    print(asc) 
+    # Output: {'X', 'E', 'R', 'W', 'L', 'H', 'U', 'D', 'K', 'J', 'Y', 'P', 'G', 'B', 'M', 'C', 'I', 'O', 'F', 'Z', 'Q', 'T', 'A', 'V', 'N', 'S'}
+    ```
+  
+#### **Encoding**
+- **Encoding** defines how Unicode code points (numbers) are represented in binary format, i.e., how they are stored in memory or written to a file.
+- Common Unicode encodings include **UTF-8**, **UTF-16**, and **UTF-32**.
+
+##### What is **UTF-8**?
+- UTF-8 is a variable-width encoding where each character is represented by 1 to 4 bytes.
+- ASCII characters (code points 0-127) are represented by a single byte (7 bits), maintaining compatibility with ASCII.
+- Non-ASCII characters are represented by multiple bytes, with the number of bytes depending on the character's code point.
+- UTF-8 is **backward compatible with ASCII**: Any ASCII text is also valid UTF-8 text since ASCII characters use the same 1-byte encoding in both ASCII and UTF-8.
+- [Learn more about UTF-8](https://www.youtube.com/watch?v=DntKZ9xJ1sM)
+- The **default encoding of Python programs is UTF-8**, which includes Unicode. This means you can simply include any Unicode character in a str
+
 
 </details>
 
