@@ -1599,7 +1599,7 @@
 <details>
 <summary><h2 id='functions'>Define and Use Functions</h2></summary>
 
-- [Exercise](https://github.com/ericyang91/RTDS_Python/blob/main/Functions%20Exercises.ipynb)
+- [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Functions%20Exercises.ipynb)
 
 ### Basics of Functions
 
