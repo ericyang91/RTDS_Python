@@ -985,6 +985,8 @@
 
 - [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Use%20of%20Sequences%2C%20Sets%2C%20Dictionaries%2C%20and%20Text%20Files.ipynb)
 - [Strings Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Strings.ipynb)
+- [Dictionary Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Dictionary.ipynb)
+- [Dictionary Comprehension Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Dictionary%20Comprehension.ipynb)
 
 ### Basics of Sequences, Sets, Dictionaries
 
