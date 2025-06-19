@@ -984,6 +984,7 @@
 <summary><h2 id='seq'>Sequences, Sets, Dictionaries</h2></summary>
 
 - [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Use%20of%20Sequences%2C%20Sets%2C%20Dictionaries%2C%20and%20Text%20Files.ipynb)
+- [Strings Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Strings.ipynb)
 
 ### Basics of Sequences, Sets, Dictionaries
 
