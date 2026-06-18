@@ -624,7 +624,7 @@
 <details>
 <summary><h2 id='flow'>Flow Control of Statements</h2></summary>
 
-- [Exercises]([https://github.com/ericyang91/RTDS_Python/blob/main/Flow%20Control%20of%20Statements%20Exercises.ipynb]
+- [Exercises](https://github.com/ericyang91/RTDS_Python/blob/main/Flow%20Control%20of%20Statements%20Exercises.ipynb)
 
 ### Selective Statements
 
